@@ -1,0 +1,25 @@
+{
+  "name": "datafigth",
+  "version": "1.0.0",
+  "description": "proyect",
+  "scripts": {
+    "dev": "tailwindcss -i ./src/css/styles.css -o ./dist/output.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JuanVaquiro/DataFigth.git"
+  },
+  "author": "Diego Ruiz, JuanVaquiro, Leonardo Castro",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JuanVaquiro/DataFigth/issues"
+  },
+  "homepage": "https://github.com/JuanVaquiro/DataFigth#readme",
+  "devDependencies": {
+    "tailwindcss": "^3.2.4"
+  },
+  "dependencies": {
+    "@sweetalert2/theme-bootstrap-4": "^5.0.15",
+    "sweetalert2": "^11.7.1"
+  }
+}

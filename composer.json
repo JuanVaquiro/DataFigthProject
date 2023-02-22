@@ -1,0 +1,20 @@
+{
+    "name": "user/data-fight",
+    "description": "proyecto de grado",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        },
+        "files": [
+            "config/Conexion.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Diego Ruiz, David Vaquiro, Leonardo Castro"
+        }
+    ],
+    "require": {}
+}
