@@ -1,4 +1,4 @@
-<section class=" bg-gray-900">
+<section class=" bg-gray-900 2xl:w-full 2xl:h-screen">
         <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto  md:h-full md:p-10">
             <div class="w-full rounded-lg shadow border md:mt-0 sm:max-w-2xl xl:p-0 bg-gray-800 border-gray-700">
                 <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
@@ -35,25 +35,24 @@
                                     class="border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
                                     placeholder="Romero A.D">
                             </div>
-                            <!-- document input  -->
-                            <div>
-                                <label for="document" class="block mb-2 text-sm font-medium text-white">
-                                    Documento
-                                </label>
-                                <input type="text" name="document" id="document"
-                                    class="border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
-                            </div>
                             <!-- tipo de documento input -->
                             <div>
                                 <label for="type_document" class="block mb-2 text-sm font-medium text-white">
                                     Tipo De Documento
                                 </label>
-                                <select name="type_document" id="type_document">
+                                <select name="type_document" id="type_document"  class="border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
                                     <option value="">Seleccione Una Opcion</option>
                                     <option value="1">Tarjeta De Identidad</option>
                                     <option value="2">Cedula De Ciudadania</option>
                                 </select>
-                                <!-- <input type="text" name="document" id="document" class="border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"> -->
+                            </div>
+                             <!-- document input  -->
+                             <div>
+                                <label for="document" class="block mb-2 text-sm font-medium text-white">
+                                    Documento
+                                </label>
+                                <input type="text" name="document" id="document"
+                                    class="border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
                             </div>
                                <!-- email input -->
                             <div>
