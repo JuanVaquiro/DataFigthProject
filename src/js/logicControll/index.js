@@ -3,29 +3,42 @@ const btnLeftFoot = document.getElementById('patada_izquierda')
 const btnRightFoot = document.getElementById('patada_derecha')
 const btnLeftFist = document.getElementById('puño_izquierdo')
 const btnRightFist = document.getElementById('puño_derecho')
-const btnSpinKick = document.getElementById("patada_con_giro")
+const btnSpinKick = document.getElementById('patada_con_giro')
 // position 
 const btnForward = document.getElementById('delante')
 const btnBack = document.getElementById('trasera')
 // locationHit
 const btnHelmet = document.getElementById('casco')
 const btnPechera = document.getElementById('pechera')
+const btnConfirmPoint = document.getElementById('confirmar_punto')
 // view modal timer finish
-const modalTimer = document.getElementById("modal");
-const closeButtonModal = document.getElementById("close_button_modal");
-const textModal = document.getElementById("text_modal")
+const modalTimer = document.getElementById('modal')
+const closeButtonModal = document.getElementById('close_button_modal')
+const textModal = document.getElementById('text_modal')
 // view modal alert
-const modalMessage = document.getElementById("modal_contiainer");
-const btnCloseModal = document.getElementById("modal_close_message")
-const modalText = document.getElementById("modal_meesage");
+const modalMessage = document.getElementById('modal_contiainer')
+const btnCloseModal = document.getElementById('modal_close_message')
+const modalText = document.getElementById('modal_meesage')
+// view modal changes timer
+const modalChangeTimer = document.getElementById('modal_cambiar_tiempo')
+const closeModalTimer = document.getElementById('cerrar_modal')
+const minutesInput = document.getElementById('minutes-input')
+const secondsInput = document.getElementById('seconds-input')
+const btnSaveTime = document.getElementById('guardar_tiempo')
+// get all elements of the modal toggle button
+const modalToggle = document.querySelectorAll('[data-modal-toggle]')
+const radioButtons = document.getElementsByName('bordered_radio')
 // menu
 const btnStartRound = document.getElementById('iniciar_ronda')
-const btnFinalRound = document.getElementById('finalizar_ronda')
+const btnFinalFight = document.getElementById('finalizar_combate')
 const btnSaveMotion = document.getElementById('guardar_movimiento')
+const btnPause = document.getElementById('pausar')
+const btnAcceptFoul = document.getElementById('boton_aceptar_falta')
 // info figtht
+const btnChangeTimer = document.getElementById('cambiar_tiempo')
 const displayTimer = document.getElementById('tiempo')
+const displayFault = document.getElementById('contador_faltas')
 const displayRound = document.getElementById('round')
-const btnConfirmPoint = document.getElementById('confirmar_punto')
 
 const VALUE_FOOT_LEFT = 1
 const VALUE_FOOT_RIGHT = 2
@@ -38,10 +51,13 @@ const VALUE_HELMET = 1
 const VALUE_PECHERA = 2
 
 let isOnRound = false
-let roundCount = 0
-let minutes = 60 * 3
+let isOnTimer = false
+let timerSelect
+let minutes = 60 * 0.1
 let clearTimer = 0
 let setTimer = 0
+let roundCount = 0
+let roundFault = 0
 let getTimerHit = 0
 let hitValue = 0
 let positionValue = 0
@@ -61,37 +77,60 @@ btnHelmet.disabled = true
 btnPechera.disabled = true
 btnSaveMotion.disabled = true
 
+// init click
 btnStartRound.addEventListener('click', finishOrStartRound)
 btnStartRound.addEventListener('click', executeFnt())
 
 function finishOrStartRound() {
   isOnRound = !isOnRound
   if (isOnRound) {
-    btnStartRound.textContent = "Terminar Round --"
-    startTimer(minutes, displayTimer)
+    btnStartRound.textContent = 'Terminar Round --'
+    isOnTimer = false
+    btnPause.textContent = 'Pausar'
+    timerSelect = startTimer(minutes, displayTimer)
     setRoundCount()
   } else {
-    btnStartRound.textContent = "Iniciar Round ++"
+    btnStartRound.textContent = 'Iniciar Round ++'
     clearInterval(clearTimer)
   }
   btnDisabled()
 }
 
 function startTimer(duration, display) {
-  let minutes
-  let seconds
+  let minutes, seconds
+  let isTimerRunning = true
   clearTimer = setInterval(function () {
+    if (!isTimerRunning) return
+
     minutes = parseInt(duration / 60, 10)
     seconds = parseInt(duration % 60, 10)
-    minutes = minutes < 10 ? "0" + minutes : minutes
-    seconds = seconds < 10 ? "0" + seconds : seconds
+
+    minutes = minutes < 10 ? '0' + minutes : minutes
+    seconds = seconds < 10 ? '0' + seconds : seconds
+
     display.textContent = `${minutes}:${seconds}`
     setTimer = `${minutes}.${seconds}`
+
     if (--duration < 0) {
       clearInterval(clearTimer)
-      windowModalFinishTimer('La ronda a finalizado: tiempo agotado.')
+      windowModalFinishTimer('tiempo agotado.')
     }
-  }, 1000)
+  }, 1000) // 👈 speed timer delay in the Interval:  
+          //  ⏲ milliseconds: 0.75 = 1600, 0.50 = 2000, 0.25 = 4000
+  return {
+    stop: function () {
+      isTimerRunning = false
+    },
+    start: function () {
+      isTimerRunning = true
+    }
+  }
+}
+
+function pauseTimer() {
+  timerSelect.stop()
+  windowModalMessagePause('Combate pausado')
+  btnPause.textContent = 'Tiempo-pausado'
 }
 
 function executeFnt() {
@@ -105,6 +144,10 @@ function executeFnt() {
   btnHelmet.addEventListener('click', () => setLocationHitValue(VALUE_HELMET))
   btnPechera.addEventListener('click', () => setLocationHitValue(VALUE_PECHERA))
   btnSaveMotion.addEventListener('click', saveMotion)
+  btnAcceptFoul.addEventListener('click', saveFault)
+  btnPause.addEventListener('click', pauseTimer)
+  btnChangeTimer.addEventListener('click', () => windowModalChangesTimer())
+  modalLogic()
 }
 
 function setRoundCount() {
@@ -112,32 +155,24 @@ function setRoundCount() {
   displayRound.textContent = roundCount
 }
 
+function setFaultCount() {
+  roundFault++
+  displayFault.textContent = roundFault
+}
+
 function windowModalFinishTimer(text) {
-  modalTimer.style.display = "block"
+  modalTimer.style.display = 'block'
   textModal.textContent = text
-  closeButtonModal.addEventListener("click", function () {
+  closeButtonModal.addEventListener('click', function () {
     isOnRound = true
     finishOrStartRound()
-    modalTimer.style.display = "none"
+    modalTimer.style.display = 'none'
   })
-  window.addEventListener("click", function (event) {
+  window.addEventListener('click', function (event) {
     if (event.target === modalTimer) {
       isOnRound = true
       finishOrStartRound()
-      modalTimer.style.display = "none"
-    }
-  })
-}
-
-function windowModalMessage(text) {
-  modalMessage.style.display = "block"
-  modalText.textContent = text
-  btnCloseModal.addEventListener("click", function () {
-    modalMessage.style.display = "none"
-  })
-  window.addEventListener("click", function (event) {
-    if (event.target === modalMessage) {
-      modalMessage.style.display = "none"
+      modalTimer.style.display = 'none'
     }
   })
 }
@@ -154,7 +189,7 @@ function saveMotion() {
     confirmPoint = false
     btnConfirmPoint.style.background = 'none'
   } else {
-    windowModalMessage('Por favor, seleccione un ataque')
+    alert('Por favor, seleccione un ataque')
   }
 }
 
@@ -165,12 +200,12 @@ function realiseMotion() {
   const timerHit = parseFloat(getTimerHit)
   return ({
     golpe: hit,
+    timepoGolpe: timerHit,
     posicion: position,
     ubicacionGolpe: locationHit,
     golpeoAcertado: kickedValue,
     punto: pointValue,
     round: roundCount,
-    timepoGolpe: timerHit,
   })
 }
 
@@ -204,9 +239,13 @@ function setHitValue(value) {
 
 // evaluates if the blow was to the helmet to score a point
 function setPointValue() {
-  if (locationHitValue === 1) {
-    pointValue = 1
-  }
+  if (locationHitValue === 1) return pointValue = 1
+}
+
+function assessHit() {
+  locationHitValue === 0
+    ? kickedValue = 0
+    : kickedValue = 1
 }
 
 // plus button confirm point pechera
@@ -219,16 +258,28 @@ btnConfirmPoint.addEventListener('click', function () {
   } else {
     pointValue = 0
     btnConfirmPoint.style.background = 'none'
-    // btnConfirmPoint.style.foc
     console.log('punto removido')
   }
 })
 
-function assessHit() {
-  if (locationHitValue === 0) {
-    kickedValue = 0
-  } else {
-    kickedValue = 1
+function saveFault() {
+  console.log('guardado:', catchFault())
+  setFaultCount()
+}
+
+function catchFault() {
+  getTimerHit = getTimerMinute(setTimer)
+  const timerFault = parseFloat(getTimerHit)
+  let selectedValue
+  for (const radioButton of radioButtons) {
+    if (radioButton.checked) {
+      selectedValue = parseInt(radioButton.value)
+      return {
+        falta: selectedValue,
+        tiempoFalta: timerFault,
+        round: roundCount,
+      }
+    }
   }
 }
 
@@ -256,6 +307,55 @@ function btnDisabled() {
     btnPechera.disabled = false
     btnSaveMotion.disabled = false
   }
+}
+
+function windowModalMessagePause(text) {
+  modalMessage.style.display = 'block'
+  modalText.textContent = text
+  btnCloseModal.addEventListener('click', function () {
+    timerSelect.start()
+    modalMessage.style.display = 'none'
+    btnPause.textContent = 'Pausar'
+  })
+}
+
+function windowModalChangesTimer() {
+  modalChangeTimer.style.display = 'block'
+  closeModalTimer.addEventListener('click', function () {
+    modalChangeTimer.style.display = 'none'
+  })
+  window.addEventListener('click', function (event) {
+    if (event.target === modalChangeTimer) {
+      modalChangeTimer.style.display = 'none'
+    }
+  })
+}
+
+function modalLogic() {
+  // Recorre cada botón de alternar modal y agrega un listener de clic
+  modalToggle.forEach((toggle) => {
+    toggle.addEventListener('click', () => {
+      timerSelect.stop()
+      const target = toggle.dataset.modalTarget // Obtiene el ID del modal a mostrar
+      const modal = document.getElementById(target) // Obtiene el elemento del modal a mostrar
+      modal.classList.toggle('hidden') // Muestra o oculta el modal al alternar la clase 'hidden'
+      modal.setAttribute('aria-hidden', 'false') // Establece el atributo 'aria-hidden' en 'false' cuando el modal está visible
+      modal.setAttribute('tabindex', '0') // Establece el atributo 'tabindex' en '0' para que el modal sea accesible mediante el teclado
+    })
+
+  })
+  // Obtener todos los elementos del botón para ocultar el modal
+  const modalHide = document.querySelectorAll('[data-modal-hide]')
+  // Recorre cada botón para ocultar el modal y agrega un listener de clic
+  modalHide.forEach((hide) => {
+    hide.addEventListener('click', () => {
+      const modal = hide.closest('.h-modal') // Obtiene el elemento del modal más cercano
+      modal.classList.add('hidden') // Oculta el modal al agregar la clase 'hidden'
+      modal.setAttribute('aria-hidden', 'true') // Establece el atributo 'aria-hidden' en 'true' cuando el modal está oculto
+      modal.setAttribute('tabindex', '-1') // Establece el atributo 'tabindex' en '-1' para que el modal no sea accesible mediante el teclado
+      timerSelect.start()
+    })
+  })
 }
 
 function setMotionPost(motions) {
