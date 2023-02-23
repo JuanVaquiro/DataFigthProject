@@ -46,7 +46,7 @@ class CrearArbitro{
         $pdo = new Conexion();
         $con = $pdo->conexion();
         
-        $registrar = $con->prepare("CALL insertDeportista(?,?,?,?,?,?,?,?,?,?,?)");
+        $registrar = $con->prepare("CALL crearArbitro(?,?,?,?,?,?,?,?,?,?,?)");
         $registrar->bindParam(1, $this->nombre, PDO::PARAM_STR);
         $registrar->bindParam(2, $this->apellido, PDO::PARAM_STR);
         $registrar->bindParam(3, $this->tipoDocumento, PDO::PARAM_INT);
