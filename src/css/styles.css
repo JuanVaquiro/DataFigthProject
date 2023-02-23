@@ -20,7 +20,7 @@
 /* font-title */
 .magra-bold {
   font-family: 'Magra-Bold';
-}
+}src/css/styles.css
 
 /* font-subTitle */
 .source-sans-pro {
@@ -45,13 +45,17 @@
 }
 
 .modal-content {
-  background-color: #fefefe;
+  --tw-bg-opacity: 1;
+  background-color: rgb(55 65 81 / var(--tw-bg-opacity));
+  color: aliceblue;
+  border-radius: 8px;
   margin: 15% auto;
   padding: 20px;
   width: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 8px
 }
 
 .close-button {
@@ -74,12 +78,44 @@ button:disabled {
   cursor: not-allowed;
 }
 
-.hover-custom:hover {
-  background-color: rgb(152 153 155 / 15%);
-}
-
 @media (min-width: 640px) { 
   .menu-home{
     margin-right: 496px;
   }
+}
+
+/* dropdown home-menu */
+.menu {
+  display: none;
+  position: absolute;
+  top: 60px;
+  right: -20px;
+  padding: 8px 0;
+  border-radius: 10px;
+  border: 1px solid rgb(19 19 19 / 78%);
+  box-shadow: 0 40px 40px rgb(0 0 0 / 38%);
+  transition: 0.25s;
+}
+
+.show {
+  display: block;
+  display: grid;
+  width: 180px;
+}
+
+.menu::before{
+  content: "";
+  background: inherit;
+  border-top: 1px solid #e1e1e1;
+  border-right: 1px solid #e1e1e1;
+  position: absolute;
+  top: -7px;
+  right: 22px;
+  width: 12px;
+  height: 12px;
+  rotate: -45deg; 
+}
+
+.hover-custom:hover {
+  background-color: rgb(152 153 155 / 15%);
 }
