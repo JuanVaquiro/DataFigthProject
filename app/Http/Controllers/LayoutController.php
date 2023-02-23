@@ -16,16 +16,19 @@ class LayoutController{
 
         $this->segments = explode('/', $_SERVER['REQUEST_URI']);
 
-        if($_SERVER['REQUEST_URI'] == "/DataFight/public/"){
+        $posiciones = count($this->segments);
+
+        if($this->segments[$posiciones-2] == "public"){
 
             $this->titulo = "Login";
+            // $this->titulo = $this->segments[$posiciones-2];
     
         }
         else{
 
-            $t = explode(".", $this->segments[3]);
+            // $t = explode(".", $this->segments[3]);
 
-            $this->titulo = $t[0];
+            $this->titulo = $this->segments[$posiciones-2];
         }
 
         #echo $this->titulo;
@@ -45,11 +48,26 @@ class LayoutController{
             "Login" => "viewLogin.php",
             "registro" => "viewRegistroUsuario.php",
             "home" => "viewHome.php",
-            "control1" => 'viewControl1.php'
+            "control" => "viewControl.php",
+            "prueba" => "viewPrueba.php"
             
         };
 
         return $titulo;
+
+    }
+
+
+    public function obtenerUrl($titulo){
+
+        if($titulo == "Login"){
+
+            return "./../";
+
+        }
+        else{
+            return "./../../";
+        }
 
     }
     
