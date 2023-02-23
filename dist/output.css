@@ -1686,12 +1686,20 @@ button:disabled {
     height: 100%;
   }
 
+  .md\:h-screen {
+    height: 100vh;
+  }
+
   .md\:w-1\/2 {
     width: 50%;
   }
 
   .md\:w-8\/12 {
     width: 66.666667%;
+  }
+
+  .md\:w-full {
+    width: 100%;
   }
 
   .md\:shrink-0 {
@@ -1732,6 +1740,10 @@ button:disabled {
     margin-left: 20rem;
   }
 
+  .lg\:h-screen {
+    height: 100vh;
+  }
+
   .lg\:w-5\/12 {
     width: 41.666667%;
   }
@@ -1758,6 +1770,10 @@ button:disabled {
     margin-left: 5rem;
   }
 
+  .xl\:h-screen {
+    height: 100vh;
+  }
+
   .xl\:w-5\/12 {
     width: 41.666667%;
   }
@@ -1774,13 +1790,5 @@ button:disabled {
 @media (min-width: 1536px) {
   .\32xl\:ml-96 {
     margin-left: 24rem;
-  }
-
-  .\32xl\:h-screen {
-    height: 100vh;
-  }
-
-  .\32xl\:w-full {
-    width: 100%;
   }
 }
