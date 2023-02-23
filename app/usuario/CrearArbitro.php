@@ -6,14 +6,14 @@ use config\Conexion;
 
 class CrearArbitro{
 
-    protected $nombre;
-    protected $apellido;
-    protected $tipoDocumento;
-    protected $documento;
-    protected $sexo;
-    protected $email;
-    protected $telefono;
-    protected $fechaNacimiento;
+    private $nombre;
+    private $apellido;
+    private $tipoDocumento;
+    private $documento;
+    private $sexo;
+    private $email;
+    private $telefono;
+    private $fechaNacimiento;
     private $deporte;
     private $categoria;
     private $usuario;
