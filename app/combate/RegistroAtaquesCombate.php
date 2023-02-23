@@ -1,9 +1,11 @@
 <?php
 
+namespace app\combate;
+
 require_once("./../../vendor/autoload.php");
 
 use config\Conexion;
-
+use PDO;
 class RegistroAtaquesCombate{
 
     private $id_golpe_tecnica;
@@ -93,18 +95,18 @@ class RegistroAtaquesCombate{
 
 // $motions = $_POST['motions'];
 
-$registro = new RegistroAtaquesCombate(
-    $_POST['golpe'],
-    $_POST['posicion'],
-    $_POST['ubicacion'],
-    $_POST['golpeo'],
-    $_POST['punto'],
-    $_POST['round'],
-    $_POST['segundo']
-);
+// $registro = new RegistroAtaquesCombate(
+//     $_POST['golpe'],
+//     $_POST['posicion'],
+//     $_POST['ubicacion'],
+//     $_POST['golpeo'],
+//     $_POST['punto'],
+//     $_POST['round'],
+//     $_POST['segundo']
+// );
 
-$registro->obtenerSegundos();
+// $registro->obtenerSegundos();
 
-$registro->registrarAtaque();
+// $registro->registrarAtaque();
 
 // $registro->post();

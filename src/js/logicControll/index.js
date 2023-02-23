@@ -369,7 +369,7 @@ function setMotionPost(motions) {
     formdata.append('round', motions.round)
     formdata.append('segundo', motions.timepoGolpe)
 
-    fetch('./../app/combate/RegistroAtaquesCombate.php', {
+    fetch('./logicControl.php', {
       method: 'POST',
       body: formdata
     })
