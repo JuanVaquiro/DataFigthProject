@@ -24,7 +24,7 @@
 </div>
     </div>
     <div class="flex flex-col items-center">
-        <img class="w-1/4" src="../dist/img/analytics.png" alt="logo-DataFight">
+        <img class="w-1/4" src="./../../dist/img/analytics.png" alt="logo-DataFight">
         <h2 class="magra-bold text-2xl md:text-4xl flex mb-6 text-white">
             Data Fight
         </h2>
@@ -44,5 +44,5 @@
         </div>
     </div>    
 </section>
-<script src="./../src/js/usuarios/logOut.js"></script>
-<script src="../src/js/stylesJs/menu.js"></script>
+<script src="./../../src/js/usuarios/logOut.js"></script>
+<script src="./../../src/js/stylesJs/menu.js"></script>

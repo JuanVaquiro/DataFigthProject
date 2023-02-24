@@ -1,6 +1,9 @@
 <?php
 
+namespace app\usuario;
+
 use config\Conexion;
+use PDO;
 
 class LoginUsuario{
 
@@ -16,7 +19,7 @@ class LoginUsuario{
 
     public function login(){
 
-        require_once __DIR__ . "./../../config/Conexion.php";
+        // require_once __DIR__ . "./../../config/Conexion.php";
 
         $pdo = new Conexion();
         $con = $pdo->conexion();
@@ -29,14 +32,14 @@ class LoginUsuario{
         $registros = $login->fetchAll();
 
         if(count($registros) > 0){
-                session_start();
+                #session_start();
                 // echo json_encode($registros);
                 // header("Location: ./../../public/control1.php");
                 // $idUser = $registros[0]['id'];
-                $_SESSION['idUser'] = $registros[0]['id'];
-                $_SESSION['email'] = $registros[0]['email'];
+                #$_SESSION['idUser'] = $registros[0]['id'];
+                #$_SESSION['email'] = $registros[0]['email'];
                 // echo json_encode($_SESSION['idUser']);
-                echo json_encode("./home.php");
+                echo json_encode("./home");
         }else{
             echo json_encode("Usuario o Contraseña Incorrectos");
         }
@@ -47,34 +50,61 @@ class LoginUsuario{
 
     public function logOut(){
 
-        session_start();
+        // session_start();
 
-        session_destroy();
+        // session_destroy();
 
-        echo json_encode('./');
+        echo json_encode('./../');
+
+    }
+
+    public function validarpost(LoginUsuario $login){
+
+        if($_POST && isset($_POST['confirmacion'])){
+
+            // $login = new LoginUsuario(null, null);
+        
+            $login->logOut();
+        
+        }
+        elseif( $_POST && isset($_POST['email-login']) && isset($_POST['pass-login']) ){
+
+            // $response = $_POST['email-login']." ".$_POST['pass-login'];
+
+            // echo json_encode($response);
+            $login->email = $_POST['email-login'];
+
+            $login->password = $_POST['pass-login'];
+
+            $login->login();
+            
+        }
+        else{
+            header("Location: ./");
+        }
 
     }
 
 }
 
-if( $_POST && isset($_POST['email-login']) && isset($_POST['pass-login']) ){
+// if( $_POST && isset($_POST['email-login']) && isset($_POST['pass-login']) ){
 
-    // $response = $_POST['email-login']." ".$_POST['pass-login'];
+//     // $response = $_POST['email-login']." ".$_POST['pass-login'];
 
-    // echo json_encode($response);
-    $login = new LoginUsuario(
-      $_POST['email-login'],
-      $_POST['pass-login']
-    );
+//     // echo json_encode($response);
+//     $login = new LoginUsuario(
+//       $_POST['email-login'],
+//       $_POST['pass-login']
+//     );
 
-    $login->login();
+//     $login->login();
 
-}
+// }
 
-elseif($_POST && isset($_POST['confirmacion'])){
+// elseif($_POST && isset($_POST['confirmacion'])){
 
-    $login = new LoginUsuario(null, null);
+//     $login = new LoginUsuario(null, null);
 
-    $login->logOut();
+//     $login->logOut();
 
-}
+// }

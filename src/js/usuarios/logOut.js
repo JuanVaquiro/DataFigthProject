@@ -13,7 +13,7 @@ function cerrarSession(){
         let formData = new FormData();
             formData.append('confirmacion', desicion);
 
-        fetch("./../app/usuario/LoginUsuario.php",{
+        fetch("./../logOut.php",{
 
             method: "POST", 
             body: formData

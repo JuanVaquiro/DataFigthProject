@@ -2,7 +2,7 @@ const formularioLogin = document.getElementById("form-login");
 formularioLogin.addEventListener("submit", function(e){
     e.preventDefault();
     const dataForm = new FormData(formularioLogin);
-    fetch("./../app/usuario/LoginUsuario.php",{
+    fetch("./login.php",{
 
         method: "POST", 
         body: dataForm
