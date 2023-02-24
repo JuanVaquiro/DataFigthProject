@@ -1,16 +1,16 @@
 import {
-  BTN_LEFT_HIT, BTN_RIGHT_HIT, BTN_LEFT_FOOT,BTN_RIGHT_FOOT, BTN_SPIN_KICK,
+  BTN_LEFT_HIT, BTN_RIGHT_HIT, BTN_LEFT_FOOT, BTN_RIGHT_FOOT, BTN_SPIN_KICK,
   BTN_FOWARD, BTN_BACK,
   BTN_HELMET, BTN_PECHERA, BTN_CONFIRM_POINT,
   DISPLAY_TIMER, DISPLAY_FAULT, DISPLAY_ROUND,
-  BTN_CHANGE_TIMER,
   BTN_START_ROUND, BTN_PAUSE, BTN_SAVE_MOTION, BTN_ACCEPT_FOUL,
+  BTN_CHANGE_TIMER,
   RADIO_BTN 
 } from './constDOM.js'
-import { MODAL_TIMER_CHANGE, MODAL_CLOSE_CHANGE, MODAL_TOGGLE_FAULT } from './constDOM.js'
-import { MODAL_MESSAGE, MODAL_CLOSE_MESSAGE, MODAL_TEXT_MESSAGE } from './constDOM.js'
 import { MODAL_TIMER_FINISH, MODAL_CLOSE_FINISH, MODAL_TEXT_FINISH } from './constDOM.js'
+import { MODAL_TIMER_CHANGE, MODAL_CLOSE_CHANGE, MODAL_TOGGLE_FAULT } from './constDOM.js'
 import { setMotionPost } from './fetchsData.js'
+import { startTimer, pauseTimer } from './timer.js'
 
 const VALUE_FOOT_LEFT = 1
 const VALUE_FOOT_RIGHT = 2
@@ -26,7 +26,6 @@ let isOnRound = false
 let isOnTimer = false
 let timerSelect = 0
 let minutes = 60 * 0.5 // 👈 assign duration to the round time
-let clearIntervalID = 0
 let setTimerValue = 0
 let roundCount = 0
 let roundFault = 0
@@ -49,7 +48,7 @@ BTN_HELMET.disabled = true
 BTN_PECHERA.disabled = true
 BTN_SAVE_MOTION.disabled = true
 
-// init click
+// CLICK INIT FIGHT
 BTN_START_ROUND.addEventListener('click', finishOrStartRound)
 BTN_START_ROUND.addEventListener('click', executeFnt())
 
@@ -59,57 +58,13 @@ function finishOrStartRound() {
     BTN_START_ROUND.textContent = 'Terminar Round --'
     isOnTimer = false
     BTN_PAUSE.textContent = 'Pausar'
-    timerSelect = startTimer(minutes, DISPLAY_TIMER)
+    timerSelect = startTimer(minutes, DISPLAY_TIMER, setTimerValue)
     setRoundCount()
   } else {
     BTN_START_ROUND.textContent = 'Iniciar Round ++'
-    clearInterval(clearIntervalID)
+    clearInterval(timerSelect.clearIntervalID); // Clear the interval using clearIntervalID value
   }
   btnDisabled()
-}
-
-function startTimer(duration, display) {
-  let isTimerRunning = true
-
-  const formatTime = (time) => (time < 10 ? `0${time}` : time)
-
-  const setTimer = () => {
-    if(!isTimerRunning) return
-    let minutes = parseInt(duration / 60, 10)
-    let seconds = parseInt(duration % 60, 10)
-
-    minutes = formatTime(minutes)
-    seconds = formatTime(seconds)
-
-    display.textContent = `${minutes}:${seconds}`
-    setTimerValue = `${minutes}.${seconds}`
-
-    if (--duration < 0) {
-      clearInterval(clearIntervalID)
-      windowModalFinishTimer('tiempo agotado.')
-    }
-  }
-
-  clearIntervalID = setInterval(setTimer, 1000) // 👈 speed timer delay in the Interval: ⏲ milliseconds: 0.75 = 1600, 0.50 = 2000, 0.25 = 4000
-
-  const stopTimer = () => {
-    isTimerRunning = false
-  }
-
-  const startRunTimer = () => {
-    isTimerRunning = true
-  }
-
-  return {
-    stop: stopTimer,
-    start: startRunTimer,
-  }
-}
-
-function pauseTimer() {
-  timerSelect.stop()
-  windowModalMessagePause('Combate pausado')
-  BTN_PAUSE.textContent = 'Tiempo-pausado'
 }
 
 function executeFnt() {
@@ -124,9 +79,9 @@ function executeFnt() {
   BTN_PECHERA.addEventListener('click', () => setLocationHitValue(VALUE_PECHERA))
   BTN_SAVE_MOTION.addEventListener('click', saveMotion)
   BTN_ACCEPT_FOUL.addEventListener('click', saveFault)
-  BTN_PAUSE.addEventListener('click', pauseTimer)
+  BTN_PAUSE.addEventListener('click',  () => pauseTimer(timerSelect))
   BTN_CHANGE_TIMER.addEventListener('click', () => windowModalChangesTimer())
-  modalLogic()
+  modalLogicFault()
 }
 
 function setRoundCount() {
@@ -139,22 +94,6 @@ function setFaultCount() {
   DISPLAY_FAULT.textContent = roundFault
 }
 
-function windowModalFinishTimer(text) {
-  MODAL_TIMER_FINISH.style.display = 'block'
-  MODAL_TEXT_FINISH.textContent = text
-  MODAL_CLOSE_FINISH.addEventListener('click', function () {
-    isOnRound = true
-    finishOrStartRound()
-    MODAL_TIMER_FINISH.style.display = 'none'
-  })
-  window.addEventListener('click', function (event) {
-    if (event.target === MODAL_TIMER_FINISH) {
-      isOnRound = true
-      finishOrStartRound()
-      MODAL_TIMER_FINISH.style.display = 'none'
-    }
-  })
-}
 
 function saveMotion() {
   if (hitValue !== 0 || locationHitValue !== 0) {
@@ -288,13 +227,20 @@ function btnDisabled() {
   }
 }
 
-function windowModalMessagePause(text) {
-  MODAL_MESSAGE.style.display = 'block'
-  MODAL_TEXT_MESSAGE.textContent = text
-  MODAL_CLOSE_MESSAGE.addEventListener('click', function () {
-    timerSelect.start()
-    MODAL_MESSAGE.style.display = 'none'
-    BTN_PAUSE.textContent = 'Pausar'
+export function windowModalFinishTimer(text) {
+  MODAL_TIMER_FINISH.style.display = 'block'
+  MODAL_TEXT_FINISH.textContent = text
+  MODAL_CLOSE_FINISH.addEventListener('click', function () {
+    isOnRound = true
+    finishOrStartRound()
+    MODAL_TIMER_FINISH.style.display = 'none'
+  })
+  window.addEventListener('click', function (event) {
+    if (event.target === MODAL_TIMER_FINISH) {
+      isOnRound = true
+      finishOrStartRound()
+      MODAL_TIMER_FINISH.style.display = 'none'
+    }
   })
 }
 
@@ -310,7 +256,7 @@ function windowModalChangesTimer() {
   })
 }
 
-function modalLogic() {
+function modalLogicFault() {
   // Recorre cada botón de alternar modal y agrega un listener de clic
   MODAL_TOGGLE_FAULT.forEach((toggle) => {
     toggle.addEventListener('click', () => {
