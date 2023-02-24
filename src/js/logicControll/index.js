@@ -1,44 +1,24 @@
-// hits
-const btnLeftFoot = document.getElementById('patada_izquierda')
-const btnRightFoot = document.getElementById('patada_derecha')
-const btnLeftFist = document.getElementById('puño_izquierdo')
-const btnRightFist = document.getElementById('puño_derecho')
-const btnSpinKick = document.getElementById('patada_con_giro')
-// position 
-const btnForward = document.getElementById('delante')
-const btnBack = document.getElementById('trasera')
-// locationHit
-const btnHelmet = document.getElementById('casco')
-const btnPechera = document.getElementById('pechera')
-const btnConfirmPoint = document.getElementById('confirmar_punto')
-// menu
-const btnStartRound = document.getElementById('iniciar_ronda')
-const btnFinalFight = document.getElementById('finalizar_combate')
-const btnSaveMotion = document.getElementById('guardar_movimiento')
-const btnPause = document.getElementById('pausar')
-const btnAcceptFoul = document.getElementById('boton_aceptar_falta')
-// info figtht
-const btnChangeTimer = document.getElementById('cambiar_tiempo')
-const displayTimer = document.getElementById('tiempo')
-const displayFault = document.getElementById('contador_faltas')
-const displayRound = document.getElementById('round')
-// view modal timer finish
-const modalTimer = document.getElementById('modal')
-const closeButtonModal = document.getElementById('close_button_modal')
-const textModal = document.getElementById('text_modal')
-// view modal alert
-const modalMessage = document.getElementById('modal_contiainer')
-const btnCloseModal = document.getElementById('modal_close_message')
-const modalText = document.getElementById('modal_meesage')
-// view modal changes timer
-const modalChangeTimer = document.getElementById('modal_cambiar_tiempo')
-const closeModalTimer = document.getElementById('cerrar_modal')
-const minutesInput = document.getElementById('minutes-input')
-const secondsInput = document.getElementById('seconds-input')
-const btnSaveTime = document.getElementById('guardar_tiempo')
-// get all elements of the modal toggle button
-const modalToggle = document.querySelectorAll('[data-modal-toggle]')
-const radioButtons = document.getElementsByName('bordered_radio')
+import {
+  BTN_LEFT_HIT,
+  BTN_RIGHT_HIT,
+  BTN_LEFT_FOOT,
+  BTN_RIGHT_FOOT,
+  BTN_SPIN_KICK,
+  BTN_FOWARD,
+  BTN_BACK,
+  BTN_HELMET,
+  BTN_PECHERA,
+  BTN_CONFIRM_POINT,
+  BTN_CHANGE_TIMER,
+  DISPLAY_TIMER,
+  DISPLAY_FAULT,
+  DISPLAY_ROUND,
+  BTN_PAUSE,
+  BTN_START_ROUND,
+  BTN_SAVE_MOTION,
+  BTN_ACCEPT_FOUL,
+  RADIO_BTN 
+} from './constDOM.js'
 
 import { setMotionPost } from "./fetchsData"
 
@@ -68,31 +48,31 @@ let pointValue = 0
 let confirmPoint = false
 let kickedValue = 0
 
-btnLeftFist.disabled = true
-btnRightFist.disabled = true
-btnLeftFoot.disabled = true
-btnRightFoot.disabled = true
-btnSpinKick.disabled = true
-btnBack.disabled = true
-btnForward.disabled = true
-btnHelmet.disabled = true
-btnPechera.disabled = true
-btnSaveMotion.disabled = true
+BTN_LEFT_HIT.disabled = true
+BTN_RIGHT_HIT.disabled = true
+BTN_LEFT_FOOT.disabled = true
+BTN_RIGHT_FOOT.disabled = true
+BTN_SPIN_KICK.disabled = true
+BTN_FOWARD.disabled = true
+BTN_BACK.disabled = true
+BTN_HELMET.disabled = true
+BTN_PECHERA.disabled = true
+BTN_SAVE_MOTION.disabled = true
 
 // init click
-btnStartRound.addEventListener('click', finishOrStartRound)
-btnStartRound.addEventListener('click', executeFnt())
+BTN_START_ROUND.addEventListener('click', finishOrStartRound)
+BTN_START_ROUND.addEventListener('click', executeFnt())
 
 function finishOrStartRound() {
   isOnRound = !isOnRound
   if (isOnRound) {
-    btnStartRound.textContent = 'Terminar Round --'
+    BTN_START_ROUND.textContent = 'Terminar Round --'
     isOnTimer = false
-    btnPause.textContent = 'Pausar'
-    timerSelect = startTimer(minutes, displayTimer)
+    BTN_PAUSE.textContent = 'Pausar'
+    timerSelect = startTimer(minutes, DISPLAY_TIMER)
     setRoundCount()
   } else {
-    btnStartRound.textContent = 'Iniciar Round ++'
+    BTN_START_ROUND.textContent = 'Iniciar Round ++'
     clearInterval(clearIntervalID)
   }
   btnDisabled()
@@ -139,34 +119,34 @@ function startTimer(duration, display) {
 function pauseTimer() {
   timerSelect.stop()
   windowModalMessagePause('Combate pausado')
-  btnPause.textContent = 'Tiempo-pausado'
+  BTN_PAUSE.textContent = 'Tiempo-pausado'
 }
 
 function executeFnt() {
-  btnLeftFoot.addEventListener('click', () => setHitValue(VALUE_FOOT_LEFT))
-  btnRightFoot.addEventListener('click', () => setHitValue(VALUE_FOOT_RIGHT))
-  btnLeftFist.addEventListener('click', () => setHitValue(VALUE_HIT_LEFT))
-  btnRightFist.addEventListener('click', () => setHitValue(VALUE_HIT_RIGHT))
-  btnSpinKick.addEventListener('click', () => setHitValue(VALUE_SPIN_KICK))
-  btnForward.addEventListener('click', () => setPositionValue(VALUE_FORWARD))
-  btnBack.addEventListener('click', () => setPositionValue(VALUE_BACK))
-  btnHelmet.addEventListener('click', () => setLocationHitValue(VALUE_HELMET))
-  btnPechera.addEventListener('click', () => setLocationHitValue(VALUE_PECHERA))
-  btnSaveMotion.addEventListener('click', saveMotion)
-  btnAcceptFoul.addEventListener('click', saveFault)
-  btnPause.addEventListener('click', pauseTimer)
-  btnChangeTimer.addEventListener('click', () => windowModalChangesTimer())
+  BTN_LEFT_FOOT.addEventListener('click', () => setHitValue(VALUE_FOOT_LEFT))
+  BTN_RIGHT_FOOT.addEventListener('click', () => setHitValue(VALUE_FOOT_RIGHT))
+  BTN_LEFT_HIT.addEventListener('click', () => setHitValue(VALUE_HIT_LEFT))
+  BTN_RIGHT_HIT.addEventListener('click', () => setHitValue(VALUE_HIT_RIGHT))
+  BTN_SPIN_KICK.addEventListener('click', () => setHitValue(VALUE_SPIN_KICK))
+  BTN_FOWARD.addEventListener('click', () => setPositionValue(VALUE_FORWARD))
+  BTN_BACK.addEventListener('click', () => setPositionValue(VALUE_BACK))
+  BTN_HELMET.addEventListener('click', () => setLocationHitValue(VALUE_HELMET))
+  BTN_PECHERA.addEventListener('click', () => setLocationHitValue(VALUE_PECHERA))
+  BTN_SAVE_MOTION.addEventListener('click', saveMotion)
+  BTN_ACCEPT_FOUL.addEventListener('click', saveFault)
+  BTN_PAUSE.addEventListener('click', pauseTimer)
+  BTN_CHANGE_TIMER.addEventListener('click', () => windowModalChangesTimer())
   modalLogic()
 }
 
 function setRoundCount() {
   roundCount++
-  displayRound.textContent = roundCount
+  DISPLAY_ROUND.textContent = roundCount
 }
 
 function setFaultCount() {
   roundFault++
-  displayFault.textContent = roundFault
+  DISPLAY_FAULT.textContent = roundFault
 }
 
 function windowModalFinishTimer(text) {
@@ -196,7 +176,7 @@ function saveMotion() {
     kickedValue = 0
     pointValue = 0
     confirmPoint = false
-    btnConfirmPoint.style.background = 'none'
+    BTN_CONFIRM_POINT.style.background = 'none'
   } else {
     alert('Por favor, seleccione un ataque')
   }
@@ -258,15 +238,15 @@ function assessHit() {
 }
 
 // plus button confirm point pechera
-btnConfirmPoint.addEventListener('click', function () {
+BTN_CONFIRM_POINT.addEventListener('click', function () {
   confirmPoint = !confirmPoint
   if (confirmPoint) {
     pointValue = 1
-    btnConfirmPoint.style.background = 'rgb(74 222 128)'
+    BTN_CONFIRM_POINT.style.background = 'rgb(74 222 128)'
     console.log('punto dado')
   } else {
     pointValue = 0
-    btnConfirmPoint.style.background = 'none'
+    BTN_CONFIRM_POINT.style.background = 'none'
     console.log('punto removido')
   }
 })
@@ -280,7 +260,7 @@ function catchFault() {
   getTimerHit = getTimerMinute(setTimerValue)
   const timerFault = parseFloat(getTimerHit)
   let selectedValue
-  for (const radioButton of radioButtons) {
+  for (const radioButton of RADIO_BTN ) {
     if (radioButton.checked) {
       selectedValue = parseInt(radioButton.value)
       return {
@@ -294,27 +274,27 @@ function catchFault() {
 
 function btnDisabled() {
   if (!isOnRound) {
-    btnLeftFist.disabled = true
-    btnRightFist.disabled = true
-    btnLeftFoot.disabled = true
-    btnRightFoot.disabled = true
-    btnSpinKick.disabled = true
-    btnBack.disabled = true
-    btnForward.disabled = true
-    btnHelmet.disabled = true
-    btnPechera.disabled = true
-    btnSaveMotion.disabled = true
+    BTN_LEFT_HIT.disabled = true
+    BTN_RIGHT_HIT.disabled = true
+    BTN_LEFT_FOOT.disabled = true
+    BTN_RIGHT_FOOT.disabled = true
+    BTN_SPIN_KICK.disabled = true
+    BTN_FOWARD.disabled = true
+    BTN_BACK.disabled = true
+    BTN_HELMET.disabled = true
+    BTN_PECHERA.disabled = true
+    BTN_SAVE_MOTION.disabled = true
   } else {
-    btnLeftFist.disabled = false
-    btnRightFist.disabled = false
-    btnLeftFoot.disabled = false
-    btnRightFoot.disabled = false
-    btnSpinKick.disabled = false
-    btnBack.disabled = false
-    btnForward.disabled = false
-    btnHelmet.disabled = false
-    btnPechera.disabled = false
-    btnSaveMotion.disabled = false
+    BTN_LEFT_HIT.disabled = false
+    BTN_RIGHT_HIT.disabled = false
+    BTN_LEFT_FOOT.disabled = false
+    BTN_RIGHT_FOOT.disabled = false
+    BTN_SPIN_KICK.disabled = false
+    BTN_FOWARD.disabled = false
+    BTN_BACK.disabled = false
+    BTN_HELMET.disabled = false
+    BTN_PECHERA.disabled = false
+    BTN_SAVE_MOTION.disabled = false
   }
 }
 
@@ -324,7 +304,7 @@ function windowModalMessagePause(text) {
   btnCloseModal.addEventListener('click', function () {
     timerSelect.start()
     modalMessage.style.display = 'none'
-    btnPause.textContent = 'Pausar'
+    BTN_PAUSE.textContent = 'Pausar'
   })
 }
 
