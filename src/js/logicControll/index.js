@@ -5,10 +5,10 @@ import {
   DISPLAY_TIMER, DISPLAY_FAULT, DISPLAY_ROUND,
   BTN_START_ROUND, BTN_PAUSE, BTN_SAVE_MOTION, BTN_ACCEPT_FOUL,
   BTN_CHANGE_TIMER,
-  RADIO_BTN 
 } from './constDOM.js'
 import { MODAL_TIMER_FINISH, MODAL_CLOSE_FINISH, MODAL_TEXT_FINISH } from './constDOM.js'
-import { MODAL_TIMER_CHANGE, MODAL_CLOSE_CHANGE, MODAL_TOGGLE_FAULT } from './constDOM.js'
+import { MODAL_TIMER_CHANGE, MODAL_CLOSE_CHANGE } from './constDOM.js'
+import { MODAL_TOGGLE_FAULT, MODAL_RADIO_FAULT } from './constDOM.js'
 import { setMotionPost } from './fetchsData.js'
 import { startTimer, pauseTimer } from './timer.js'
 
@@ -189,7 +189,7 @@ function catchFault() {
   getTimerHit = getTimerMinute(setTimerValue)
   const timerFault = parseFloat(getTimerHit)
   let selectedValue
-  for (const radioButton of RADIO_BTN ) {
+  for (const radioButton of MODAL_RADIO_FAULT ) {
     if (radioButton.checked) {
       selectedValue = parseInt(radioButton.value)
       return {
