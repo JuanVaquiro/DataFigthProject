@@ -19,8 +19,10 @@ import {
   BTN_ACCEPT_FOUL,
   RADIO_BTN 
 } from './constDOM.js'
-
-import { setMotionPost } from "./fetchsData"
+import { MODAL_TIMER_CHANGE, MODAL_CLOSE_CHANGE, MODAL_TOGGLE_FAULT } from './constDOM.js'
+import { MODAL_MESSAGE, MODAL_CLOSE_MESSAGE, MODAL_TEXT_MESSAGE } from './constDOM.js'
+import { MODAL_TIMER_FINISH, MODAL_CLOSE_FINISH, MODAL_TEXT_FINISH } from './constDOM.js'
+import { setMotionPost } from './fetchsData.js'
 
 const VALUE_FOOT_LEFT = 1
 const VALUE_FOOT_RIGHT = 2
@@ -96,7 +98,7 @@ function startTimer(duration, display) {
 
     if (--duration < 0) {
       clearInterval(clearIntervalID)
-      windowModalFinishTimer("tiempo agotado.")
+      windowModalFinishTimer('tiempo agotado.')
     }
   }
 
@@ -150,18 +152,18 @@ function setFaultCount() {
 }
 
 function windowModalFinishTimer(text) {
-  modalTimer.style.display = 'block'
-  textModal.textContent = text
-  closeButtonModal.addEventListener('click', function () {
+  MODAL_TIMER_FINISH.style.display = 'block'
+  MODAL_TEXT_FINISH.textContent = text
+  MODAL_CLOSE_FINISH.addEventListener('click', function () {
     isOnRound = true
     finishOrStartRound()
-    modalTimer.style.display = 'none'
+    MODAL_TIMER_FINISH.style.display = 'none'
   })
   window.addEventListener('click', function (event) {
-    if (event.target === modalTimer) {
+    if (event.target === MODAL_TIMER_FINISH) {
       isOnRound = true
       finishOrStartRound()
-      modalTimer.style.display = 'none'
+      MODAL_TIMER_FINISH.style.display = 'none'
     }
   })
 }
@@ -299,30 +301,30 @@ function btnDisabled() {
 }
 
 function windowModalMessagePause(text) {
-  modalMessage.style.display = 'block'
-  modalText.textContent = text
-  btnCloseModal.addEventListener('click', function () {
+  MODAL_MESSAGE.style.display = 'block'
+  MODAL_TEXT_MESSAGE.textContent = text
+  MODAL_CLOSE_MESSAGE.addEventListener('click', function () {
     timerSelect.start()
-    modalMessage.style.display = 'none'
+    MODAL_MESSAGE.style.display = 'none'
     BTN_PAUSE.textContent = 'Pausar'
   })
 }
 
 function windowModalChangesTimer() {
-  modalChangeTimer.style.display = 'block'
-  closeModalTimer.addEventListener('click', function () {
-    modalChangeTimer.style.display = 'none'
+  MODAL_TIMER_CHANGE.style.display = 'block'
+  MODAL_CLOSE_CHANGE.addEventListener('click', function () {
+    MODAL_TIMER_CHANGE.style.display = 'none'
   })
   window.addEventListener('click', function (event) {
-    if (event.target === modalChangeTimer) {
-      modalChangeTimer.style.display = 'none'
+    if (event.target === MODAL_TIMER_CHANGE) {
+      MODAL_TIMER_CHANGE.style.display = 'none'
     }
   })
 }
 
 function modalLogic() {
   // Recorre cada botón de alternar modal y agrega un listener de clic
-  modalToggle.forEach((toggle) => {
+  MODAL_TOGGLE_FAULT.forEach((toggle) => {
     toggle.addEventListener('click', () => {
       timerSelect.stop()
       const target = toggle.dataset.modalTarget // Obtiene el ID del modal a mostrar

@@ -41,10 +41,10 @@ export const secondsInput = document.getElementById('seconds-input')
 export const btnSaveTime = document.getElementById('guardar_tiempo')
 
 // get all elements of the modal toggle button
-export const MODAL_TOGGLE = document.querySelectorAll('[data-modal-toggle]')
+export const MODAL_TOGGLE_FAULT = document.querySelectorAll('[data-modal-toggle]')
 export const RADIO_BTN = document.getElementsByName('bordered_radio')
 
 // view modal timer finish
 export const MODAL_TIMER_FINISH = document.getElementById('modal')
 export const MODAL_CLOSE_FINISH = document.getElementById('close_button_modal')
-export const MODAL_TEXT_FINIS = document.getElementById('text_modal')	
+export const MODAL_TEXT_FINISH = document.getElementById('text_modal')	
