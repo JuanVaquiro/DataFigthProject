@@ -11,6 +11,17 @@ const btnBack = document.getElementById('trasera')
 const btnHelmet = document.getElementById('casco')
 const btnPechera = document.getElementById('pechera')
 const btnConfirmPoint = document.getElementById('confirmar_punto')
+// menu
+const btnStartRound = document.getElementById('iniciar_ronda')
+const btnFinalFight = document.getElementById('finalizar_combate')
+const btnSaveMotion = document.getElementById('guardar_movimiento')
+const btnPause = document.getElementById('pausar')
+const btnAcceptFoul = document.getElementById('boton_aceptar_falta')
+// info figtht
+const btnChangeTimer = document.getElementById('cambiar_tiempo')
+const displayTimer = document.getElementById('tiempo')
+const displayFault = document.getElementById('contador_faltas')
+const displayRound = document.getElementById('round')
 // view modal timer finish
 const modalTimer = document.getElementById('modal')
 const closeButtonModal = document.getElementById('close_button_modal')
@@ -28,17 +39,8 @@ const btnSaveTime = document.getElementById('guardar_tiempo')
 // get all elements of the modal toggle button
 const modalToggle = document.querySelectorAll('[data-modal-toggle]')
 const radioButtons = document.getElementsByName('bordered_radio')
-// menu
-const btnStartRound = document.getElementById('iniciar_ronda')
-const btnFinalFight = document.getElementById('finalizar_combate')
-const btnSaveMotion = document.getElementById('guardar_movimiento')
-const btnPause = document.getElementById('pausar')
-const btnAcceptFoul = document.getElementById('boton_aceptar_falta')
-// info figtht
-const btnChangeTimer = document.getElementById('cambiar_tiempo')
-const displayTimer = document.getElementById('tiempo')
-const displayFault = document.getElementById('contador_faltas')
-const displayRound = document.getElementById('round')
+
+import { setMotionPost } from "./fetchsData"
 
 const VALUE_FOOT_LEFT = 1
 const VALUE_FOOT_RIGHT = 2
@@ -52,10 +54,10 @@ const VALUE_PECHERA = 2
 
 let isOnRound = false
 let isOnTimer = false
-let timerSelect
-let minutes = 60 * 0.1
-let clearTimer = 0
-let setTimer = 0
+let timerSelect = 0
+let minutes = 60 * 0.5 // 👈 assign duration to the round time
+let clearIntervalID = 0
+let setTimerValue = 0
 let roundCount = 0
 let roundFault = 0
 let getTimerHit = 0
@@ -91,39 +93,46 @@ function finishOrStartRound() {
     setRoundCount()
   } else {
     btnStartRound.textContent = 'Iniciar Round ++'
-    clearInterval(clearTimer)
+    clearInterval(clearIntervalID)
   }
   btnDisabled()
 }
 
 function startTimer(duration, display) {
-  let minutes, seconds
   let isTimerRunning = true
-  clearTimer = setInterval(function () {
-    if (!isTimerRunning) return
 
-    minutes = parseInt(duration / 60, 10)
-    seconds = parseInt(duration % 60, 10)
+  const formatTime = (time) => (time < 10 ? `0${time}` : time)
 
-    minutes = minutes < 10 ? '0' + minutes : minutes
-    seconds = seconds < 10 ? '0' + seconds : seconds
+  const setTimer = () => {
+    if(!isTimerRunning) return
+    let minutes = parseInt(duration / 60, 10)
+    let seconds = parseInt(duration % 60, 10)
+
+    minutes = formatTime(minutes)
+    seconds = formatTime(seconds)
 
     display.textContent = `${minutes}:${seconds}`
-    setTimer = `${minutes}.${seconds}`
+    setTimerValue = `${minutes}.${seconds}`
 
     if (--duration < 0) {
-      clearInterval(clearTimer)
-      windowModalFinishTimer('tiempo agotado.')
+      clearInterval(clearIntervalID)
+      windowModalFinishTimer("tiempo agotado.")
     }
-  }, 1000) // 👈 speed timer delay in the Interval:  
-          //  ⏲ milliseconds: 0.75 = 1600, 0.50 = 2000, 0.25 = 4000
+  }
+
+  clearIntervalID = setInterval(setTimer, 1000) // 👈 speed timer delay in the Interval: ⏲ milliseconds: 0.75 = 1600, 0.50 = 2000, 0.25 = 4000
+
+  const stopTimer = () => {
+    isTimerRunning = false
+  }
+
+  const startRunTimer = () => {
+    isTimerRunning = true
+  }
+
   return {
-    stop: function () {
-      isTimerRunning = false
-    },
-    start: function () {
-      isTimerRunning = true
-    }
+    stop: stopTimer,
+    start: startRunTimer,
   }
 }
 
@@ -232,7 +241,7 @@ function setPositionValue(value) {
 }
 
 function setHitValue(value) {
-  getTimerHit = getTimerMinute(setTimer)
+  getTimerHit = getTimerMinute(setTimerValue)
   hitValue = value
   console.log(`valor de golpe: ${hitValue} tiempo: ${getTimerHit}`)
 }
@@ -268,7 +277,7 @@ function saveFault() {
 }
 
 function catchFault() {
-  getTimerHit = getTimerMinute(setTimer)
+  getTimerHit = getTimerMinute(setTimerValue)
   const timerFault = parseFloat(getTimerHit)
   let selectedValue
   for (const radioButton of radioButtons) {
@@ -356,44 +365,4 @@ function modalLogic() {
       timerSelect.start()
     })
   })
-}
-
-function setMotionPost(motions) {
-  try {
-    let formdata = new FormData()
-    formdata.append('golpe', motions.golpe)
-    formdata.append('posicion', motions.posicion)
-    formdata.append('ubicacion', motions.ubicacionGolpe)
-    formdata.append('golpeo', motions.golpeoAcertado)
-    formdata.append('punto', motions.punto)
-    formdata.append('round', motions.round)
-    formdata.append('segundo', motions.timepoGolpe)
-
-    fetch('./logicControl.php', {
-      method: 'POST',
-      body: formdata
-    })
-      .then(respuesta => respuesta.json())
-      .then(data => {
-        console.log(data)
-        Swal.fire({
-          toast: true,
-          title: 'Los datos se han enviado con éxito',
-          icon: 'success',
-          position: 'top-end',
-          showConfirmButton: false,
-          timer: 1000
-        })
-      })
-  } catch (error) {
-    console.error(error)
-    Swal.fire({
-      toast: true,
-      title: 'Oups! ha ocurrido un error',
-      icon: 'error',
-      position: 'top-end',
-      showConfirmButton: false,
-      timer: 1000
-    })
-  }
 }
