@@ -23,10 +23,8 @@ const VALUE_HELMET = 1
 const VALUE_PECHERA = 2
 
 let isOnRound = false
-let isOnTimer = false
-let timerSelect = 0
-let minutes = 60 * 0.5 // 👈 assign duration to the round time
-let setTimerValue = 0
+let timerSelect
+let minutes = 60 * 0.4 // 👈 assign duration to the round time
 let roundCount = 0
 let roundFault = 0
 let getTimerHit = 0
@@ -56,9 +54,8 @@ function finishOrStartRound() {
   isOnRound = !isOnRound
   if (isOnRound) {
     BTN_START_ROUND.textContent = 'Terminar Round --'
-    isOnTimer = false
     BTN_PAUSE.textContent = 'Pausar'
-    timerSelect = startTimer(minutes, DISPLAY_TIMER, setTimerValue)
+    timerSelect = startTimer(minutes, DISPLAY_TIMER)
     setRoundCount()
   } else {
     BTN_START_ROUND.textContent = 'Iniciar Round ++'
@@ -81,7 +78,7 @@ function executeFnt() {
   BTN_ACCEPT_FOUL.addEventListener('click', saveFault)
   BTN_PAUSE.addEventListener('click',  () => pauseTimer(timerSelect))
   BTN_CHANGE_TIMER.addEventListener('click', () => windowModalChangesTimer())
-  modalLogicFault()
+  windosModalFault()
 }
 
 function setRoundCount() {
@@ -93,7 +90,6 @@ function setFaultCount() {
   roundFault++
   DISPLAY_FAULT.textContent = roundFault
 }
-
 
 function saveMotion() {
   if (hitValue !== 0 || locationHitValue !== 0) {
@@ -127,8 +123,6 @@ function realiseMotion() {
   })
 }
 
-function getTimerMinute(timer) { return timer }
-
 function setLocationHitValue(value) {
   if (hitValue !== 0) {
     locationHitValue = value
@@ -150,7 +144,7 @@ function setPositionValue(value) {
 }
 
 function setHitValue(value) {
-  getTimerHit = getTimerMinute(setTimerValue)
+  getTimerHit = timerSelect.getTime()
   hitValue = value
   console.log(`valor de golpe: ${hitValue} tiempo: ${getTimerHit}`)
 }
@@ -182,22 +176,20 @@ BTN_CONFIRM_POINT.addEventListener('click', function () {
 
 function saveFault() {
   console.log('guardado:', catchFault())
-  setFaultCount()
 }
 
 function catchFault() {
-  getTimerHit = getTimerMinute(setTimerValue)
-  const timerFault = parseFloat(getTimerHit)
-  let selectedValue
+  const timerFault = parseFloat(timerSelect.getTime())
   for (const radioButton of MODAL_RADIO_FAULT ) {
     if (radioButton.checked) {
-      selectedValue = parseInt(radioButton.value)
+      setFaultCount()
+      let selectedValue = parseInt(radioButton.value)
       return {
         falta: selectedValue,
         tiempoFalta: timerFault,
         round: roundCount,
       }
-    }
+    } 
   }
 }
 
@@ -256,7 +248,7 @@ function windowModalChangesTimer() {
   })
 }
 
-function modalLogicFault() {
+function windosModalFault() {
   // Recorre cada botón de alternar modal y agrega un listener de clic
   MODAL_TOGGLE_FAULT.forEach((toggle) => {
     toggle.addEventListener('click', () => {

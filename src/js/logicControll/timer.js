@@ -2,7 +2,7 @@ import { BTN_PAUSE } from './constDOM.js'
 import { MODAL_MESSAGE, MODAL_CLOSE_MESSAGE, MODAL_TEXT_MESSAGE } from './constDOM.js'
 import { windowModalFinishTimer } from './index.js'
 
-export function startTimer(duration, display, setTimerValue) {
+export function startTimer(duration, display) {
   let isTimerRunning = true
   let clearIntervalID
 
@@ -16,7 +16,6 @@ export function startTimer(duration, display, setTimerValue) {
     seconds = formatTime(seconds)
 
     display.textContent = `${minutes}:${seconds}`
-    setTimerValue = `${minutes}.${seconds}`
 
     if (--duration < 0) {
       clearInterval(clearIntervalID)
@@ -32,10 +31,18 @@ export function startTimer(duration, display, setTimerValue) {
   const startRunTimer = () => {
     isTimerRunning = true
   }
+  const getTime = () => {
+    let minutes = parseInt(duration / 60, 10)
+    let seconds = parseInt(duration % 60, 10)
+    minutes = formatTime(minutes)
+    seconds = formatTime(seconds)
+    return `${minutes}.${seconds}`
+  }
   return {
     stop: stopTimer,
     start: startRunTimer,
-    clearIntervalID: clearIntervalID, // Return the clearIntervalID value
+    getTime: getTime,
+    clearIntervalID: clearIntervalID, 
   }
 }
 

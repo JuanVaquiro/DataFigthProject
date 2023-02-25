@@ -1,9 +1,9 @@
 <section class="h-screen bg-slate-900">
         <div class="px-6 h-full text-slate-100">
             <div
-                class="flex xl:justify-center lg:justify-between justify-center items-center flex-wrap h-5/6 md:h-full g-6">
+                class="flex xl:justify-center lg:gap-7 justify-center items-center flex-wrap h-5/6 md:h-full g-6">
                 <div class="grow-0 shrink-1 -mb-40 md:mb-0 md:shrink-0 basis-auto ">
-                    <img src="../dist/img/analytics.png" class="w-28 lg:w-96" alt="icon graphical statistics" />
+                    <img src="../dist/img/analytics.png" class="w-0 lg:w-96" alt="icon graphical statistics" />
                 </div>
                 <div class="xl:ml-20 xl:w-5/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0">
                     <form id="form-login">
