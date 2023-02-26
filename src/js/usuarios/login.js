@@ -15,7 +15,13 @@ formularioLogin.addEventListener("submit", function(e){
             window.location = data;
         }
         else{
-            console.log(data);
+            // console.log(data);
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: data,
+                footer: '<a href="">¿No tienes cuenta? Registrate aqui</a>'
+              })
         } 
 
     })

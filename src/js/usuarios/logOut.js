@@ -1,17 +1,12 @@
 const btnCerraSession = document.getElementById('logOut');
 
-btnCerraSession.addEventListener('click', cerrarSession);
+btnCerraSession.addEventListener('click', confirmacion);
 
 function cerrarSession(){
 
-    let desicion;
-
-    if(desicion = confirmacion()){
-
         // console.log('hola');
-
         let formData = new FormData();
-            formData.append('confirmacion', desicion);
+            formData.append('confirmacion', true);
 
         fetch("./../logOut.php",{
 
@@ -25,11 +20,30 @@ function cerrarSession(){
                 window.location = data;
     
         })
-
-    }
 }
 
 function confirmacion(){
-    let respuesta = confirm("¿Esta seguro/a de cerrar la session actual?");
-    return respuesta;
+    // let respuesta = confirm("¿Esta seguro/a de cerrar la session actual?");
+    // return respuesta;
+
+    Swal.fire({
+        title: '¿Esta seguro/a de cerrar la session actual?',
+        // text: "You won't be able to revert this!",
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si',
+        cancelButtonText: 'cancelar'
+      }).then((result) => {
+        if (result.isConfirmed) {
+        //   Swal.fire(
+        //     'Deleted!',
+        //     'Your file has been deleted.',
+        //     'success'
+        //   )
+            cerrarSession();
+            
+        }
+      })
 }
