@@ -1,10 +1,10 @@
 import { MODAL_TOGGLE_FAULT, MODAL_RADIO_FAULT, DISPLAY_FAULT, } from './constDOM.js'
 import { timerSelect, roundCount } from "./index.js"
-import { setFaultPost } from './fetchsData.js' 
+// import { setFaultPost } from './fetchsData.js' 
 
 export function saveFault() {
   console.log('guardado:', catchFault())
-  setFaultPost(catchFault())
+  // setFaultPost(catchFault())
 }
 
 function catchFault() {

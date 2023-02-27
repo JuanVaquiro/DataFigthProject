@@ -47,20 +47,20 @@ export function setMotionPost(motions) {
   tiempoFalta: value,
   round: value, 
 */
-export function setFaultPost(fault) {
-  try {
+// export function setFaultPost(fault) {
+//   try {
 
-  } catch (error) {
+//   } catch (error) {
 
-  }
-}
+//   }
+// }
 
-// 👇 fetch para hacer la peticion de boton regresar
-export function set(params) {
+// // 👇 fetch para hacer la peticion de boton regresar
+// export function set(params) {
 
-}
+// }
 
-// 👇 fetch para hacer la peticion de boton Finalizar Combate
-export function set(params) {
+// // 👇 fetch para hacer la peticion de boton Finalizar Combate
+// export function set(params) {
 
-}
+// }
