@@ -8,7 +8,7 @@ import {
 } from './constDOM.js'
 import { MODAL_TIMER_FINISH, MODAL_CLOSE_FINISH, MODAL_TEXT_FINISH } from './constDOM.js'
 import { MODAL_TIMER_CHANGE, MODAL_CLOSE_CHANGE } from './constDOM.js'
-import { saveMotion, setHitValue, setLocationHitValue ,setPositionValue, confirmPointPechera} from './Motion.js'
+import { saveMotion, setHitValue, setLocationHitValue, setPositionValue, confirmPointPechera } from './Motion.js'
 import { startTimer, pauseTimer } from './timer.js'
 import { saveFault, windosModalFault } from './fault.js'
 
