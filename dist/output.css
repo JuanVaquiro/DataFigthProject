@@ -804,6 +804,10 @@ video {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
 .flex-col {
   flex-direction: column;
 }
@@ -842,6 +846,14 @@ video {
 
 .gap-3 {
   gap: 0.75rem;
+}
+
+.gap-36 {
+  gap: 9rem;
+}
+
+.gap-32 {
+  gap: 8rem;
 }
 
 .space-x-2 > :not([hidden]) ~ :not([hidden]) {
@@ -1652,6 +1664,18 @@ button:disabled {
     align-items: flex-start;
   }
 
+  .sm\:gap-44 {
+    gap: 11rem;
+  }
+
+  .sm\:gap-60 {
+    gap: 15rem;
+  }
+
+  .sm\:gap-96 {
+    gap: 24rem;
+  }
+
   .sm\:p-8 {
     padding: 2rem;
   }
@@ -1746,10 +1770,6 @@ button:disabled {
 
   .lg\:justify-start {
     justify-content: flex-start;
-  }
-
-  .lg\:justify-between {
-    justify-content: space-between;
   }
 
   .lg\:gap-7 {
