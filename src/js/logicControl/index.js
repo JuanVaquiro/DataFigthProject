@@ -1,14 +1,14 @@
 import {
   BTN_LEFT_HIT, BTN_RIGHT_HIT, BTN_LEFT_FOOT, BTN_RIGHT_FOOT, BTN_SPIN_KICK,
   BTN_FOWARD, BTN_BACK,
-  BTN_HELMET, BTN_PECHERA, BTN_CONFIRM_POINT,
-  DISPLAY_TIMER, DISPLAY_ROUND,
+  BTN_HELMET, BTN_PECHERA,
+  DISPLAY_TIMER, DISPLAY_ROUND, BTN_CONFIRM_POINT,
   BTN_START_ROUND, BTN_PAUSE, BTN_SAVE_MOTION, BTN_ACCEPT_FOUL,
   BTN_CHANGE_TIMER,
 } from './constDOM.js'
 import { MODAL_TIMER_FINISH, MODAL_CLOSE_FINISH, MODAL_TEXT_FINISH } from './constDOM.js'
 import { MODAL_TIMER_CHANGE, MODAL_CLOSE_CHANGE } from './constDOM.js'
-import { setMotionPost } from './fetchsData.js'
+import { saveMotion, setHitValue, setLocationHitValue ,setPositionValue, confirmPointPechera} from './Motion.js'
 import { startTimer, pauseTimer } from './timer.js'
 import { saveFault, windosModalFault } from './fault.js'
 
@@ -22,17 +22,10 @@ const VALUE_BACK = 2
 const VALUE_HELMET = 1
 const VALUE_PECHERA = 2
 
-export let timerSelect
-export let roundCount = 0
 let isOnRound = false
 let minutes = 60 * 0.4 // 👈 assign duration to the round time
-let getTimerHit = 0
-let hitValue = 0
-let positionValue = 0
-let locationHitValue = 0
-let pointValue = 0
-let confirmPoint = false
-let kickedValue = 0
+export let timerSelect
+export let roundCount = 0
 
 BTN_LEFT_HIT.disabled = true
 BTN_RIGHT_HIT.disabled = true
@@ -73,6 +66,7 @@ function executeFnt() {
   BTN_BACK.addEventListener('click', () => setPositionValue(VALUE_BACK))
   BTN_HELMET.addEventListener('click', () => setLocationHitValue(VALUE_HELMET))
   BTN_PECHERA.addEventListener('click', () => setLocationHitValue(VALUE_PECHERA))
+  BTN_CONFIRM_POINT.addEventListener('click', confirmPointPechera)
   BTN_SAVE_MOTION.addEventListener('click', saveMotion)
   BTN_ACCEPT_FOUL.addEventListener('click', saveFault)
   BTN_PAUSE.addEventListener('click', () => pauseTimer(timerSelect))
@@ -84,89 +78,6 @@ function setRoundCount() {
   roundCount++
   DISPLAY_ROUND.textContent = roundCount
 }
-
-function saveMotion() {
-  if (hitValue !== 0 || locationHitValue !== 0) {
-    console.log('guardado', realiseMotion())
-    setMotionPost(realiseMotion())
-    locationHitValue = 0
-    hitValue = 0
-    positionValue = 0
-    kickedValue = 0
-    pointValue = 0
-    confirmPoint = false
-    BTN_CONFIRM_POINT.style.background = 'none'
-  } else {
-    alert('Por favor, seleccione un ataque')
-  }
-}
-
-function realiseMotion() {
-  const hit = parseInt(hitValue) || 0
-  const position = parseInt(positionValue) || 0
-  const locationHit = parseInt(locationHitValue) || 0
-  const timerHit = parseFloat(getTimerHit)
-  return ({
-    golpe: hit,
-    timepoGolpe: timerHit,
-    posicion: position,
-    ubicacionGolpe: locationHit,
-    golpeoAcertado: kickedValue,
-    punto: pointValue,
-    round: roundCount,
-  })
-}
-
-function setLocationHitValue(value) {
-  if (hitValue !== 0) {
-    locationHitValue = value
-    assessHit()
-    setPointValue()
-    console.log(`valor de golpe en localización: ${locationHitValue}`)
-  } else {
-    alert('Movimiento NO valido')
-  }
-}
-
-function setPositionValue(value) {
-  if (hitValue !== 0) {
-    positionValue = value
-    console.log(`valor de posición: ${positionValue}`)
-  } else {
-    alert('Movimiento NO valido')
-  }
-}
-
-function setHitValue(value) {
-  getTimerHit = timerSelect.getTime()
-  hitValue = value
-  console.log(`valor de golpe: ${hitValue} tiempo: ${getTimerHit}`)
-}
-
-// evaluates if the blow was to the helmet to score a point
-function setPointValue() {
-  if (locationHitValue === 1) return pointValue = 1
-}
-
-function assessHit() {
-  locationHitValue === 0
-    ? kickedValue = 0
-    : kickedValue = 1
-}
-
-// plus button confirm point pechera
-BTN_CONFIRM_POINT.addEventListener('click', function () {
-  confirmPoint = !confirmPoint
-  if (confirmPoint) {
-    pointValue = 1
-    BTN_CONFIRM_POINT.style.background = 'rgb(74 222 128)'
-    console.log('punto dado')
-  } else {
-    pointValue = 0
-    BTN_CONFIRM_POINT.style.background = 'none'
-    console.log('punto removido')
-  }
-})
 
 function btnDisabled() {
   if (!isOnRound) {
