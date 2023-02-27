@@ -2,7 +2,7 @@
 // menu
 export const BTN_START_ROUND = document.getElementById('iniciar_ronda')
 export const BTN_FINAL_FIGHT = document.getElementById('finalizar_combate')
-export const BTN_SAVE_MOTION  = document.getElementById('guardar_movimiento')
+export const BTN_SAVE_MOTION = document.getElementById('guardar_movimiento')
 export const BTN_ACCEPT_FOUL = document.getElementById('boton_aceptar_falta')
 export const BTN_PAUSE = document.getElementById('pausar')
 

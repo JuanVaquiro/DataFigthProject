@@ -8,9 +8,9 @@ import {
 } from './constDOM.js'
 import { MODAL_TIMER_FINISH, MODAL_CLOSE_FINISH, MODAL_TEXT_FINISH } from './constDOM.js'
 import { MODAL_TIMER_CHANGE, MODAL_CLOSE_CHANGE } from './constDOM.js'
+import { setMotionPost } from './fetchsData.js'
 import { startTimer, pauseTimer } from './timer.js'
 import { saveFault, windosModalFault } from './fault.js'
-import { setMotionPost } from './fetchsData.js'
 
 const VALUE_FOOT_LEFT = 1
 const VALUE_FOOT_RIGHT = 2
@@ -23,7 +23,7 @@ const VALUE_HELMET = 1
 const VALUE_PECHERA = 2
 
 export let timerSelect
-export let roundCount = 0 
+export let roundCount = 0
 let isOnRound = false
 let minutes = 60 * 0.4 // 👈 assign duration to the round time
 let getTimerHit = 0
@@ -75,7 +75,7 @@ function executeFnt() {
   BTN_PECHERA.addEventListener('click', () => setLocationHitValue(VALUE_PECHERA))
   BTN_SAVE_MOTION.addEventListener('click', saveMotion)
   BTN_ACCEPT_FOUL.addEventListener('click', saveFault)
-  BTN_PAUSE.addEventListener('click',  () => pauseTimer(timerSelect))
+  BTN_PAUSE.addEventListener('click', () => pauseTimer(timerSelect))
   BTN_CHANGE_TIMER.addEventListener('click', () => windowModalChangesTimer())
   windosModalFault()
 }

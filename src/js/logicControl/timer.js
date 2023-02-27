@@ -9,7 +9,7 @@ export function startTimer(duration, display) {
   const formatTime = (time) => (time < 10 ? `0${time}` : time)
 
   const setTimer = () => {
-    if(!isTimerRunning) return
+    if (!isTimerRunning) return
     let minutes = parseInt(duration / 60, 10)
     let seconds = parseInt(duration % 60, 10)
     minutes = formatTime(minutes)
@@ -42,7 +42,7 @@ export function startTimer(duration, display) {
     stop: stopTimer,
     start: startRunTimer,
     getTime: getTime,
-    clearIntervalID: clearIntervalID, 
+    clearIntervalID: clearIntervalID,
   }
 }
 

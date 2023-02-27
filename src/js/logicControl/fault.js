@@ -7,7 +7,7 @@ export function saveFault() {
 
 function catchFault() {
   const timerFault = parseFloat(timerSelect.getTime())
-  for (const radioButton of MODAL_RADIO_FAULT ) {
+  for (const radioButton of MODAL_RADIO_FAULT) {
     if (radioButton.checked) {
       setFaultCount()
       let selectedValue = parseInt(radioButton.value)
@@ -16,7 +16,7 @@ function catchFault() {
         tiempoFalta: timerFault,
         round: roundCount,
       }
-    } 
+    }
   }
 }
 

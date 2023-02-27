@@ -185,4 +185,4 @@
           </div>
       </div>
   </div>
-<script src="./../../src/js/logicControll/index.js" type="module"></script>
+<script src="./../../src/js/logicControl/index.js" type="module"></script>
