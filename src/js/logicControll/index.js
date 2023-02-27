@@ -2,15 +2,15 @@ import {
   BTN_LEFT_HIT, BTN_RIGHT_HIT, BTN_LEFT_FOOT, BTN_RIGHT_FOOT, BTN_SPIN_KICK,
   BTN_FOWARD, BTN_BACK,
   BTN_HELMET, BTN_PECHERA, BTN_CONFIRM_POINT,
-  DISPLAY_TIMER, DISPLAY_FAULT, DISPLAY_ROUND,
+  DISPLAY_TIMER, DISPLAY_ROUND,
   BTN_START_ROUND, BTN_PAUSE, BTN_SAVE_MOTION, BTN_ACCEPT_FOUL,
   BTN_CHANGE_TIMER,
 } from './constDOM.js'
 import { MODAL_TIMER_FINISH, MODAL_CLOSE_FINISH, MODAL_TEXT_FINISH } from './constDOM.js'
 import { MODAL_TIMER_CHANGE, MODAL_CLOSE_CHANGE } from './constDOM.js'
-import { MODAL_TOGGLE_FAULT, MODAL_RADIO_FAULT } from './constDOM.js'
-import { setMotionPost } from './fetchsData.js'
 import { startTimer, pauseTimer } from './timer.js'
+import { saveFault, windosModalFault } from './fault.js'
+import { setMotionPost } from './fetchsData.js'
 
 const VALUE_FOOT_LEFT = 1
 const VALUE_FOOT_RIGHT = 2
@@ -22,11 +22,10 @@ const VALUE_BACK = 2
 const VALUE_HELMET = 1
 const VALUE_PECHERA = 2
 
+export let timerSelect
+export let roundCount = 0 
 let isOnRound = false
-let timerSelect
 let minutes = 60 * 0.4 // 👈 assign duration to the round time
-let roundCount = 0
-let roundFault = 0
 let getTimerHit = 0
 let hitValue = 0
 let positionValue = 0
@@ -84,11 +83,6 @@ function executeFnt() {
 function setRoundCount() {
   roundCount++
   DISPLAY_ROUND.textContent = roundCount
-}
-
-function setFaultCount() {
-  roundFault++
-  DISPLAY_FAULT.textContent = roundFault
 }
 
 function saveMotion() {
@@ -174,25 +168,6 @@ BTN_CONFIRM_POINT.addEventListener('click', function () {
   }
 })
 
-function saveFault() {
-  console.log('guardado:', catchFault())
-}
-
-function catchFault() {
-  const timerFault = parseFloat(timerSelect.getTime())
-  for (const radioButton of MODAL_RADIO_FAULT ) {
-    if (radioButton.checked) {
-      setFaultCount()
-      let selectedValue = parseInt(radioButton.value)
-      return {
-        falta: selectedValue,
-        tiempoFalta: timerFault,
-        round: roundCount,
-      }
-    } 
-  }
-}
-
 function btnDisabled() {
   if (!isOnRound) {
     BTN_LEFT_HIT.disabled = true
@@ -248,29 +223,3 @@ function windowModalChangesTimer() {
   })
 }
 
-function windosModalFault() {
-  // Recorre cada botón de alternar modal y agrega un listener de clic
-  MODAL_TOGGLE_FAULT.forEach((toggle) => {
-    toggle.addEventListener('click', () => {
-      timerSelect.stop()
-      const target = toggle.dataset.modalTarget // Obtiene el ID del modal a mostrar
-      const modal = document.getElementById(target) // Obtiene el elemento del modal a mostrar
-      modal.classList.toggle('hidden') // Muestra o oculta el modal al alternar la clase 'hidden'
-      modal.setAttribute('aria-hidden', 'false') // Establece el atributo 'aria-hidden' en 'false' cuando el modal está visible
-      modal.setAttribute('tabindex', '0') // Establece el atributo 'tabindex' en '0' para que el modal sea accesible mediante el teclado
-    })
-
-  })
-  // Obtener todos los elementos del botón para ocultar el modal
-  const modalHide = document.querySelectorAll('[data-modal-hide]')
-  // Recorre cada botón para ocultar el modal y agrega un listener de clic
-  modalHide.forEach((hide) => {
-    hide.addEventListener('click', () => {
-      const modal = hide.closest('.h-modal') // Obtiene el elemento del modal más cercano
-      modal.classList.add('hidden') // Oculta el modal al agregar la clase 'hidden'
-      modal.setAttribute('aria-hidden', 'true') // Establece el atributo 'aria-hidden' en 'true' cuando el modal está oculto
-      modal.setAttribute('tabindex', '-1') // Establece el atributo 'tabindex' en '-1' para que el modal no sea accesible mediante el teclado
-      timerSelect.start()
-    })
-  })
-}
