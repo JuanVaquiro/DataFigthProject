@@ -1,5 +1,5 @@
 <section class="flex flex-col  justify-center items-center h-screen bg-gray-900">
-  <div class="flex items-center p-1 gap-32 sm:gap-96">
+  <div class="flex items-center p-1 gap-32 sm:gap-96 lg:gap-44">
     <a class="cursor-pointer source-sans-pro border focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 border-purple-400 text-purple-400 hover:text-white hover:bg-purple-500 focus:ring-purple-900">
       Ver mis estadisticas
     </a>

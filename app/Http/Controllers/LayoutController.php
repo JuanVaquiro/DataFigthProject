@@ -49,8 +49,8 @@ class LayoutController{
             "registro" => "viewRegistroUsuario.php",
             "home" => "viewHome.php",
             "control" => "viewControl.php",
-            "prueba" => "viewPrueba.php"
-            
+            "prueba" => "viewPrueba.php",
+            "configurarCombate" => "viewConfigurarCombate.php"
         };
 
         return $titulo;
