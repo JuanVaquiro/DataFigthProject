@@ -51,7 +51,7 @@
                             </button>
                             <p class="source-sans-pro text-sm font-semibold mt-2 pt-1 mb-0">
                                 ¿Aún no tienes una cuenta?
-                                <a href="./../public/registro.php"
+                                <a href="./registro"
                                     class="text-red-600 hover:text-red-700 focus:text-red-700 transition duration-200 ease-in-out source-sans-pro">
                                     Registrarse
                                 </a>

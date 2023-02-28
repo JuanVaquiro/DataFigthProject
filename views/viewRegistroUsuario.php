@@ -3,13 +3,13 @@
             <div class="w-full rounded-lg shadow border md:mt-0 sm:max-w-2xl xl:p-0 bg-gray-800 border-gray-700">
                 <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
                     <a href="#" class="magra-bold text-2xl md:text-3xl flex items-center mb-6 text-white">
-                        <img class="w-8 h-8 mr-2" src="./../dist/img/analytics.png" alt="logo">
+                        <img class="w-8 h-8 mr-2" src="./../../dist/img/analytics.png" alt="logo">
                         Crear cuenta Data-Figth
                     </a>
 
                     <p class="kanit-ligth text-slate-200">Empieza ya a registros tus datos de combate. ¿Ya tienes una
                         cuenta?
-                        <a href="#" class="kanit-ligth text-blue-500 hover:underline hover:underline-offset-1">Ingresa
+                        <a href="./../" class="kanit-ligth text-blue-500 hover:underline hover:underline-offset-1">Ingresa
                             aquí. </a>
                     </p>
 
@@ -41,7 +41,7 @@
                                     Tipo De Documento
                                 </label>
                                 <select name="type_document" id="type_document"  class="border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
-                                    <option value="">Seleccione Una Opcion</option>
+                                    <option value="" id="default-option">Seleccione Una Opcion</option>
                                     <option value="1">Tarjeta De Identidad</option>
                                     <option value="2">Cedula De Ciudadania</option>
                                 </select>
@@ -132,4 +132,4 @@
             </div>
         </div>
     </section>
-    <script src="./../src/js/usuarios/registroUsuario.js"></script>
+    <script src="./../../src/js/usuarios/registroUsuario.js"></script>

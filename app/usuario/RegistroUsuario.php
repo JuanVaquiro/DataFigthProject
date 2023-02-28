@@ -1,8 +1,11 @@
 <?php
 
-require_once __DIR__ . "/../../vendor/autoload.php";
+// require_once __DIR__ . "/../../vendor/autoload.php";
+
+namespace app\usuario;
 
 use config\Conexion;
+use PDO;
 
 class RegistroUsuario{
 
@@ -17,8 +20,8 @@ class RegistroUsuario{
     private $password;
     private $confirm_password;
 
-    public function __construct($nombres, $apellidos, $tipo_documento, $documento, $email, 
-    $telefono, $fecha_nacimiento, $password, $confirm_password){
+    public function __construct($nombres = null, $apellidos = null, $tipo_documento = null, $documento = null, $email = null, 
+    $telefono = null, $fecha_nacimiento = null, $password = null, $confirm_password = null){
 
         // if($_POST && !empty($_POST)){
 
@@ -180,6 +183,34 @@ class RegistroUsuario{
 
     }
 
+    public function validarPost(){
+
+        if( $_POST && isset($_POST['name']) && isset($_POST['last-name']) && isset($_POST['type_document']) ){
+
+            $user = new RegistroUsuario(
+                $_POST['name'], 
+                $_POST['last-name'], 
+                $_POST['type_document'], 
+                $_POST['document'], 
+                $_POST['email'], 
+                $_POST['telefono'], 
+                $_POST['date'], 
+                $_POST['password'],
+                $_POST['confirm-password']
+            );
+            
+            if($user->validarDatos()){
+            
+                $user->registrar();
+            
+            }
+        
+        }
+        else{
+            header("Location: ./../");
+        }
+    }
+
     // public function getLongitud($valor){
 
     //     return count(str_split($valor));
@@ -191,27 +222,27 @@ class RegistroUsuario{
 
 }
 
-if( $_POST && isset($_POST['name']) && isset($_POST['last-name']) ){
+// if( $_POST && isset($_POST['name']) && isset($_POST['last-name']) && isset($_POST['type_document']) ){
 
-    $user = new RegistroUsuario(
-        $_POST['name'], 
-        $_POST['last-name'], 
-        $_POST['type_document'], 
-        $_POST['document'], 
-        $_POST['email'], 
-        $_POST['telefono'], 
-        $_POST['date'], 
-        $_POST['password'],
-        $_POST['confirm-password']
-    );
+//     $user = new RegistroUsuario(
+//         $_POST['name'], 
+//         $_POST['last-name'], 
+//         $_POST['type_document'], 
+//         $_POST['document'], 
+//         $_POST['email'], 
+//         $_POST['telefono'], 
+//         $_POST['date'], 
+//         $_POST['password'],
+//         $_POST['confirm-password']
+//     );
     
-    if($user->validarDatos()){
+//     if($user->validarDatos()){
     
-        $user->registrar();
+//         $user->registrar();
     
-    }
+//     }
 
-}
+// }
 
 
 

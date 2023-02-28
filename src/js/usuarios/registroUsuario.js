@@ -4,12 +4,14 @@
 
 const formularioRegistro = document.getElementById("form-registro");
 
+const datos = ['name', 'last-name', 'type_document', 'document', 'email', 'telefono', 'date', 'password', 'confirm-password'];
+
 formularioRegistro.addEventListener("submit", function(e){
 
     e.preventDefault();
     const dataForm = new FormData(formularioRegistro);
     // console.log(dataForm.get("name"));
-    fetch("./../app/usuario/RegistroUsuario.php",{
+    fetch("./registrarUsuario.php",{
 
         method: "POST", 
         body: dataForm
@@ -17,21 +19,48 @@ formularioRegistro.addEventListener("submit", function(e){
     }) 
     .then( respuesta => respuesta.json())
     .then( data => {
-        console.log(data);
-        Swal.fire(data);
-        //swal(data[0]+"","",""+data[1]);
-        // if (data == "Registro Exitoso") {
 
-        //     swal(data+"","","success");
+        if(data == "Registro Exitoso"){
 
-        // }
+            Swal.fire({
+                icon: 'success',
+                title: data
+              })
 
-        // else {
+              limpiar();
 
-        //     swal(data+"","","error");
-
-        // }  
+        }else if(data == "Error Al Registrar"){
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: data
+              })
+        }else{
+            Swal.fire({
+                icon: 'warning',
+                title: data
+              })
+        }
 
     })
 
 });
+
+function limpiar(){
+
+    for(let i = 0; i < datos.length; i++){
+
+        if(datos[i] != "type_document"){
+
+            document.getElementById(datos[i]).value = "";
+
+        }
+        else{
+            document.getElementById('default-option').selected = true;
+        }
+
+    }
+
+    document.getElementById('name').focus();
+
+}
