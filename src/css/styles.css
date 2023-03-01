@@ -20,7 +20,9 @@
 /* font-title */
 .magra-bold {
   font-family: 'Magra-Bold';
-}src/css/styles.css
+}
+
+src/css/styles.css
 
 /* font-subTitle */
 .source-sans-pro {
@@ -78,9 +80,15 @@ button:disabled {
   cursor: not-allowed;
 }
 
-@media (min-width: 640px) { 
-  .menu-home{
+@media (min-width: 640px) {
+  .menu-home {
     margin-right: 496px;
+  }
+}
+
+@media (min-height: 1024px) {
+  .setctionRegisro {
+    height: 100vh
   }
 }
 
@@ -103,7 +111,7 @@ button:disabled {
   width: 180px;
 }
 
-.menu::before{
+.menu::before {
   content: "";
   background: inherit;
   border-top: 1px solid #e1e1e1;
@@ -113,7 +121,7 @@ button:disabled {
   right: 22px;
   width: 12px;
   height: 12px;
-  rotate: -45deg; 
+  rotate: -45deg;
 }
 
 .hover-custom:hover {
