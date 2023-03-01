@@ -1,6 +1,9 @@
 <?php
 
+namespace app\combate;
+
 use config\Conexion;
+use PDO;
 
 class RegistroFaltasCombate{
 
@@ -11,7 +14,8 @@ class RegistroFaltasCombate{
     private $segundoRound;
     private $id_usuario;
 
-    public function __construct($id_combate, $id_deportista, $id_falta, $round, $segundoRound, $id_usuario){
+    public function __construct($id_falta = null, $segundoRound = null, $round = null, 
+    $id_combate = 1, $id_deportista = 1, $id_usuario = 1){
 
         $this->id_combate = $id_combate;
         $this->id_deportista = $id_deportista;
@@ -22,9 +26,9 @@ class RegistroFaltasCombate{
         
     }
 
-    public function registrarAtaque(){
+    public function registrarFalta(){
         
-        require_once __DIR__ . "./../../config/Conexion.php";
+        // require_once __DIR__ . "./../../config/Conexion.php";
 
         $pdo = new Conexion();
         $con = $pdo->conexion();

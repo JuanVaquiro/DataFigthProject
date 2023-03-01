@@ -40,6 +40,44 @@ export function setMotionPost(motions) {
   }
 }
 
+export function setFaultPost(fault){
+
+  try {
+    let formdata = new FormData()
+    formdata.append('falta', fault.falta)
+    formdata.append('tiempo', fault.tiempoFalta)
+    formdata.append('round', fault.round)
+
+    fetch('./logicControl.php', {
+      method: 'POST',
+      body: formdata
+    })
+      .then(respuesta => respuesta.json())
+      .then(data => {
+        console.log(data)
+        Swal.fire({
+          toast: true,
+          title: 'Falta Registrada',
+          icon: 'success',
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 1000
+        })
+      })
+  } catch (error) {
+    console.error(error)
+    Swal.fire({
+      toast: true,
+      title: 'Oups! ha ocurrido un error',
+      icon: 'error',
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 1000
+    })
+  }
+
+}
+
 /* 
   fetch para hacer la peticion de boton guardar falta 👇👇👇
   y como parametro 'fault' recibe un objeto: 

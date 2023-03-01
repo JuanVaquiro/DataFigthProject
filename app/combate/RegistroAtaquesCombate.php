@@ -19,8 +19,8 @@ class RegistroAtaquesCombate{
     private $segundoRound;
     private $id_usuario;
 
-    public function __construct($id_golpe_tecnica, $posicionGolpe, $ubicacion_Golpe, 
-    $golpeo, $punto, $round, $segundoRound, $id_usuario = 1,  $id_combate = 1, $id_deportista = 1){
+    public function __construct($id_golpe_tecnica = null, $posicionGolpe = null, $ubicacion_Golpe = null, 
+    $golpeo = null, $punto = null, $round = null, $segundoRound = null, $id_usuario = 1,  $id_combate = 1, $id_deportista = 1){
 
         $this->id_golpe_tecnica = $id_golpe_tecnica;
         $this->posicionGolpe = $posicionGolpe;
@@ -92,21 +92,3 @@ class RegistroAtaquesCombate{
     }
 
 }
-
-// $motions = $_POST['motions'];
-
-// $registro = new RegistroAtaquesCombate(
-//     $_POST['golpe'],
-//     $_POST['posicion'],
-//     $_POST['ubicacion'],
-//     $_POST['golpeo'],
-//     $_POST['punto'],
-//     $_POST['round'],
-//     $_POST['segundo']
-// );
-
-// $registro->obtenerSegundos();
-
-// $registro->registrarAtaque();
-
-// $registro->post();
