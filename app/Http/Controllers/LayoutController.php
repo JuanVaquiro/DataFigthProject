@@ -50,7 +50,7 @@ class LayoutController{
             "home" => "viewHome.php",
             "control" => "viewControl.php",
             "prueba" => "viewPrueba.php",
-            "configurarCombate" => "viewConfigurarCombate.php"
+            "combate" => "viewConfigurarCombate.php"
         };
 
         return $titulo;
