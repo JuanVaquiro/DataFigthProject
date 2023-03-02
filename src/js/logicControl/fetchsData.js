@@ -40,8 +40,7 @@ export function setMotionPost(motions) {
   }
 }
 
-export function setFaultPost(fault){
-
+export function setFaultPost(fault) {
   try {
     let formdata = new FormData()
     formdata.append('falta', fault.falta)
@@ -77,21 +76,6 @@ export function setFaultPost(fault){
   }
 
 }
-
-/* 
-  fetch para hacer la peticion de boton guardar falta 👇👇👇
-  y como parametro 'fault' recibe un objeto: 
-  falta: value,
-  tiempoFalta: value,
-  round: value, 
-*/
-// export function setFaultPost(fault) {
-//   try {
-
-//   } catch (error) {
-
-//   }
-// }
 
 // // 👇 fetch para hacer la peticion de boton regresar
 // export function set(params) {
