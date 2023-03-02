@@ -4,14 +4,14 @@
       Ver mis estadisticas
     </a>
     <div class="dropdown relative inline-block">
-      <a id="drop" href="#" class="text-gray-300">
+      <a id="drop" class="text-gray-300">
         <svg class="w-10" clip-rule="evenodd" fill="#fff" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m13 16.75c0-.414-.336-.75-.75-.75h-9.5c-.414 0-.75.336-.75.75s.336.75.75.75h9.5c.414 0 .75-.336.75-.75zm2.195-5.992 2.746 2.999c.142.154.342.243.552.243s.41-.088.553-.242l2.757-2.999c.132-.144.197-.326.197-.507 0-.684-.841-1.008-1.303-.508l-2.202 2.397-2.194-2.396c-.46-.503-1.303-.175-1.303.507 0 .18.065.362.197.506zm-2.195.992c0-.414-.336-.75-.75-.75h-9.5c-.414 0-.75.336-.75.75s.336.75.75.75h9.5c.414 0 .75-.336.75-.75zm0-5c0-.414-.336-.75-.75-.75h-9.5c-.414 0-.75.336-.75.75s.336.75.75.75h9.5c.414 0 .75-.336.75-.75z" fill-rule="nonzero"/>
       </svg>  
     </a>
     <div class="menu bg-gray-800">
         <ul class="space-y-3">
           <li>
-            <a href="#" class="flex gap-2 m-3 px-2 py-3 text-white hover-custom">
+            <a class="flex gap-2 m-3 px-2 py-3 text-white hover-custom">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
             </svg>
               Perfil
@@ -35,7 +35,7 @@
             Data Fight
         </h2>
         <div class="grid grid-cols-2 gap-3">
-            <a class="cursor-pointer source-sans-pro border focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 border-sky-500 text-sky-500 hover:text-white hover:bg-sky-600 focus:ring-sky-800">
+            <a href="./../combate" class="cursor-pointer source-sans-pro border focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 border-sky-500 text-sky-500 hover:text-white hover:bg-sky-600 focus:ring-sky-800">
               Configurar combate
             </a>
             <a class="cursor-pointer source-sans-pro border focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 border-sky-500 text-sky-500 hover:text-white hover:bg-sky-600 focus:ring-sky-800">

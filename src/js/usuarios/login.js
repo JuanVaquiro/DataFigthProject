@@ -11,16 +11,20 @@ formularioLogin.addEventListener("submit", function(e){
     .then( respuesta => respuesta.json())
     .then( data => {
         
-        if(data != "Usuario o Contraseña Incorrectos"){
+        if(data == "./home"){
             window.location = data;
         }
-        else{
+        else if(data == "Complete los campos"){
             // console.log(data);
             Swal.fire({
+                icon: 'warning',
+                title: data
+              })
+        }
+        else{
+            Swal.fire({
                 icon: 'error',
-                title: 'Oops...',
-                text: data,
-                footer: '<a href="">¿No tienes cuenta? Registrate aqui</a>'
+                title: data
               })
         } 
 
