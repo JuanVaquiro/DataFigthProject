@@ -1,4 +1,4 @@
-<section class=" bg-gray-900 2xl:h-screen setctionRegisro">
+<section class=" bg-gray-900 2xl:h-screen setctionRegistroUsuario">
         <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto  md:h-full md:p-10">
             <div class="w-full rounded-lg shadow border md:mt-0 sm:max-w-2xl xl:p-0 bg-gray-800 border-gray-700">
                 <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
@@ -122,7 +122,8 @@
                             </div>
                         </div>
                         <!-- submit -->
-                        <button type="submit"
+                        <button 
+                            type="submit"
                             id="btn-registrar"
                             class="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center focus:ring-blue-800">
                             Crear Cuenta

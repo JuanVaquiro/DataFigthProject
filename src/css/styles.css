@@ -87,7 +87,10 @@ button:disabled {
 }
 
 @media (min-height: 1024px) {
-  .setctionRegisro {
+  .setctionRegistroUsuario {
+    height: 100vh
+  }
+  .setctionConfigCombat {
     height: 100vh
   }
 }
