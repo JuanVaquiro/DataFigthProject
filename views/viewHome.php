@@ -38,10 +38,10 @@
             <a href="./../combate" class="cursor-pointer source-sans-pro border focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 border-sky-500 text-sky-500 hover:text-white hover:bg-sky-600 focus:ring-sky-800">
               Configurar combate
             </a>
-            <a class="cursor-pointer source-sans-pro border focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 border-sky-500 text-sky-500 hover:text-white hover:bg-sky-600 focus:ring-sky-800">
+            <a href="./../deportista" class="cursor-pointer source-sans-pro border focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 border-sky-500 text-sky-500 hover:text-white hover:bg-sky-600 focus:ring-sky-800">
               Creear Deportista
             </a>
-            <a class="cursor-pointer source-sans-pro border focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 border-sky-500 text-sky-500 hover:text-white hover:bg-sky-600 focus:ring-sky-800">
+            <a href="./../delegacion" class="cursor-pointer source-sans-pro border focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 border-sky-500 text-sky-500 hover:text-white hover:bg-sky-600 focus:ring-sky-800">
               Creear Delegacion
             </a>
             <a class="cursor-pointer source-sans-pro border focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 border-sky-500 text-sky-500 hover:text-white hover:bg-sky-600 focus:ring-sky-800">

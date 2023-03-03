@@ -29,6 +29,16 @@ class LayoutController{
             $this->titulo = "Configuracion De Combate";
 
         }
+        elseif($this->segments[$posiciones-2] == "deportista"){
+
+            $this->titulo = "Crear Deportista";
+
+        } 
+        elseif($this->segments[$posiciones-2] == "delegacion"){
+
+            $this->titulo = "Crear Delegacion";
+
+        }
         else{
 
             // $t = explode(".", $this->segments[3]);
@@ -55,7 +65,9 @@ class LayoutController{
             "home" => "viewHome.php",
             "control" => "viewControl.php",
             "prueba" => "viewPrueba.php",
-            "Configuracion De Combate" => "viewConfigurarCombate.php"
+            "Configuracion De Combate" => "viewConfigurarCombate.php",
+            "Crear Deportista" => "viewCrearDeportista.php",
+            "Crear Delegacion" => "viewCrearDelegacion.php"
         };
 
         return $titulo;
