@@ -19,7 +19,7 @@
                                 Deportista #1:
                             </label>
                             <select name="deportista_1" id="deportista_1" required
-                                class="border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
+                                class="cursor-pointer border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
                                 <option value="" id="default-option">Seleccione un Deportista</option>
                                 <option value="1">Juan Rodriguez</option>
                                 <option value="2">Carlos Casanres Riano Poas</option>
@@ -30,7 +30,7 @@
                                 Delegacion #1:
                             </label>
                             <select name="delegacion_1" id="delegacion_1" required
-                                class="border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
+                                class="cursor-pointer border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
                                 <option value="" id="default-option">Seleccione un Delegacion</option>
                                 <option value="1">Dragones Cop</option>
                                 <option value="2">Fenix-Bogota</option>
@@ -43,7 +43,7 @@
                                 Deportista #2:
                             </label>
                             <select name="deportista_2" id="deportista_2" required
-                                class="border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
+                                class="cursor-pointer border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
                                 <option value="" id="default-option">Seleccione un Deportista 2</option>
                                 <option value="1">Juan Rodriguez</option>
                                 <option value="2">Carlos Casanres Riano Poas</option>
@@ -54,26 +54,35 @@
                                 Delegacion #2:
                             </label>
                             <select name="delegacion_2" id="delegacion_2" required
-                                class="border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
+                                class="cursor-pointer border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
                                 <option value="" id="default-option">Seleccione un Delegacion 2</option>
                                 <option value="1">Dragones Cop</option>
                                 <option value="2">Fenix-Bogota</option>
                             </select>
                         </div>
                     </div>
-                    <div class="relative z-0 w-full mb-6 group">
-                        <label for="select_deporte" class="block mb-2 text-sm font-medium text-gray-400">
-                            Deporte
-                        </label>
-                        <select name="select_deporte" id="select_deporte" required
-                            class="border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
-                            <option value="" id="default-option">Seleccione el Deporte</option>
-                            <option value="1">Taekwondo</option>
-                            <option value="2">Boxeo</option>
-                            <option value="3">Judo</option>
-                            <option value="4">Karate</option>
-                            <option value="5">Kickboxing</option>
-                        </select>
+                    <div class="relative z-0 w-full mb-6 group flex flex-col gap-2">
+                        <span class="block mb-2 text-sm font-medium text-gray-400">
+                            Selecione el Deporte:
+                        </span>
+                        <div class="flex items-center">
+                            <input id="deporte-radio-1" type="radio" value="" name="deporte-radio" class="w-4 h-4 text-blue-600 ring-offset-gray-800 focus:ring-2 bg-gray-700 border-gray-600">
+                            <label for="deporte-radio-1" class="ml-2 text-sm font-medium text-gray-300">
+                                Taekwondo
+                            </label>
+                        </div>
+                        <div class="flex items-center">
+                            <input id="deporte-radio-2" type="radio" value="" name="deporte-radio" class="w-4 h-4 text-blue-600 ring-offset-gray-800 focus:ring-2 bg-gray-700 border-gray-600">
+                            <label for="deporte-radio-2" class="ml-2 text-sm font-medium text-gray-300">
+                                Judo
+                            </label>
+                        </div>
+                        <div class="flex items-center">
+                            <input id="deporte-radio-3" type="radio" value="" name="deporte-radio" class="w-4 h-4 text-blue-600 ring-offset-gray-800 focus:ring-2 bg-gray-700 border-gray-600">
+                            <label for="deporte-radio-3" class="ml-2 text-sm font-medium text-gray-300">
+                                Karate
+                            </label>
+                        </div>
                     </div>
                     <div class="relative z-0 w-full mb-6 group">
                         <label for="fase_ronda" class="block mb-2 text-sm font-medium text-gray-400">
@@ -83,33 +92,78 @@
                             class="border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
                             placeholder="ej: cuartos de final">
                     </div>
-                    <div class="relative z-0 w-full mb-6 group">
-                        <label for="datetime_local" class="block mb-2 text-sm font-medium text-gray-400">
-                            Fecha y Hora
-                        </label>
-                        <input type="datetime-local" id="datetime_local" name="datetime_local" required
-                            class="border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
+                    <div class="relative z-0 w-full mb-6 group flex flex-col gap-2">
+                        <span class="block mb-2 text-sm font-medium text-gray-400">
+                            Numero de Round:
+                        </span>
+                        <div class="flex items-center">
+                            <input id="numero-round-radio-1" type="radio" value="" name="numero-round-radio" class="w-4 h-4 text-blue-600 ring-offset-gray-800 focus:ring-2 bg-gray-700 border-gray-600">
+                            <label for="numero-round-radio-1" class="ml-2 text-sm font-medium text-gray-300">
+                                2 Round
+                            </label>
+                        </div>
+                        <div class="flex items-center">
+                            <input id="numero-round-radio-2" type="radio" value="" name="numero-round-radio" class="w-4 h-4 text-blue-600 ring-offset-gray-800 focus:ring-2 bg-gray-700 border-gray-600">
+                            <label for="numero-round-radio-2" class="ml-2 text-sm font-medium text-gray-300">
+                                3 Round
+                            </label>
+                        </div>
+                        <div class="flex items-center">
+                            <input id="numero-round-radio-3" type="radio" value="" name="numero-round-radio" class="w-4 h-4 text-blue-600 ring-offset-gray-800 focus:ring-2 bg-gray-700 border-gray-600">
+                            <label for="numero-round-radio-3" class="ml-2 text-sm font-medium text-gray-300">
+                                4 Round
+                            </label>
+                        </div>
+                        <div class="flex items-center">
+                            <input id="numero-round-radio-4" type="radio" value="" name="numero-round-radio" class="w-4 h-4 text-blue-600 ring-offset-gray-800 focus:ring-2 bg-gray-700 border-gray-600">
+                            <label for="numero-round-radio-4" class="ml-2 text-sm font-medium text-gray-300">
+                                5 Round
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="relative z-0 w-full mb-6 group flex flex-col gap-2">
+                        <span class="block mb-2 text-sm font-medium text-gray-400">
+                            Duracion del Round:
+                        </span>
+                        <div class="flex items-center">
+                            <input id="duracion-round-radio-1" type="radio" value="" name="duracion-round-radio" class="w-4 h-4 text-blue-600 ring-offset-gray-800 focus:ring-2 bg-gray-700 border-gray-600">
+                            <label for="duracion-round-radio-1" class="ml-2 text-sm font-medium text-gray-300">
+                                2 Minutos
+                            </label>
+                        </div>
+                        <div class="flex items-center">
+                            <input id="duracion-round-radio-2" type="radio" value="" name="duracion-round-radio" class="w-4 h-4 text-blue-600 ring-offset-gray-800 focus:ring-2 bg-gray-700 border-gray-600">
+                            <label for="duracion-round-radio-2" class="ml-2 text-sm font-medium text-gray-300">
+                                3 Minutos
+                            </label>
+                        </div>
+                        <div class="flex items-center">
+                            <input id="duracion-round-radio-3" type="radio" value="" name="duracion-round-radio" class="w-4 h-4 text-blue-600 ring-offset-gray-800 focus:ring-2 bg-gray-700 border-gray-600">
+                            <label for="duracion-round-radio-3" class="ml-2 text-sm font-medium text-gray-300">
+                                4 Minutos
+                            </label>
+                        </div>
+                        <div class="flex items-center">
+                            <input id="duracion-round-radio-4" type="radio" value="" name="duracion-round-radio" class="w-4 h-4 text-blue-600 ring-offset-gray-800 focus:ring-2 bg-gray-700 border-gray-600">
+                            <label for="duracion-round-radio-4" class="ml-2 text-sm font-medium text-gray-300">
+                                5 Minutos
+                            </label>
+                        </div>
                     </div>
                     <div class="relative z-0 w-full mb-6 group">
-                        <label for="duracion_round" class="block mb-2 text-sm font-medium text-gray-400">
-                            Durcion del Round
+                        <label for="datetime_local" class="block mb-2 text-sm font-medium text-gray-400">
+                            Fecha y Hora:
                         </label>
-                        <select name="duracion_round" id="duracion_round" required
-                            class="border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
-                            <option value="" id="default-option">Seleccione el tiempo</option>
-                            <option value="1">1 Minuto</option>
-                            <option value="2">2 Minutos</option>
-                            <option value="3">3 Minutos</option>
-                            <option value="4">4 Minutos</option>
-                            <option value="5">5 Minutos</option>
-                        </select>
+                        <input type="datetime-local" id="datetime_local" name="datetime_local" required
+                            class="border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full xl:w-2/5 p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
                     </div>
                     <div class="relative z-0 w-full mb-6 group">
                         <label for="arbitro" class="block mb-2 text-sm font-medium text-gray-400">
                             Arbitro:
                         </label>
                         <select name="arbitro" id="arbitro" required
-                            class="border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
+                            class="cursor-pointer border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
                             <option value="" id="default-option">Seleccione un Arbitro</option>
                             <option value="1">Juan Rodriguez</option>
                             <option value="2">Carlos Casanres Riano Poas</option>
@@ -120,7 +174,7 @@
                             Evento:
                         </label>
                         <select name="evento" id="evento" required
-                            class="border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
+                            class="cursor-pointer border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
                             <option value="" id="default-option">Seleccione un Evento</option>
                             <option value="1">Campeonato de las rosas 2023</option>
                             <option value="2">Copa Federacion Ranking Nacional G2 2022</option>
