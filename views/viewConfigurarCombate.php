@@ -85,12 +85,21 @@
                         </div>
                     </div>
                     <div class="relative z-0 w-full mb-6 group">
-                        <label for="fase_ronda" class="block mb-2 text-sm font-medium text-gray-400">
-                            Fase Ronda:
-                        </label>
-                        <input type="text" name="fase_ronda" id="fase_ronda" required
-                            class="border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
-                            placeholder="ej: cuartos de final">
+                    <label for="fase-ronda" class="block mb-2 text-sm font-medium text-gray-400">
+                                Fase Ronda:
+                            </label>
+                            <select name="fase-ronda" id="fase-ronda" required
+                                class="cursor-pointer border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
+                                <option value="" id="default-option">Seleccione una Ronda</option>
+                                <option value="1">Ronda clasificatoria</option>
+                                <option value="2">Fase de grupos</option>
+                                <option value="3">Treintaidosavos de final</option>
+                                <option value="4">Dieciseisavos de final</option>
+                                <option value="5">Octavos de final</option>
+                                <option value="6">Cuartos de final</option>
+                                <option value="7">Semifinales</option>
+                                <option value="8">Final</option>
+                            </select>
                     </div>
                     <div class="relative z-0 w-full mb-6 group flex flex-col gap-2">
                         <span class="block mb-2 text-sm font-medium text-gray-400">
