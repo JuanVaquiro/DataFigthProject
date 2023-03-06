@@ -11,7 +11,7 @@ let confirmPoint = false
 let kickedValue = 0
 
 export function saveMotion() {
-  if (hitValue !== 0 || locationHitValue !== 0) {
+  if (locationHitValue !== 0  || (hitValue !== 0  && positionValue !== 0)) {
     console.log('guardado', realiseMotion())
     setMotionPost(realiseMotion())
     locationHitValue = 0
@@ -22,7 +22,7 @@ export function saveMotion() {
     confirmPoint = false
     BTN_CONFIRM_POINT.style.background = 'none'
   } else {
-    alert('Por favor, seleccione un ataque')
+    alert('Por favor, seleccione un ataque y su posicion')
   }
 }
 
