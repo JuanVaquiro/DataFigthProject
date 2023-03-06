@@ -1,9 +1,10 @@
 import {
-  BTN_LEFT_HIT, BTN_RIGHT_HIT, BTN_LEFT_FOOT, BTN_RIGHT_FOOT, BTN_SPIN_KICK,
+  BTN_LEFT_HIT, BTN_RIGHT_HIT, BTN_LEFT_FOOT, BTN_RIGHT_FOOT, BTN_SPIN_KICK, BTN_SAVE_MOTION,
   BTN_FOWARD, BTN_BACK,
   BTN_HELMET, BTN_PECHERA,
   DISPLAY_TIMER, DISPLAY_ROUND, BTN_CONFIRM_POINT,
-  BTN_START_ROUND, BTN_PAUSE, BTN_SAVE_MOTION, BTN_ACCEPT_FOUL,
+  BTN_FINAL_FIGHT, BTN_START_ROUND, BTN_PAUSE, BTN_RETURN, BTN_FAULT, 
+  BTN_ACCEPT_FOUL,
   BTN_CHANGE_TIMER,
 } from './constDOM.js'
 import { MODAL_TIMER_FINISH, MODAL_CLOSE_FINISH, MODAL_TEXT_FINISH } from './constDOM.js'
@@ -24,7 +25,7 @@ const VALUE_HELMET = 1
 const VALUE_PECHERA = 2
 
 let isOnRound = false
-let minutes = 60 * 0.4 // 👈 assign duration to the round time
+let minutes = 60 * 1 // 👈 assign duration to the round time
 export let timerSelect
 export let roundCount = 0
 
@@ -38,21 +39,27 @@ BTN_BACK.disabled = true
 BTN_HELMET.disabled = true
 BTN_PECHERA.disabled = true
 BTN_SAVE_MOTION.disabled = true
+BTN_CONFIRM_POINT.disabled = true
+BTN_FINAL_FIGHT.disabled = true
+BTN_PAUSE.disabled = true
+BTN_RETURN.disabled = true
+BTN_FAULT.disabled = true
 
 // CLICK INIT FIGHT
 BTN_START_ROUND.addEventListener('click', finishOrStartRound)
 BTN_START_ROUND.addEventListener('click', executeFnt())
+// GET infoFight
 window.addEventListener('DOMContentLoaded', infoFight)
 
 function finishOrStartRound() {
   isOnRound = !isOnRound
   if (isOnRound) {
-    BTN_START_ROUND.textContent = 'Terminar Round --'
+    BTN_START_ROUND.textContent = 'Terminar Round'
     BTN_PAUSE.textContent = 'Pausar'
     timerSelect = startTimer(minutes, DISPLAY_TIMER)
     setRoundCount()
   } else {
-    BTN_START_ROUND.textContent = 'Iniciar Round ++'
+    BTN_START_ROUND.textContent = '→ Iniciar Round ←'
     clearInterval(timerSelect.clearIntervalID); // Clear the interval using clearIntervalID value
   }
   btnDisabled()
@@ -93,6 +100,11 @@ function btnDisabled() {
     BTN_HELMET.disabled = true
     BTN_PECHERA.disabled = true
     BTN_SAVE_MOTION.disabled = true
+    BTN_CONFIRM_POINT.disabled = true
+    BTN_FINAL_FIGHT.disabled = true
+    BTN_PAUSE.disabled = true
+    BTN_RETURN.disabled = true
+    BTN_FAULT.disabled = true
   } else {
     BTN_LEFT_HIT.disabled = false
     BTN_RIGHT_HIT.disabled = false
@@ -104,6 +116,11 @@ function btnDisabled() {
     BTN_HELMET.disabled = false
     BTN_PECHERA.disabled = false
     BTN_SAVE_MOTION.disabled = false
+    BTN_CONFIRM_POINT.disabled = false
+    BTN_FINAL_FIGHT.disabled = false
+    BTN_PAUSE.disabled = false
+    BTN_RETURN.disabled = false
+    BTN_FAULT.disabled = false
   }
 }
 
