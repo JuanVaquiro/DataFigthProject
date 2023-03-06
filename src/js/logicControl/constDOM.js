@@ -1,10 +1,11 @@
 
 // menu
-export const BTN_START_ROUND = document.getElementById('iniciar_ronda')
 export const BTN_FINAL_FIGHT = document.getElementById('finalizar_combate')
-export const BTN_SAVE_MOTION = document.getElementById('guardar_movimiento')
-export const BTN_ACCEPT_FOUL = document.getElementById('boton_aceptar_falta')
+export const BTN_START_ROUND = document.getElementById('iniciar_ronda')
 export const BTN_PAUSE = document.getElementById('pausar')
+export const BTN_FAULT = document.getElementById('falta')
+export const BTN_RETURN = document.getElementById('regresar')
+export const BTN_SAVE_MOTION = document.getElementById('guardar_movimiento')
 
 // hits
 export const BTN_LEFT_FOOT = document.getElementById('patada_izquierda')
@@ -43,6 +44,7 @@ export const btnSaveTime = document.getElementById('guardar_tiempo')
 // get all elements of the modal toggle button
 export const MODAL_TOGGLE_FAULT = document.querySelectorAll('[data-modal-toggle]')
 export const MODAL_RADIO_FAULT = document.getElementsByName('bordered_radio')
+export const BTN_ACCEPT_FOUL = document.getElementById('boton_aceptar_falta')
 
 // view modal timer finish
 export const MODAL_TIMER_FINISH = document.getElementById('modal')
