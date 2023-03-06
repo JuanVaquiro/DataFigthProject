@@ -2,16 +2,23 @@ import { MODAL_TOGGLE_FAULT, MODAL_RADIO_FAULT, DISPLAY_FAULT, } from './constDO
 import { timerSelect, roundCount } from './index.js'
 import { setFaultPost } from './fetchsData.js'
 
+let faultCount = 0
+
 export function saveFault() {
   console.log('guardado:', catchFault())
   setFaultPost(catchFault())
+  setFaultCount()
+  for (const radioButton of MODAL_RADIO_FAULT) {
+    if (radioButton.checked) {
+      radioButton.checked = false;
+    }
+  }
 }
 
 function catchFault() {
   const timerFault = parseFloat(timerSelect.getTime())
   for (const radioButton of MODAL_RADIO_FAULT) {
     if (radioButton.checked) {
-      setFaultCount()
       let selectedValue = parseInt(radioButton.value)
       return {
         falta: selectedValue,
@@ -23,9 +30,8 @@ function catchFault() {
 }
 
 function setFaultCount() {
-  let roundFault = 0
-  roundFault++
-  DISPLAY_FAULT.textContent = roundFault
+  faultCount++
+  DISPLAY_FAULT.textContent = faultCount
 }
 
 export function windosModalFault() {
@@ -52,5 +58,10 @@ export function windosModalFault() {
       modal.setAttribute('aria-hidden', 'true') // Establece el atributo 'aria-hidden' en 'true' cuando el modal está oculto
       modal.setAttribute('tabindex', '-1') // Establece el atributo 'tabindex' en '-1' para que el modal no sea accesible mediante el teclado
     })
+  })
+  window.addEventListener('click', function (event) {
+    if (event.target === MODAL_TOGGLE_FAULT) {
+      MODAL_TOGGLE_FAULT.style.display = 'none'
+    }
   })
 }
