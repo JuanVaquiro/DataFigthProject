@@ -11,6 +11,7 @@ import { MODAL_TIMER_CHANGE, MODAL_CLOSE_CHANGE } from './constDOM.js'
 import { saveMotion, setHitValue, setLocationHitValue, setPositionValue, confirmPointPechera } from './Motion.js'
 import { startTimer, pauseTimer } from './timer.js'
 import { saveFault, windosModalFault } from './fault.js'
+import { infoFight } from './fetchSet.js'
 
 const VALUE_FOOT_LEFT = 1
 const VALUE_FOOT_RIGHT = 2
@@ -41,6 +42,7 @@ BTN_SAVE_MOTION.disabled = true
 // CLICK INIT FIGHT
 BTN_START_ROUND.addEventListener('click', finishOrStartRound)
 BTN_START_ROUND.addEventListener('click', executeFnt())
+window.addEventListener('DOMContentLoaded', infoFight)
 
 function finishOrStartRound() {
   isOnRound = !isOnRound

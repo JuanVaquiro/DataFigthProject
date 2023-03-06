@@ -2,16 +2,26 @@
 
 namespace app\combate;
 
+session_start();
+
 require_once __DIR__ . "./../../vendor/autoload.php";
 
 use App\combate\RegistroAtaquesCombate;
 use App\combate\RegistroFaltasCombate;
+use App\combate\CargarDatosCombate;
 
 class AccionControl{
 
     public function validarPost(){
 
-        if( $_POST && !empty($_POST) && isset($_POST['golpe']) ){
+        if($_POST && isset($_POST['combate']) && !empty($_POST['combate'])){
+
+            $datosCombate = new CargarDatosCombate($_POST['combate'], $_SESSION['idUser']);
+            $datosCombate->validarDatos();
+            $datosCombate->traerDatos();
+
+        }
+        elseif( $_POST && !empty($_POST) && isset($_POST['golpe']) ){
 
             $registro = new RegistroAtaquesCombate(
                 $_POST['golpe'],

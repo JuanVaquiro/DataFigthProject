@@ -56,13 +56,13 @@
   <!-- informacion -->
   <article class="flex justify-between bg-sky-300">
     <div class="flex flex-col  mx-3 p-2 w-5/12 md:w-1/2">
-      <span class="">Andrea Camila Ramirez</span>
-      <span class="">Liga Boyaca</span>
+      <span class="" id="deportista">Andrea Camila Ramirez</span>
+      <span class="" id="delegacion">Liga Boyaca</span>
     </div>
     <div class="flex">
     <div class="flex flex-col items-center mx-3 p-2">
         <span class="">Fase</span>
-        <span class="">semifinal</span>
+        <span class="" id="fase">semifinal</span>
       </div>
       <div class="flex flex-col items-center mx-3 p-2">
         <span class="">Round</span>
@@ -186,3 +186,4 @@
       </div>
   </div>
 <script src="./../../src/js/logicControl/index.js" type="module"></script>
+<script src=""></script>
