@@ -2,78 +2,77 @@
   <div class="flex justify-around items-center h-80">
     <!-- acierto del golpe -->
     <div class="btns-group1 grid grid-cols-2 gap-3">
-      <button type="button" id="casco" class="h-20 w-28 focus:outline-none border border-gray-500 text-white bg-yellow-700 hover:bg-yellow-500 hover:border-gray-800 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2">
+      <button type="button" id="casco" class="h-20 w-28 focus:outline-none border border-gray-500 text-white bg-yellow-700 hover:bg-yellow-500 hover:border-gray-800 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 sm:p-0 sm:h-16 sm:w-24">
         Casco
       </button>
-      <button type="button" id="delante" class="h-20 w-28 focus:outline-none border border-gray-500 text-white bg-yellow-900 hover:bg-yellow-500 hover:border-gray-800 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2">
+      <button type="button" id="delante" class="h-20 w-28 focus:outline-none border border-gray-500 text-white bg-yellow-900 hover:bg-yellow-500 hover:border-gray-800 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 sm:p-0 sm:h-16 sm:w-24">
         Delantera
       </button>
       <div>
         <button id="confirmar_punto" class="z-50 fixed border-2 border-green-700 font-medium rounded-bl-2xl rounded-b-2xl  text-sm px-1 py-2 text-center mr-2 mb-1  text-white hover:bg-green-500">
           +
         </button>
-        <button type="button" id="pechera" class="h-20 w-28 focus:outline-none border border-gray-500 text-white bg-yellow-700 hover:bg-yellow-500 hover:border-gray-800 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2">
+        <button type="button" id="pechera" class="h-20 w-28 focus:outline-none border border-gray-500 text-white bg-yellow-700 hover:bg-yellow-500 hover:border-gray-800 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 sm:p-0 sm:h-16 sm:w-24">
           Pechera
         </button>
       </div>
-      <button type="button" id="trasera" class="h-20 w-28 focus:outline-none border border-gray-500 text-white bg-yellow-900 hover:bg-yellow-500 hover:border-gray-800 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2">
+      <button type="button" id="trasera" class="h-20 w-28 focus:outline-none border border-gray-500 text-white bg-yellow-900 hover:bg-yellow-500 hover:border-gray-800 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 sm:p-0 sm:h-16 sm:w-24">
         Trasera
       </button>
-      <button type="button" id="guardar_movimiento" class="div1 focus:outline-none border border-gray-500 text-white bg-green-800 hover:bg-green-700 focus:ring-4 focus:ring-green-600 font-medium rounded-lg text-sm px-5 py-2.5">
+      <button type="button" id="guardar_movimiento" class="focus:outline-none border border-gray-500 text-white bg-green-800 hover:bg-green-700 focus:ring-4 focus:ring-green-600 font-medium rounded-lg text-sm px-5 py-2.5 sm:h-16 sm:w-22 sm:p-0">
         GUARDAR
       </button>
     </div>
     <!-- Menu -->
     <article class="flex flex-col justify-center gap-2 text-white bg-slate-800 shadow-lg border border-slate-500/30 rounded-tl p-2 h-80 ring-1 ring-white/10 ring-inset">
-      <button type="button" id="finalizar_combate" class="p-4">Finalizar Combate</button>
-      <button type="button" id="iniciar_ronda" class="p-4">INICIAR</button>
-      <button type="button" id="pausar" class="p-4">Pausar</button>
-      <button type="button" id="regresar" class="p-4">Regresar</button>
+      <button type="button" id="finalizar_combate" class="p-4 sm:p-2 sm:my-1">Finalizar Combate</button>
+      <button type="button" id="iniciar_ronda" class="p-4 sm:p-2 sm:my-1">INICIAR</button>
+      <button type="button" id="pausar" class="p-4 sm:p-2 sm:my-1">Pausar</button>
+      <button type="button" id="regresar" class="p-4 sm:p-2 sm:my-1">Regresar</button>
     <!-- Modal toggle --> 
-      <button id="falta" data-modal-target="defaultModal" data-modal-toggle="defaultModal" class="p-4" type="button">
+      <button id="falta" data-modal-target="defaultModal" data-modal-toggle="defaultModal" class="p-4 sm:p-2" type="button">
         Falta
       </button>
     </article>
     <!-- Gulpes -->
     <div class="grid grid-cols-2 gap-3">
-      <button type="button" id="puño_derecho" class="h-20 w-28 border focus:outline-none focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 bg-red-900 text-white border-gray-500 hover:bg-red-500 hover:border-gray-600 focus:ring-gray-700">
+      <button type="button" id="puño_derecho" class="h-20 w-28 border focus:outline-none focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 bg-red-900 text-white border-gray-500 hover:bg-red-500 hover:border-gray-600 focus:ring-gray-700 sm:h-16 sm:w-24 sm:p-0">
         Puño derecho
       </button>
-      <button type="button" id="patada_derecha" class="h-20 w-28 border focus:outline-none focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 bg-red-700 text-white border-gray-500 hover:bg-red-500 hover:border-gray-600 focus:ring-gray-700">
+      <button type="button" id="patada_derecha" class="h-20 w-28 border focus:outline-none focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 bg-red-700 text-white border-gray-500 hover:bg-red-500 hover:border-gray-600 focus:ring-gray-700 sm:h-16 sm:w-24 sm:p-0">
         Patada derecha
       </button>
-      <button type="button" id="puño_izquierdo" class="h-20 w-28 border focus:outline-none focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 bg-red-900 text-white border-gray-500 hover:bg-red-500 hover:border-gray-600 focus:ring-gray-700">
+      <button type="button" id="puño_izquierdo" class="h-20 w-28 border focus:outline-none focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 bg-red-900 text-white border-gray-500 hover:bg-red-500 hover:border-gray-600 focus:ring-gray-700 sm:h-16 sm:w-24 sm:p-0">
         Puño izquierdo
       </button>
-      <button type="button" id="patada_izquierda" class="h-20 w-28 border focus:outline-none focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 bg-red-700 text-white border-gray-500 hover:bg-red-500 hover:border-gray-600 focus:ring-gray-700">
+      <button type="button" id="patada_izquierda" class="h-20 w-28 border focus:outline-none focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 bg-red-700 text-white border-gray-500 hover:bg-red-500 hover:border-gray-600 focus:ring-gray-700 sm:h-16 sm:w-24 sm:p-0">
         Patada izquierda
       </button>
-      <button type="button" id="patada_con_giro" class="border focus:outline-none focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2
-       bg-red-500 text-white border-gray-500 hover:bg-red-500 hover:border-gray-600 focus:ring-gray-700">
+      <button type="button" id="patada_con_giro" class="focus:outline-none border border-gray-500 text-white bg-red-500 hover:bg-red-300 hover:border-gray-600  focus:ring-4 focus:ring-gray-700 font-medium rounded-lg text-sm px-5 py-2.5 sm:h-16 sm:w-22 sm:p-0">
         Patada con giro
       </button>
     </div>
   </div>
   <!-- informacion -->
   <article class="flex justify-between  bg-slate-400">
-    <dl class="flex flex-col  mx-3 p-2 w-5/12 md:w-1/2">
+    <dl class="flex flex-col mx-3 p-2 w-5/12 md:w-1/2 sm:px-2 sm:w-full sm:m-0 sm:p-0">
       <dt class="" id="deportista">nombre No econtrado</dt>
       <dd class="" id="delegacion">delegacion No econtrado</dd>
     </dl>
     <div class="flex">
-    <dl class="flex flex-col items-center mx-3 p-2">
+    <dl class="flex flex-col items-center mx-3 p-2 sm:p-0">
       <dt class="">Fase</dt>
       <dd class="" id="fase">NAN</dd>
     </dl>
-    <dl class="flex flex-col items-center mx-3 p-2">
+    <dl class="flex flex-col items-center mx-3 p-2 sm:p-0">
       <dt class="">Round</dt>
       <dd id="round" class="py-1 px-4 rounded-lg shadow-md shadow-slate-800 text-white bg-slate-600">0</dd>
     </dl>
-    <dl class="flex flex-col items-center mx-3 p-2">
+    <dl class="flex flex-col items-center mx-3 p-2 sm:p-0">
       <dt class="">Faltas</dt>
       <dd id="contador_faltas" class="py-1 px-4 rounded-lg shadow-md shadow-slate-800 text-white bg-slate-600">0</dd>
     </dl>
-    <dl class="flex flex-col items-center mx-3 p-2">
+    <dl class="flex flex-col items-center mx-3 p-2 sm:p-0">
       <div class="flex gap-1 items-center">
         <dt>Tiempo</dt>
         <button id="cambiar_tiempo" type="button">
@@ -132,8 +131,8 @@
   </div>
 </div>
  <!-- Main modal Faltas -->
- <div id="defaultModal" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full">
-          <div class="relative ml-20 w-full h-full max-w-2xl md:h-auto lg:ml-80 2xl:ml-96">
+ <div id="defaultModal" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full sm:w-11/12 sm:h-5/6  ">
+          <div class="relative ml-20 w-full h-full max-w-2xl md:h-auto lg:ml-80 2xl:ml-96 sm:w-10/12 sm:h-4/6">
               <!-- Modal content -->
               <div class="relative rounded-lg shadow bg-gray-700">
                   <!-- Modal header -->
