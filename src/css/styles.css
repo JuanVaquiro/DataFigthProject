@@ -22,8 +22,6 @@
   font-family: 'Magra-Bold';
 }
 
-src/css/styles.css
-
 /* font-subTitle */
 .source-sans-pro {
   font-family: 'Source Sans Pro SemiBold';
@@ -78,6 +76,7 @@ button:disabled {
   background-color: gray;
   color: gainsboro;
   cursor: not-allowed;
+  border-radius: 0.5rem;
 }
 
 @media (min-width: 640px) {
