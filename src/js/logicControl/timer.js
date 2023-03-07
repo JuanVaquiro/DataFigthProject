@@ -1,10 +1,6 @@
-import { BTN_PAUSE } from './constDOM.js'
+import { BTN_PAUSE, DISPLAY_TIMER } from './constDOM.js'
 import { MODAL_MESSAGE, MODAL_CLOSE_MESSAGE, MODAL_TEXT_MESSAGE } from './constDOM.js'
-import {
-  MODAL_TIMER_CHANGE, MODAL_CLOSE_CHANGE, MODAL_MINUTES_INPUT_CHANGE,
-  MODAL_SECONDS_INPUT_CHANGE, MODAL_SAVE_TIME_CHANGE
-} from './constDOM.js'
-import { DISPLAY_TIMER } from './constDOM.js'
+import { MODAL_TIMER_CHANGE, MODAL_CLOSE_CHANGE, MODAL_MINUTES_INPUT_CHANGE, MODAL_SECONDS_INPUT_CHANGE, MODAL_SAVE_TIME_CHANGE } from './constDOM.js'
 import { windowModalFinishTimer } from './index.js'
 
 export function startTimer(duration, display) {
