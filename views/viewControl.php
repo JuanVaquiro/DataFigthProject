@@ -36,17 +36,17 @@
     </article>
     <!-- Gulpes -->
     <div class="grid grid-cols-2 gap-3">
-      <button type="button" id="puño_derecho" class="h-20 w-28 border focus:outline-none focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 bg-red-900 text-white border-gray-500 hover:bg-red-500 hover:border-gray-600 focus:ring-gray-700 sm:h-16 sm:w-24 sm:p-0">
-        Puño derecho
-      </button>
       <button type="button" id="patada_derecha" class="h-20 w-28 border focus:outline-none focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 bg-red-700 text-white border-gray-500 hover:bg-red-500 hover:border-gray-600 focus:ring-gray-700 sm:h-16 sm:w-24 sm:p-0">
         Patada derecha
       </button>
-      <button type="button" id="puño_izquierdo" class="h-20 w-28 border focus:outline-none focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 bg-red-900 text-white border-gray-500 hover:bg-red-500 hover:border-gray-600 focus:ring-gray-700 sm:h-16 sm:w-24 sm:p-0">
-        Puño izquierdo
+      <button type="button" id="puño_derecho" class="h-20 w-28 border focus:outline-none focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 bg-red-900 text-white border-gray-500 hover:bg-red-500 hover:border-gray-600 focus:ring-gray-700 sm:h-16 sm:w-24 sm:p-0">
+        Puño derecho
       </button>
       <button type="button" id="patada_izquierda" class="h-20 w-28 border focus:outline-none focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 bg-red-700 text-white border-gray-500 hover:bg-red-500 hover:border-gray-600 focus:ring-gray-700 sm:h-16 sm:w-24 sm:p-0">
         Patada izquierda
+      </button>
+      <button type="button" id="puño_izquierdo" class="h-20 w-28 border focus:outline-none focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 bg-red-900 text-white border-gray-500 hover:bg-red-500 hover:border-gray-600 focus:ring-gray-700 sm:h-16 sm:w-24 sm:p-0">
+        Puño izquierdo
       </button>
       <button type="button" id="patada_con_giro" class="focus:outline-none border border-gray-500 text-white bg-red-500 hover:bg-red-300 hover:border-gray-600  focus:ring-4 focus:ring-gray-700 font-medium rounded-lg text-sm px-5 py-2.5 sm:h-16 sm:w-22 sm:p-0">
         Patada con giro
