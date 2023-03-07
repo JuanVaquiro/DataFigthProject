@@ -37,9 +37,9 @@ export const MODAL_TEXT_MESSAGE = document.getElementById('modal_meesage')
 // view modal changes timer
 export const MODAL_TIMER_CHANGE = document.getElementById('modal_cambiar_tiempo')
 export const MODAL_CLOSE_CHANGE = document.getElementById('cerrar_modal')
-export const minutesInput = document.getElementById('minutes-input')
-export const secondsInput = document.getElementById('seconds-input')
-export const btnSaveTime = document.getElementById('guardar_tiempo')
+export const MODAL_MINUTES_INPUT_CHANGE = document.getElementById('minutes-input')
+export const MODAL_SECONDS_INPUT_CHANGE = document.getElementById('seconds-input')
+export const MODAL_SAVE_TIME_CHANGE = document.getElementById('guardar_tiempo')
 
 // get all elements of the modal toggle button
 export const MODAL_TOGGLE_FAULT = document.querySelectorAll('[data-modal-toggle]')

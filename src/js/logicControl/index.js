@@ -8,9 +8,8 @@ import {
   BTN_CHANGE_TIMER,
 } from './constDOM.js'
 import { MODAL_TIMER_FINISH, MODAL_CLOSE_FINISH, MODAL_TEXT_FINISH } from './constDOM.js'
-import { MODAL_TIMER_CHANGE, MODAL_CLOSE_CHANGE } from './constDOM.js'
 import { saveMotion, setHitValue, setLocationHitValue, setPositionValue, confirmPointPechera } from './Motion.js'
-import { startTimer, pauseTimer } from './timer.js'
+import { startTimer, pauseTimer, windowModalChangesTimer } from './timer.js'
 import { saveFault, windosModalFault } from './fault.js'
 import { infoFight } from './fetchSet.js'
 
@@ -79,7 +78,7 @@ function executeFnt() {
   BTN_SAVE_MOTION.addEventListener('click', saveMotion)
   BTN_ACCEPT_FOUL.addEventListener('click', saveFault)
   BTN_PAUSE.addEventListener('click', () => pauseTimer(timerSelect))
-  BTN_CHANGE_TIMER.addEventListener('click', () => windowModalChangesTimer())
+  BTN_CHANGE_TIMER.addEventListener('click', () => windowModalChangesTimer(timerSelect))
   windosModalFault()
 }
 
@@ -140,16 +139,3 @@ export function windowModalFinishTimer(text) {
     }
   })
 }
-
-function windowModalChangesTimer() {
-  MODAL_TIMER_CHANGE.style.display = 'block'
-  MODAL_CLOSE_CHANGE.addEventListener('click', function () {
-    MODAL_TIMER_CHANGE.style.display = 'none'
-  })
-  window.addEventListener('click', function (event) {
-    if (event.target === MODAL_TIMER_CHANGE) {
-      MODAL_TIMER_CHANGE.style.display = 'none'
-    }
-  })
-}
-

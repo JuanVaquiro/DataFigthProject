@@ -1,5 +1,10 @@
 import { BTN_PAUSE } from './constDOM.js'
 import { MODAL_MESSAGE, MODAL_CLOSE_MESSAGE, MODAL_TEXT_MESSAGE } from './constDOM.js'
+import {
+  MODAL_TIMER_CHANGE, MODAL_CLOSE_CHANGE, MODAL_MINUTES_INPUT_CHANGE,
+  MODAL_SECONDS_INPUT_CHANGE, MODAL_SAVE_TIME_CHANGE
+} from './constDOM.js'
+import { DISPLAY_TIMER } from './constDOM.js'
 import { windowModalFinishTimer } from './index.js'
 
 export function startTimer(duration, display) {
@@ -23,7 +28,8 @@ export function startTimer(duration, display) {
     }
   }
 
-  clearIntervalID = setInterval(setTimer, 1000) // 👈 speed timer delay in the Interval: ⏲ milliseconds: 0.75 = 1600, 0.50 = 2000, 0.25 = 4000
+  clearIntervalID = setInterval(setTimer, 1000) // 👈 speed timer delay in the Interval:
+  // ⏲ milliseconds: 0.75 = 1600, 0.50 = 2000, 0.25 = 4000
 
   const stopTimer = () => {
     isTimerRunning = false
@@ -59,5 +65,33 @@ function windowModalMessagePause(text, timerSelect) {
     timerSelect.start()
     MODAL_MESSAGE.style.display = 'none'
     BTN_PAUSE.textContent = 'Pausar'
+  })
+}
+
+export function windowModalChangesTimer(timerSelect) {
+  MODAL_TIMER_CHANGE.style.display = 'block'
+  MODAL_CLOSE_CHANGE.addEventListener('click', function () {
+    MODAL_TIMER_CHANGE.style.display = 'none'
+  })
+
+  window.addEventListener('click', function (event) {
+    if (event.target === MODAL_TIMER_CHANGE) {
+      MODAL_TIMER_CHANGE.style.display = 'none'
+    }
+  })
+
+  MODAL_SAVE_TIME_CHANGE.addEventListener('click', function () {
+    let newMinutes = parseInt(MODAL_MINUTES_INPUT_CHANGE.value)
+    let newSeconds = parseInt(MODAL_SECONDS_INPUT_CHANGE.value)
+    if (newMinutes === 0 && newSeconds === 0) {
+      alert('Por favor ingrese un valor mayor a "0" en alguno de los dos campos')
+    } else if (newMinutes <= 5 && newSeconds <= 59) {
+      let newDuration = newMinutes * 60 + newSeconds
+      clearInterval(timerSelect.clearIntervalID)
+      timerSelect = startTimer(newDuration, DISPLAY_TIMER)
+      MODAL_TIMER_CHANGE.style.display = 'none'
+    } else {
+      alert('Por favor ingrese un valor en minutos max=5 y en segundos max=59')
+    }
   })
 }
