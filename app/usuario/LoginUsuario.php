@@ -39,6 +39,7 @@ class LoginUsuario{
                 // $idUser = $registros[0]['id'];
                 $_SESSION['idUser'] = $registros[0]['id'];
                 $_SESSION['email'] = $registros[0]['email'];
+                $_SESSION['ultimoCombate'] = "";
                 // echo json_encode($_SESSION['idUser']);
                 echo json_encode("./home");
         }else{

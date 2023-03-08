@@ -20,7 +20,7 @@ class RegistroAtaquesCombate{
     private $id_usuario;
 
     public function __construct($id_golpe_tecnica = null, $posicionGolpe = null, $ubicacion_Golpe = null, 
-    $golpeo = null, $punto = null, $round = null, $segundoRound = null, $id_usuario = 1,  $id_combate = 1, $id_deportista = 1){
+    $golpeo = null, $punto = null, $round = null, $segundoRound = null, $id_usuario = null,  $id_combate = 1, $id_deportista = 1){
 
         $this->id_golpe_tecnica = $id_golpe_tecnica;
         $this->posicionGolpe = $posicionGolpe;
@@ -55,6 +55,8 @@ class RegistroAtaquesCombate{
         $registrar->bindParam(9, $this->segundoRound, PDO::PARAM_INT); 
         $registrar->bindParam(10, $this->id_usuario, PDO::PARAM_INT);
         $registrar->execute();
+
+        // $_SESSION['ultimoCombate'] = "hola";
 
         if ($registrar) {
 

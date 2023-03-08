@@ -30,7 +30,8 @@ class AccionControl{
                 $_POST['golpeo'],
                 $_POST['punto'],
                 $_POST['round'],
-                $_POST['segundo']
+                $_POST['segundo'],
+                $_SESSION['idUser']
             );
 
             $registro->obtenerSegundos();

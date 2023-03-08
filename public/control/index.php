@@ -20,3 +20,13 @@ use App\usuario\LoginUsuario;
 $login = new LoginUsuario(null, null);
 
 $login->validarLogin();
+
+echo $_GET['combate'];
+
+echo $_GET['deportista'];
+
+// echo "<pre>";
+
+// print_r($_SESSION['ultimoCombate']);
+
+// echo "</pre>";

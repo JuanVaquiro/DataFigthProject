@@ -188,5 +188,10 @@
           </div>
       </div>
   </div>
+  <script>
+
+    let combate = <?= $_GET['combate'] ?>;
+    let deportista = <?= $_GET['deportista'] ?>
+  
+</script>
 <script src="./../../src/js/logicControl/index.js" type="module"></script>
-<script src=""></script>
