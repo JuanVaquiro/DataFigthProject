@@ -1,5 +1,5 @@
 <section class="bg-slate-900 source-sans-pro">
-  <div class="flex justify-around items-center h-80 md:h-[342px]">
+  <div class="flex justify-around items-center h-80 sm:h-[21rem] md:h-[342px]">
     <!-- acierto del golpe -->
     <div class="btns-group1 grid grid-cols-2 gap-3">
       <button type="button" id="casco" class="h-20 w-28 focus:outline-none border border-gray-500 text-white bg-yellow-700 hover:bg-yellow-500 hover:border-gray-800 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 sm:p-0 sm:h-16 sm:w-24">
@@ -24,7 +24,7 @@
       </button>
     </div>
     <!-- Menu -->
-    <article class="flex flex-col justify-center gap-2 text-white bg-slate-800 shadow-lg border border-slate-500/30 rounded-tl p-2 h-80 ring-1 ring-white/10 ring-inset md:h-[342px]">
+    <article class="flex flex-col justify-center gap-2 text-white bg-slate-800 shadow-lg border border-slate-500/30 rounded-tl p-2 h-80 ring-1 ring-white/10 ring-inset sm:h-[21rem] md:h-[342px]">
       <button type="button" id="finalizar_combate" class="p-4 sm:p-2 sm:my-1 md:my-2">Finalizar Combate</button>
       <button type="button" id="iniciar_ronda" class="p-4 sm:p-2 sm:my-1 md:my-2">INICIAR</button>
       <button type="button" id="pausar" class="p-4 sm:p-2 sm:my-1 md:my-2">Pausar</button>
@@ -54,7 +54,7 @@
     </div>
   </div>
   <!-- informacion -->
-  <article class="flex justify-between bg-slate-400 sm:p-0 md:p-2">
+  <article class="flex justify-between bg-slate-400 sm:p-[11px] md:p-2">
     <dl class="flex flex-col mx-3 p-2 w-5/12 md:w-1/2 sm:px-2 sm:w-full sm:m-0 sm:p-0">
       <dt class="" id="deportista">nombre No econtrado</dt>
       <dd class="" id="delegacion">delegacion No econtrado</dd>
