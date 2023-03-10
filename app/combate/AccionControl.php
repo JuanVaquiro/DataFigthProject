@@ -31,7 +31,10 @@ class AccionControl{
                 $_POST['punto'],
                 $_POST['round'],
                 $_POST['segundo'],
-                $_SESSION['idUser']
+                $_SESSION['idUser'],
+                $_SESSION['combate'],
+                // $_SESSION['deportista'],
+                $_SESSION['idDeportista']
             );
 
             $registro->obtenerSegundos();

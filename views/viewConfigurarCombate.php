@@ -12,7 +12,7 @@
                     Rellena el siguiente formulario con sus respectivos campos para iniciar un combate
                 </p>
                 <!-- form -->
-                <form class="">
+                <form class="" id="form_config_combate">
                     <div class="grid md:grid-cols-2 md:gap-6">
                         <div class="relative z-0 w-full mb-6 group">
                             <label for="deportista_1" class="block mb-2 text-sm font-medium text-gray-400">

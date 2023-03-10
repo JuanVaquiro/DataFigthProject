@@ -48,7 +48,9 @@ BTN_FAULT.disabled = true
 BTN_START_ROUND.addEventListener('click', finishOrStartRound)
 BTN_START_ROUND.addEventListener('click', executeFnt())
 // GET infoFight
-window.addEventListener('DOMContentLoaded', infoFight)
+window.addEventListener('DOMContentLoaded', () => {
+  infoFight(deportista, combate)
+})
 
 function finishOrStartRound() {
   isOnRound = !isOnRound

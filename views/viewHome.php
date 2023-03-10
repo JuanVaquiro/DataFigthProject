@@ -50,5 +50,5 @@
         </div>
     </div>    
 </section>
-<script src="./../../src/js/usuarios/logOut.js"></script>
+<script src="./../../src/js/userLogin/logOut.js"></script>
 <script src="./../../src/js/stylesJs/menu.js"></script>

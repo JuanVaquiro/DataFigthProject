@@ -133,4 +133,4 @@
             </div>
         </div>
     </section>
-    <script src="./../../src/js/usuarios/registroUsuario.js"></script>
+    <script src="./../../src/js/userLogOut/registroUsuario.js"></script>

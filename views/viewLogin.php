@@ -62,4 +62,4 @@
             </div>
         </div>
     </section>
-    <script src="./../src/js/usuarios/login.js"></script>
+    <script src="./../src/js/userLogOut/login.js"></script>

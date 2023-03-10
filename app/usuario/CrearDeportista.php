@@ -1,6 +1,9 @@
 <?php
 
+namespace app\usuario;
+
 use config\Conexion;
+use PDO;
 
 class CrearDeportista{
 
@@ -16,8 +19,8 @@ class CrearDeportista{
     private $usuario;
     private $deporte;
 
-    public function __construct($ciudad, $nombre, $apellido, $tipoDocumento, $documento, 
-    $sexo, $email, $telefono, $fechaNacimiento, $usuario, $deporte){
+    public function __construct($ciudad = null, $nombre = null, $apellido = null, $tipoDocumento = null, $documento = null, 
+    $sexo = null, $email = null, $telefono = null, $fechaNacimiento = null, $usuario = null, $deporte = null){
 
         $this->ciudad = $ciudad;
         $this->nombre = $nombre;
@@ -70,6 +73,34 @@ class CrearDeportista{
             
         }
 
+    }
+
+    public function validarPost(){
+
+        if( $_POST && isset($_POST['name']) && isset($_POST['last-name']) && isset($_POST['type_document']) ){
+
+            $deportista = new CrearDeportista(
+                $_POST['ciudad'], 
+                $_POST['floating_name'], 
+                $_POST['floating_last-name'], 
+                $_POST['tipo-documento'], 
+                $_POST['floating_doc'], 
+                $_POST['sexo'], 
+                $_POST['floating_email'], 
+                $_POST['floating_phone'],
+                $_POST['floating_fecha_Nacimiento']
+            );
+            
+            // if($user->validarDatos()){
+            
+                // $user->registrarDeportista();
+            
+            // }
+        
+        }
+        else{
+            header("Location: ./../");
+        }
     }
 
 }
