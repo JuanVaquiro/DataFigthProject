@@ -22,14 +22,14 @@
 
                 <form id="form-crear-deportista">
                     <div class="relative z-0 w-full mb-6 group">
-                        <input type="text" name="floating_email" id="floating_name"
+                        <input type="text" name="floating_name" id="floating_name"
                             class="block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 appearance-none text-white border-gray-600 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                             placeholder=" " />
                         <label for="floating_name"
                             class="peer-focus:font-medium absolute text-sm text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Nombre</label>
                     </div>
                     <div class="relative z-0 w-full mb-6 group">
-                        <input type="password" name="floating_password" id="floating_last-name"
+                        <input type="text" name="floating_last-name" id="floating_last-name"
                             class="block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 appearance-none text-white border-gray-600 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                             placeholder=" "/>
                         <label for="floating_last-name"
@@ -48,7 +48,7 @@
                                 <label for="tipo-documento" class="block mb-2 text-sm font-medium text-gray-400">
                                     Tipo de documento:
                                 </label>
-                                <select id="tipo-documento"
+                                <select id="tipo-documento" name="tipo-documento"
                                     class="cursor-pointer border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
                                     <option value="" id="default-option">Seleccione una opcion</option>
                                     <option value="1">Tarjeta de identidad</option>
@@ -56,7 +56,7 @@
                                 </select>
                         </div>
                         <div class="relative z-0 w-full mb-6 group">
-                                <input type="text" name="floating_email" id="floating_doc"
+                                <input type="text" name="floating_doc" id="floating_doc"
                                     class="block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 appearance-none text-white border-gray-600 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                                     placeholder=" " />
                                 <label for="floating_doc"
@@ -68,7 +68,7 @@
                                 <label for="sexo" class="block mb-2 text-sm font-medium text-gray-400">
                                     Sexo:
                                 </label>
-                                <select id="sexo"
+                                <select id="sexo" name="sexo"
                                     class="cursor-pointer border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
                                     <option value="" id="default-option">Seleccione una opcion</option>
                                     <option value="1">Masculino</option>
@@ -79,7 +79,7 @@
                                 <label for="ciudad" class="block mb-2 text-sm font-medium text-gray-400">
                                     Ciudad:
                                 </label>
-                                <select id="ciudad"
+                                <select id="ciudad" name="ciudad"
                                     class="cursor-pointer border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
                                     <option value="" id="default-option">Seleccione una opcion</option>
                                     <option value="1">Espinal</option>
@@ -89,7 +89,7 @@
                     </div>
                     <div class="grid md:grid-cols-2 md:gap-6">
                         <div class="relative z-0 w-full mb-6 group">
-                            <input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" name="floating_phone"
+                            <input type="text" name="floating_phone"
                                 id="floating_phone"
                                 class="block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 appearance-none text-white border-gray-600 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                                 placeholder=" "/>
@@ -111,6 +111,17 @@
                                     placeholder=" " />
                                 <label for="floating_fecha_Nacimiento"
                                     class="peer-focus:font-medium absolute text-sm text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Fecha De Nacimiento</label>
+                        </div>
+                        <div class="relative z-0 w-full mb-6 group">
+                                <label for="deporte" class="block mb-2 text-sm font-medium text-gray-400">
+                                    Deporte:
+                                </label>
+                                <select id="deporte" name="deporte"
+                                    class="cursor-pointer border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
+                                    <option value="" id="default-option">Seleccione una opcion</option>
+                                    <option value="1">Taekwondo</option>
+                                    <!-- <option value="2">Femenino</option> -->
+                                </select>
                         </div>
                     </div>
                     <button type="submit"

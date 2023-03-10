@@ -47,7 +47,7 @@ class CrearDeportista{
         $pdo = new Conexion();
         $con = $pdo->conexion();
         
-        $registrar = $con->prepare("CALL insertDeportista(?,?,?,?,?,?,?,?)");
+        $registrar = $con->prepare("CALL insertDeportista(?,?,?,?,?,?,?,?,?,?,?)");
         $registrar->bindParam(1, $this->ciudad, PDO::PARAM_INT);
         $registrar->bindParam(2, $this->nombre, PDO::PARAM_STR);
         $registrar->bindParam(3, $this->apellido, PDO::PARAM_STR);
@@ -77,7 +77,7 @@ class CrearDeportista{
 
     public function validarPost(){
 
-        if( $_POST && isset($_POST['name']) && isset($_POST['last-name']) && isset($_POST['type_document']) ){
+        if( $_POST && isset($_POST['deporte']) && !empty($_POST['deporte'])){
 
             $deportista = new CrearDeportista(
                 $_POST['ciudad'], 
@@ -88,18 +88,24 @@ class CrearDeportista{
                 $_POST['sexo'], 
                 $_POST['floating_email'], 
                 $_POST['floating_phone'],
-                $_POST['floating_fecha_Nacimiento']
+                $_POST['floating_fecha_Nacimiento'],
+                $_SESSION['idUser'],
+                $_POST['deporte']
             );
             
+            // echo json_encode($_POST);
             // if($user->validarDatos()){
             
-                // $user->registrarDeportista();
+                $deportista->registrarDeportista();
             
             // }
         
         }
-        else{
+        elseif(!$_POST){
             header("Location: ./../");
+        }
+        else{
+            echo json_encode("hola");
         }
     }
 
