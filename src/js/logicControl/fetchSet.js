@@ -1,9 +1,7 @@
-export function infoFight(){
-
-    let deportista = 1;
+export function infoFight(deportista, combate){
 
     let formData = new FormData();
-    formData.append('combate', 1);
+    formData.append('combate', combate);
 
     fetch("./logicControl.php",{
 
@@ -11,12 +9,13 @@ export function infoFight(){
         body: formData
 
     }) 
-    .then( respuesta => respuesta.json())
+    .then(respuesta => respuesta.json())
     .then( data => {
 
         if(data != "./../home"){
 
             // console.log(data);
+            capturarInfo(data);
             document.getElementById('deportista').innerText = (deportista == 1) ? data[0].deportista1 : data[0].deportista2;
             document.getElementById('delegacion').innerText = (deportista == 1) ? data[0].delegacion1 : data[0].delegacion2;
             document.getElementById('fase').innerText = data[0].ronda;
@@ -27,4 +26,9 @@ export function infoFight(){
 
     })
 
+}
+
+export function capturarInfo(data){
+    console.log(data);
+    return data;
 }
