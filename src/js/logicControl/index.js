@@ -91,12 +91,13 @@ function executeFnt() {
 }
 
 function setRoundCount() {
-  console.log('cuent', roundCount, 'rona', numberRound)
+  console.log('cuont', roundCount, 'ronda', numberRound)
   if (roundCount < numberRound) {
     roundCount++
     DISPLAY_ROUND.textContent = roundCount
   } else {
-    alert('la partida a terminado')
+    alert('el combate finalizdo')
+    window.location.href = 'http://localhost/DataFigthProject/public/combate-finalizado/'
   }
 }
 
