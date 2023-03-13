@@ -25,6 +25,7 @@ const VALUE_PECHERA = 2
 
 let isOnRound = false
 let minutes = 60 * 1 // 👈 assign duration to the round time
+let numberRound = 0
 export let timerSelect
 export let roundCount = 0
 
@@ -141,3 +142,11 @@ export function windowModalFinishTimer(text) {
     }
   })
 }
+
+export function capturarInfo(data){
+  console.log(data);
+  return numberRound = data;
+}
+
+console.log(numberRound)
+console.log(capturarInfo())

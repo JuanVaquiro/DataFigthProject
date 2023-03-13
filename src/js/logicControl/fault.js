@@ -1,7 +1,6 @@
 import { MODAL_TOGGLE_FAULT, MODAL_RADIO_FAULT, DISPLAY_FAULT, } from './constDOM.js'
 import { timerSelect, roundCount } from './index.js'
 import { setFaultPost } from './fetchsData.js'
-import { capturarInfo } from './fetchSet.js'
 
 let faultCount = 0
 
