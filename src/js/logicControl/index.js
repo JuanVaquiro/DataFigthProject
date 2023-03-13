@@ -10,6 +10,7 @@ import {
 import { MODAL_TIMER_FINISH, MODAL_CLOSE_FINISH, MODAL_TEXT_FINISH } from './constDOM.js'
 import { saveMotion, setHitValue, setLocationHitValue, setPositionValue, confirmPointPechera } from './Motion.js'
 import { startTimer, pauseTimer, windowModalChangesTimer } from './timer.js'
+import { windowModalGoToBack } from './goToBack.js'
 import { saveFault, windosModalFault } from './fault.js'
 import { infoFight } from './fetchSet.js'
 
@@ -87,6 +88,7 @@ function executeFnt() {
   BTN_ACCEPT_FOUL.addEventListener('click', saveFault)
   BTN_PAUSE.addEventListener('click', () => pauseTimer(timerSelect))
   BTN_CHANGE_TIMER.addEventListener('click', () => windowModalChangesTimer(timerSelect))
+  BTN_RETURN.addEventListener('click', () => windowModalGoToBack())
   windosModalFault()
 }
 
@@ -153,3 +155,10 @@ export function windowModalFinishTimer(text) {
     }
   })
 }
+
+window.addEventListener('beforeunload', () => {
+  const inputs = document.querySelectorAll('input[type="radio"]');
+  inputs.forEach((input) => {
+    input.checked = false;
+  });
+});

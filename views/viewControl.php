@@ -121,11 +121,11 @@
       <div class="flex gap-5">
         <div class="flex flex-col items-center gap-1">
           <label for="minutes-input">MinutoMax: 5</label>
-          <input type="number" id="minutes-input" class="text-black w-4/12" value="0" min="1" max="5">
+          <input type="number" id="minutes-input" class="text-black w-4/12" value="0" min="0" max="5">
         </div>
         <div class="flex flex-col items-center gap-1">
           <label for="seconds-input">SegundoMax: 59</label>
-          <input type="number" id="seconds-input" class="text-black w-4/12" value="0" min="1" max="59">
+          <input type="number" id="seconds-input" class="text-black w-4/12" value="0" min="0" max="59">
         </div>
       </div>
       <button id="guardar_tiempo" class="text-white focus:ring-4 focus:outline-none  font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-blue-600 hover:bg-blue-700 focus:ring-blue-800">
@@ -188,6 +188,109 @@
           </div>
       </div>
   </div>
+  <div id="modal_actualizar_resgistro" class="modal">
+ <!-- Modal content regresar -->
+  <div class="modal-content">
+    <div class="flex items-start justify-between w-full p-4 border-b rounded-t border-gray-600">
+      <!-- Modal header regresar -->
+      <h3 class="text-xl text-center font-semibold text-white">
+        Corregir ultimo registro 
+      </h3>
+      <button id="cerrar_modal_regresar" type="button" class="text-gray-400 bg-red-600 bg-transparent rounded-lg text-sm p-1.5 ml-auto inline-flex items-center hover:bg-gray-600 hover:text-white">
+      <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+      </button>
+    </div>
+    <div class="flex flex-col items-center gap-3 p-2 ">
+      <div class="flex gap-5">
+          <div class="grid md:grid-cols-2 md:gap-6">
+            <div class="relative z-0 w-full mb-6 group flex flex-col gap-2">
+              <span class="block mb-2 text-sm font-medium text-gray-400">
+                Selecione el golpe:
+              </span>
+              <div class="flex items-center">
+                <input id="resgistro-golpe-1" type="radio" value="4" name="resgistro-golpe" class="w-4 h-4 text-blue-600 ring-offset-gray-800 focus:ring-2 bg-gray-700 border-gray-600">
+                <label for="resgistro-golpe-1" class="ml-2 text-sm font-medium text-gray-300">
+                  puño derecho
+                </label>
+              </div>
+              <div class="flex items-center">
+                <input id="resgistro-golpe-2" type="radio" value="3" name="resgistro-golpe" class="w-4 h-4 text-blue-600 ring-offset-gray-800 focus:ring-2 bg-gray-700 border-gray-600">
+                <label for="resgistro-golpe-2" class="ml-2 text-sm font-medium text-gray-300">
+                  puño izquierdo
+                </label>
+              </div>
+              <div class="flex items-center">
+                <input id="resgistro-golpe-3" type="radio" value="2" name="resgistro-golpe" class="w-4 h-4 text-blue-600 ring-offset-gray-800 focus:ring-2 bg-gray-700 border-gray-600">
+                <label for="resgistro-golpe-3" class="ml-2 text-sm font-medium text-gray-300">
+                  patada derecaha
+                </label>
+              </div>
+              <div class="flex items-center">
+                <input id="resgistro-golpe-4" type="radio" value="1" name="resgistro-golpe" class="w-4 h-4 text-blue-600 ring-offset-gray-800 focus:ring-2 bg-gray-700 border-gray-600">
+               <label for="resgistro-golpe-4" class="ml-2 text-sm font-medium text-gray-300">
+                  patada izquierda
+                </label>
+              </div>
+              <div class="flex items-center">
+                <input id="resgistro-golpe-5" type="radio" value="5" name="resgistro-golpe" class="w-4 h-4 text-blue-600 ring-offset-gray-800 focus:ring-2 bg-gray-700 border-gray-600">
+               <label for="resgistro-golpe-5" class="ml-2 text-sm font-medium text-gray-300">
+                  patada con giro
+                </label>
+              </div>
+            </div>
+             <div class="relative z-0 w-full mb-6 group flex flex-col gap-2">
+              <span class="block mb-2 text-sm font-medium text-gray-400">
+                Selecione la posicion:
+              </span>
+              <div class="flex items-center">
+                <input id="registro-posicion-1" type="radio" value="1" name="registro-posicion" class="w-4 h-4 text-blue-600 ring-offset-gray-800 focus:ring-2 bg-gray-700 border-gray-600">
+               <label for="registro-posicion-1" class="ml-2 text-sm font-medium text-gray-300">
+                  adelante
+                </label>
+              </div>
+              <div class="flex items-center">
+                <input id="registro-posicion-2" type="radio" value="2" name="registro-posicion" class="w-4 h-4 text-blue-600 ring-offset-gray-800 focus:ring-2 bg-gray-700 border-gray-600">
+                <label for="registro-posicion-2" class="ml-2 text-sm font-medium text-gray-300">
+                  trasera
+                </label>
+              </div>
+            </div>
+             <div class="relative z-0 w-full mb-6 group flex flex-col gap-2">
+              <span class="block mb-2 text-sm font-medium text-gray-400">
+                Selecione la ubicacion del golpe:
+              </span>
+              <div class="flex items-center">
+                <input id="registro-ubicacion-1" type="radio" value="1" name="registro-ubicacion" class="w-4 h-4 text-blue-600 ring-offset-gray-800 focus:ring-2 bg-gray-700 border-gray-600">
+                <label for="registro-ubicacion-1" class="ml-2 text-sm font-medium text-gray-300">
+                  casco
+                </label>
+              </div>
+              <div class="flex items-center">
+                <input id="registro-ubicacion-2" type="radio" value="2" name="registro-ubicacion" class="w-4 h-4 text-blue-600 ring-offset-gray-800 focus:ring-2 bg-gray-700 border-gray-600">
+               <label for="registro-ubicacion-2" class="ml-2 text-sm font-medium text-gray-300">
+                  pechera
+                </label>
+              </div>
+            </div>
+            <div class="relative z-0 w-full mb-6 group flex flex-col gap-2">
+              <span class="block mb-2 text-sm font-medium text-gray-400">
+                Confirmar punto en pechera:
+              </span>
+              <div class="flex items-center">
+                <input id="registrar-punto-1" type="radio" value="1" name="registrar-punto" class="w-4 h-4 text-blue-600 ring-offset-gray-800 focus:ring-2 bg-gray-700 border-gray-600">
+                <label for="registrar-punto-1" class="ml-2 text-sm font-medium text-gray-300">
+                  Punto
+                </label>
+              </div>
+            </div>
+          </div>
+      </div>
+      <button id="guardar_registro" class="text-white focus:ring-4 focus:outline-none  font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-blue-600 hover:bg-blue-700 focus:ring-blue-800">
+        Guardar
+      </button>
+    </div>
+  </div>
+</div>
   <script>
 
     let combate = <?= $_GET['combate'] ?>;

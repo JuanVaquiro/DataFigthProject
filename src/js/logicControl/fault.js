@@ -62,6 +62,11 @@ export function windosModalFault() {
   window.addEventListener('click', function (event) {
     if (event.target === MODAL_TOGGLE_FAULT) {
       MODAL_TOGGLE_FAULT.style.display = 'none'
+      for (const radioButton of MODAL_RADIO_FAULT) {
+        if (radioButton.checked) {
+          radioButton.checked = false;
+        }
+      }
     }
   })
 }

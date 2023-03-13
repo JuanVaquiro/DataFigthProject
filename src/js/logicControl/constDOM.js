@@ -41,6 +41,11 @@ export const MODAL_MINUTES_INPUT_CHANGE = document.getElementById('minutes-input
 export const MODAL_SECONDS_INPUT_CHANGE = document.getElementById('seconds-input')
 export const MODAL_SAVE_TIME_CHANGE = document.getElementById('guardar_tiempo')
 
+// view modal go to back register
+export const MODAL_GO_TO_BACK = document.getElementById('modal_actualizar_resgistro')
+export const MODAL_CLOSE_GO_TO_BACK = document.getElementById('cerrar_modal_regresar')
+export const MODAL_SAVE_GO_TO_BACK = document.getElementById('guardar_registro')
+
 // get all elements of the modal toggle button
 export const MODAL_TOGGLE_FAULT = document.querySelectorAll('[data-modal-toggle]')
 export const MODAL_RADIO_FAULT = document.getElementsByName('bordered_radio')
