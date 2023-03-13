@@ -12,7 +12,7 @@ formularioRegistro.addEventListener("submit", function(e){
     e.preventDefault();
     const dataForm = new FormData(formularioRegistro);
     // console.log(dataForm.get("name"));
-    fetch("./registrarDeportista",{
+    fetch("./registrarDeportista.php",{
 
         method: "POST", 
         body: dataForm
@@ -21,25 +21,27 @@ formularioRegistro.addEventListener("submit", function(e){
     .then( respuesta => respuesta.json())
     .then( data => {
 
+        // console.log(data);
+
         if(data == "Registro Exitoso"){
 
             Swal.fire({
                 icon: 'success',
-                title: data
+                title: "Deportista Creado"
               })
 
-              limpiar();
+            //   limpiar();
 
         }else if(data == "Error Al Registrar"){
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: data
+                text: "Error al crear deportista"
               })
         }else{
             Swal.fire({
                 icon: 'warning',
-                title: data
+                title: "complete los campos"
               })
         }
 
