@@ -8,7 +8,6 @@ export function saveFault() {
   console.log('guardado:', catchFault())
   setFaultPost(catchFault())
   setFaultCount()
-  capturarInfo()
   for (const radioButton of MODAL_RADIO_FAULT) {
     if (radioButton.checked) {
       radioButton.checked = false;

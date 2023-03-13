@@ -3,7 +3,7 @@ import {
   BTN_FOWARD, BTN_BACK,
   BTN_HELMET, BTN_PECHERA,
   DISPLAY_TIMER, DISPLAY_ROUND, BTN_CONFIRM_POINT,
-  BTN_FINAL_FIGHT, BTN_START_ROUND, BTN_PAUSE, BTN_RETURN, BTN_FAULT, 
+  BTN_FINAL_FIGHT, BTN_START_ROUND, BTN_PAUSE, BTN_RETURN, BTN_FAULT,
   BTN_ACCEPT_FOUL,
   BTN_CHANGE_TIMER,
 } from './constDOM.js'
@@ -23,9 +23,9 @@ const VALUE_BACK = 2
 const VALUE_HELMET = 1
 const VALUE_PECHERA = 2
 
+let numberRound
+let assingTimer
 let isOnRound = false
-let minutes = 60 * 1 // 👈 assign duration to the round time
-let numberRound = 0
 export let timerSelect
 export let roundCount = 0
 
@@ -53,12 +53,17 @@ window.addEventListener('DOMContentLoaded', () => {
   infoFight(deportista, combate)
 })
 
+export function capturarInfo(data) {
+  numberRound = data[0].rounds //👈 assign number to the round 
+  assingTimer = data[0].tiempo_round_seg //👈 assign duration to the round time
+}
+
 function finishOrStartRound() {
   isOnRound = !isOnRound
   if (isOnRound) {
     BTN_START_ROUND.textContent = 'Terminar Round'
     BTN_PAUSE.textContent = 'Pausar'
-    timerSelect = startTimer(minutes, DISPLAY_TIMER)
+    timerSelect = startTimer(assingTimer, DISPLAY_TIMER)
     setRoundCount()
   } else {
     BTN_START_ROUND.textContent = '→ Iniciar Round ←'
@@ -86,8 +91,13 @@ function executeFnt() {
 }
 
 function setRoundCount() {
-  roundCount++
-  DISPLAY_ROUND.textContent = roundCount
+  console.log('cuent', roundCount, 'rona', numberRound)
+  if (roundCount < numberRound) {
+    roundCount++
+    DISPLAY_ROUND.textContent = roundCount
+  } else {
+    alert('la partida a terminado')
+  }
 }
 
 function btnDisabled() {
@@ -142,11 +152,3 @@ export function windowModalFinishTimer(text) {
     }
   })
 }
-
-export function capturarInfo(data){
-  console.log(data);
-  return numberRound = data;
-}
-
-console.log(numberRound)
-console.log(capturarInfo())
