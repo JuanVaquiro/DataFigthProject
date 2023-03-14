@@ -77,12 +77,12 @@ export function setFaultPost(fault) {
 
 }
 
-// // 👇 fetch para hacer la peticion de boton regresar
-// export function set(params) {
+// 👇 fetch para hacer la peticion de boton regresar (UPDATE)
+export function setGoToBackPost(params) {
+  console.log('POST')
+}
 
-// }
-
-// // 👇 fetch para hacer la peticion de boton Finalizar Combate
+// 👇 fetch para hacer la peticion de boton Finalizar Combate
 // export function set(params) {
 
 // }

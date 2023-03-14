@@ -93,7 +93,6 @@ function executeFnt() {
 }
 
 function setRoundCount() {
-  console.log('cuont', roundCount, 'ronda', numberRound)
   if (roundCount < numberRound) {
     roundCount++
     DISPLAY_ROUND.textContent = roundCount

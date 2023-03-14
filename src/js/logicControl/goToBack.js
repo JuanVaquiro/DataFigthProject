@@ -1,5 +1,14 @@
 import { MODAL_GO_TO_BACK, MODAL_CLOSE_GO_TO_BACK, MODAL_SAVE_GO_TO_BACK } from './constDOM.js'
 import { timerSelect } from './index.js'
+// 👉 import { setGoToBackPost } from './fetchsData.js' 
+
+function saveGoToBack() {
+  console.log('data:', catchRegisterUpdate()) // 👈 catchRegisterUpdate() captur el objeto de los radios selecciondos
+  // 👉 aqui invocas: setGoToBackPost(catchRegisterUpdate())
+  timerSelect.start()
+  MODAL_GO_TO_BACK.style.display = 'none'
+  resetChecked()
+}
 
 export function windowModalGoToBack() {
   MODAL_GO_TO_BACK.style.display = 'block'
@@ -7,25 +16,18 @@ export function windowModalGoToBack() {
   MODAL_CLOSE_GO_TO_BACK.addEventListener('click', function () {
     timerSelect.start()
     MODAL_GO_TO_BACK.style.display = 'none'
-    MODAL_GO_TO_BACK.addEventListener("reset", resetChecked())
+    MODAL_GO_TO_BACK.addEventListener('reset', resetChecked())
   })
 
   window.addEventListener('click', function (event) {
     if (event.target === MODAL_GO_TO_BACK) {
       timerSelect.start()
       MODAL_GO_TO_BACK.style.display = 'none'
-      MODAL_GO_TO_BACK.addEventListener("reset", resetChecked())
+      MODAL_GO_TO_BACK.addEventListener('reset', resetChecked())
     }
   })
 
   MODAL_SAVE_GO_TO_BACK.addEventListener('click', saveGoToBack)
-}
-
-function saveGoToBack() {
-  catchRegisterUpdate()
-  timerSelect.start()
-  MODAL_GO_TO_BACK.style.display = 'none'
-  resetChecked()
 }
 
 function catchRegisterUpdate() {
@@ -49,12 +51,11 @@ function catchRegisterUpdate() {
   if (pointSelect) {
     registro.punto = parseInt(pointSelect.value)
   }
-  console.log(registro)
   return registro
 }
 
 function resetChecked() {
-  const inputs = MODAL_GO_TO_BACK.querySelectorAll("input[type=radio]")
+  const inputs = MODAL_GO_TO_BACK.querySelectorAll('input[type=radio]')
   inputs.forEach(input => {
     input.checked = false
   })
