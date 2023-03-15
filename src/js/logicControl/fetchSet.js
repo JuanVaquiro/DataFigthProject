@@ -3,6 +3,7 @@ import { capturarInfo } from './index.js'
 export function infoFight(deportista, combate) {
     let formData = new FormData()
     formData.append('combate', combate)
+    formData.append('deportista', deportista)
     fetch("./logicControl.php", {
         method: "POST",
         body: formData

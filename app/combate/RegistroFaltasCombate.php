@@ -15,7 +15,7 @@ class RegistroFaltasCombate{
     private $id_usuario;
 
     public function __construct($id_falta = null, $segundoRound = null, $round = null, 
-    $id_combate = 1, $id_deportista = 1, $id_usuario = 1){
+    $id_combate = null, $id_deportista = null, $id_usuario = null){
 
         $this->id_combate = $id_combate;
         $this->id_deportista = $id_deportista;

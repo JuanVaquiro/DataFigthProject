@@ -12,10 +12,12 @@ class CargarDatosCombate{
 
     private $combate;
     private $usuario;
+    private $deportista;
 
-    public function __construct($combate, $usuario){
+    public function __construct($combate, $usuario, $deportista){
         $this->combate = $combate;
         $this->usuario = $usuario;
+        $this->deportista = $deportista;
     }
 
     public function validarDatos(){
@@ -58,6 +60,26 @@ class CargarDatosCombate{
     
             echo json_encode("./../home");
     
+        }
+
+    }
+
+    public function obtenerIdDeportista(){
+
+        $pdo = new Conexion();
+        $con = $pdo->conexion();
+
+        $select = $con->prepare("CALL getIdDeportistas(?,?)");
+        $select->bindParam(1, $this->usuario, PDO::PARAM_INT);
+        $select->bindParam(2, $this->combate, PDO::PARAM_INT);
+        $select->execute();
+
+        $row = $select->fetch(PDO::FETCH_ASSOC);
+
+        if($this->deportista == 1){
+            $_SESSION['idDeportista'] = $row['id_deportista1'];
+        }else{
+            $_SESSION['idDeportista'] = $row['id_deportista2'];
         }
 
     }

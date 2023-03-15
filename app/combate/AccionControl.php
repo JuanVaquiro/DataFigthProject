@@ -16,9 +16,14 @@ class AccionControl{
 
         if($_POST && isset($_POST['combate']) && !empty($_POST['combate'])){
 
-            $datosCombate = new CargarDatosCombate($_POST['combate'], $_SESSION['idUser']);
+            $datosCombate = new CargarDatosCombate(
+                $_POST['combate'], 
+                $_SESSION['idUser'], 
+                $_POST['deportista']);
+                
             $datosCombate->validarDatos();
             $datosCombate->traerDatos();
+            $datosCombate->obtenerIdDeportista();
 
         }
         elseif( $_POST && !empty($_POST) && isset($_POST['golpe']) ){
@@ -46,7 +51,10 @@ class AccionControl{
             $registro = new RegistroFaltasCombate(
                 $_POST['falta'],
                 $_POST['tiempo'],
-                $_POST['round']
+                $_POST['round'],
+                $_SESSION['combate'],
+                $_SESSION['deportista'],
+                $_SESSION['idDeportista']
             );
 
             $registro->obtenerSegundos();
