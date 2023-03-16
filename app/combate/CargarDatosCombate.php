@@ -53,6 +53,8 @@ class CargarDatosCombate{
         if (count($registros) > 0) {
 
             echo json_encode($registros);
+
+            $this->obtenerIdDeportista();
     
         }
     
@@ -76,10 +78,18 @@ class CargarDatosCombate{
 
         $row = $select->fetch(PDO::FETCH_ASSOC);
 
-        if($this->deportista == 1){
-            $_SESSION['idDeportista'] = $row['id_deportista1'];
-        }else{
-            $_SESSION['idDeportista'] = $row['id_deportista2'];
+        if(count($row) > 0){
+
+            if($this->deportista == 1){
+                $_SESSION['idDeportista'] = $row['id_deportista1'];
+                $_SESSION['combate'] = $this->combate;
+                $_SESSION['deportista'] = $this->deportista;
+            }else{
+                $_SESSION['idDeportista'] = $row['id_deportista2'];
+                $_SESSION['combate'] = $this->combate;
+                $_SESSION['deportista'] = $this->deportista;
+            }
+
         }
 
     }

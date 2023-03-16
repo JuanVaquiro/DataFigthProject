@@ -62,6 +62,8 @@ class RegistroAtaquesCombate{
 
             // echo json_encode("Registro Exitoso");
             echo json_encode("Registro De Ataque Guardado");
+
+            $this->obtenerUltimoAtaque();
     
         }
     
@@ -89,6 +91,27 @@ class RegistroAtaquesCombate{
 
         }else{
             $this->segundoRound = ($this->segundoRound*60);
+        }
+
+    }
+
+    public function obtenerUltimoAtaque(){
+        
+        $pdo = new Conexion();
+        $con = $pdo->conexion();
+
+        $select = $con->prepare("CALL getUltimoAtaque(?,?,?)");
+        $select->bindParam(1, $this->id_usuario, PDO::PARAM_INT);
+        $select->bindParam(2, $this->id_combate, PDO::PARAM_INT);
+        $select->bindParam(3, $this->id_deportista, PDO::PARAM_INT);
+        $select->execute();
+
+        $row = $select->fetch(PDO::FETCH_ASSOC);
+
+        if(count($row) > 0){
+
+            $_SESSION['ultimoAtaque'] = $row['id'];
+
         }
 
     }

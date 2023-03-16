@@ -39,7 +39,7 @@ class LoginUsuario{
                 // $idUser = $registros[0]['id'];
                 $_SESSION['idUser'] = $registros[0]['id'];
                 $_SESSION['email'] = $registros[0]['email'];
-                $_SESSION['ultimoCombate'] = 0;
+                $_SESSION['ultimoAtaque'] = 0;
                 $_SESSION['combate'] = 0;
                 // $_SESSION['deportista'] = 0;
                 $_SESSION['idDeportista'] = 0;

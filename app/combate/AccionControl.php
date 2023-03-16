@@ -23,7 +23,7 @@ class AccionControl{
                 
             $datosCombate->validarDatos();
             $datosCombate->traerDatos();
-            $datosCombate->obtenerIdDeportista();
+            // $datosCombate->obtenerIdDeportista();
 
         }
         elseif( $_POST && !empty($_POST) && isset($_POST['golpe']) ){

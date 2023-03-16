@@ -25,8 +25,10 @@ echo $_GET['combate'];
 
 echo $_GET['deportista'];
 
-$_SESSION['combate'] = $_GET['combate'];
-$_SESSION['deportista'] = $_GET['deportista'];
+echo $_SESSION['ultimoAtaque'];
+
+// $_SESSION['combate'] = $_GET['combate'];
+// $_SESSION['deportista'] = $_GET['deportista'];
 // $_SESSION['idDeportista'] = $_GET['idDeportista'];
 
 // echo "<pre>";
