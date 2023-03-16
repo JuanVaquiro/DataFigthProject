@@ -24,8 +24,8 @@ const VALUE_BACK = 2
 const VALUE_HELMET = 1
 const VALUE_PECHERA = 2
 
-let numberRound
-let assingTimer
+let numberRound = 4
+let assingTimer = 30
 let isOnRound = false
 export let timerSelect
 export let roundCount = 0
@@ -54,10 +54,12 @@ window.addEventListener('DOMContentLoaded', () => {
   infoFight(deportista, combate)
 })
 
-export function capturarInfo(data) {
-  numberRound = data[0].rounds //👈 assign number to the round 
-  assingTimer = data[0].tiempo_round_seg //👈 assign duration to the round time
-}
+// export function capturarInfo(data) {
+//   // numberRound = data[0].rounds //👈 assign number to the round 
+//   // assingTimer = data[0].tiempo_round_seg //👈 assign duration to the round time
+//   numberRound = 2
+//   assingTimer = 180
+// }
 
 function finishOrStartRound() {
   isOnRound = !isOnRound
@@ -154,10 +156,3 @@ export function windowModalFinishTimer(text) {
     }
   })
 }
-
-window.addEventListener('beforeunload', () => {
-  const inputs = document.querySelectorAll('input[type="radio"]');
-  inputs.forEach((input) => {
-    input.checked = false;
-  });
-});

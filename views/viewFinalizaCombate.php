@@ -63,30 +63,32 @@
 
         </div>
         <h3 class="source-sans-pro mt-8 text-lg font-semibold text-white">Informacion</h3>
-        <dl class="mt-4 m-1 flex gap-2 items-center justify-center">
-          <dt class="kanit-ligth text-base text-gray-300">Round Totalales:</dt>
-          <dd
-            class="kanit-ligth text-base font-medium text-white py-1 px-4 rounded-lg shadow-md shadow-slate-800 bg-slate-600">
-            3</dd>
-        </dl>
-        <dl class="flex m-1 gap-2 items-center justify-center">
-          <dt class="kanit-ligth text-base text-gray-300">Duracion del Round:</dt>
-          <dd
-            class="kanit-ligth text-base font-medium text-white py-1 px-4 rounded-lg shadow-md shadow-slate-800 bg-slate-600">
-            3 min</dd>
-        </dl>
-        <dl class="flex m-1 gap-2 items-center justify-center">
-          <dt class="kanit-ligth text-base text-gray-300">Round Ganados:</dt>
-          <dd
-            class="kanit-ligth text-base font-medium text-white py-1 px-4 rounded-lg shadow-md shadow-slate-800 bg-slate-600">
-            2</dd>
-        </dl>
-        <dl class="flex m-1 gap-2 items-center justify-center">
-          <dt class="kanit-ligth text-base text-gray-300">Faltas Totales:</dt>
-          <dd
-            class="kanit-ligth text-base font-medium text-white py-1 px-4 rounded-lg shadow-md shadow-slate-800 bg-slate-600">
-            12</dd>
-        </dl>
+        <div>
+          <dl class="mt-4 m-1 flex gap-2 items-center justify-center">
+            <dt class="kanit-ligth text-base text-gray-300">Round Totalales:</dt>
+            <dd
+              class="kanit-ligth text-base font-medium text-white py-1 px-4 rounded-lg shadow-md shadow-slate-800 bg-slate-600">
+              3</dd>
+          </dl>
+          <dl class="flex m-1 gap-2 items-center justify-center">
+            <dt class="kanit-ligth text-base text-gray-300">Duracion del Round:</dt>
+            <dd
+              class="kanit-ligth text-base font-medium text-white py-1 px-4 rounded-lg shadow-md shadow-slate-800 bg-slate-600">
+              3 min</dd>
+          </dl>
+          <dl class="flex m-1 gap-2 items-center justify-center">
+            <dt class="kanit-ligth text-base text-gray-300">Round Ganados:</dt>
+            <dd
+              class="kanit-ligth text-base font-medium text-white py-1 px-4 rounded-lg shadow-md shadow-slate-800 bg-slate-600">
+              2</dd>
+          </dl>
+          <dl class="flex m-1 gap-2 items-center justify-center">
+            <dt class="kanit-ligth text-base text-gray-300">Faltas Totales:</dt>
+            <dd
+              class="kanit-ligth text-base font-medium text-white py-1 px-4 rounded-lg shadow-md shadow-slate-800 bg-slate-600">
+              12</dd>
+          </dl>
+        </div> 
       </div>
 
       <div>

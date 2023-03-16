@@ -44,6 +44,20 @@
   background-color: rgba(0, 0, 0, 0.5);
 }
 
+.modal-content-tiempo-terminado{
+  --tw-bg-opacity: 1;
+  background-color: rgb(55 65 81 / var(--tw-bg-opacity));
+  color: aliceblue;
+  border-radius: 8px;
+  margin: 15% auto;
+  padding: 20px;
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px
+}
+
 .modal-content {
   --tw-bg-opacity: 1;
   background-color: rgb(55 65 81 / var(--tw-bg-opacity));
