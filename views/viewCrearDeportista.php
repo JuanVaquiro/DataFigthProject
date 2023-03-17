@@ -19,7 +19,6 @@
                     Rellena el siguiente formulario con sus respectivos campos para crear un deportista
                 </p>
                 <!-- form -->
-
                 <form id="form-crear-deportista">
                     <div class="relative z-0 w-full mb-6 group">
                         <input type="text" name="floating_name" id="floating_name"
@@ -34,34 +33,6 @@
                             placeholder=" "/>
                         <label for="floating_last-name"
                             class="peer-focus:font-medium absolute text-sm text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Apellidos</label>
-                    </div>
-                    <!-- <div class="relative z-0 w-full mb-6 group">
-                        <input type="password" name="repeat_password" id="floating_repeat_password"
-                            class="block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 appearance-none text-white border-gray-600 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                            placeholder=" " required />
-                        <label for="floating_repeat_password"
-                            class="peer-focus:font-medium absolute text-sm text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Confirm
-                            password</label>
-                    </div> -->
-                    <div class="grid md:grid-cols-2 md:gap-6">
-                        <div class="relative z-0 w-full mb-6 group">
-                                <label for="tipo-documento" class="block mb-2 text-sm font-medium text-gray-400">
-                                    Tipo de documento:
-                                </label>
-                                <select id="tipo-documento" name="tipo-documento"
-                                    class="cursor-pointer border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
-                                    <option value="" id="default-option">Seleccione una opcion</option>
-                                    <option value="1">Tarjeta de identidad</option>
-                                    <option value="2">Cedula de ciudadania</option>
-                                </select>
-                        </div>
-                        <div class="relative z-0 w-full mb-6 group">
-                                <input type="text" name="floating_doc" id="floating_doc"
-                                    class="block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 appearance-none text-white border-gray-600 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                                    placeholder=" " />
-                                <label for="floating_doc"
-                                    class="peer-focus:font-medium absolute text-sm text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Documento</label>
-                        </div>
                     </div>
                     <div class="grid md:grid-cols-2 md:gap-6">
                         <div class="relative z-0 w-full mb-6 group">
@@ -85,6 +56,26 @@
                                     <option value="1">Espinal</option>
                                     <option value="2">Girardot</option>
                                 </select>
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-2 md:gap-6">
+                        <div class="relative z-0 w-full mb-6 group">
+                                <label for="tipo-documento" class="block mb-2 text-sm font-medium text-gray-400">
+                                    Tipo de documento:
+                                </label>
+                                <select id="tipo-documento" name="tipo-documento"
+                                    class="cursor-pointer border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
+                                    <option value="" id="default-option">Seleccione una opcion</option>
+                                    <option value="1">Tarjeta de identidad</option>
+                                    <option value="2">Cedula de ciudadania</option>
+                                </select>
+                        </div>
+                        <div class="relative z-0 w-full mb-6 group">
+                                <input type="text" name="floating_doc" id="floating_doc"
+                                    class="block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 appearance-none text-white border-gray-600 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                                    placeholder=" " />
+                                <label for="floating_doc"
+                                    class="peer-focus:font-medium absolute text-sm text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Documento</label>
                         </div>
                     </div>
                     <div class="grid md:grid-cols-2 md:gap-6">
