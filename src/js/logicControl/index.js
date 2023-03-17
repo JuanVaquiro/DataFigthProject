@@ -57,8 +57,6 @@ window.addEventListener('DOMContentLoaded', () => {
 // export function capturarInfo(data) {
 //   // numberRound = data[0].rounds //👈 assign number to the round 
 //   // assingTimer = data[0].tiempo_round_seg //👈 assign duration to the round time
-//   numberRound = 2
-//   assingTimer = 180
 // }
 
 function finishOrStartRound() {

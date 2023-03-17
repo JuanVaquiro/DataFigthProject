@@ -1696,10 +1696,6 @@ button:disabled {
   .setctionRegistroUsuario {
     height: 100vh
   }
-
-  .setctionConfigCombat {
-    height: 100vh
-  }
 }
 
 /* dropdown home-menu */
@@ -2270,16 +2266,16 @@ button:disabled {
     margin-left: 20rem;
   }
 
+  .lg\:w-2\/4 {
+    width: 50%;
+  }
+
   .lg\:w-5\/12 {
     width: 41.666667%;
   }
 
   .lg\:w-96 {
     width: 24rem;
-  }
-
-  .lg\:w-2\/4 {
-    width: 50%;
   }
 
   .lg\:justify-start {
