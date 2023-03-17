@@ -1,10 +1,10 @@
 import { MODAL_GO_TO_BACK, MODAL_CLOSE_GO_TO_BACK, MODAL_SAVE_GO_TO_BACK } from './constDOM.js'
 import { timerSelect } from './index.js'
-// 👉 import { setGoToBackPost } from './fetchsData.js' 
+import { setGoToBackPost } from './fetchsData.js' 
 
 function saveGoToBack() {
   console.log('data:', catchRegisterUpdate()) // 👈 catchRegisterUpdate() captur el objeto de los radios selecciondos
-  // 👉 aqui invocas: setGoToBackPost(catchRegisterUpdate())
+  setGoToBackPost(catchRegisterUpdate())
   timerSelect.start()
   MODAL_GO_TO_BACK.style.display = 'none'
   resetChecked()

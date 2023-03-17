@@ -78,8 +78,13 @@ export function setFaultPost(fault) {
 }
 
 // 👇 fetch para hacer la peticion de boton regresar (UPDATE)
-export function setGoToBackPost(params) {
-  console.log('POST')
+export function setGoToBackPost(datos) {
+  // console.log('POST')
+  // let formdata = new FormData()
+  // formdata.append('golpe', motions.golpe)
+  // formdata.append('posicion', motions.posicion)
+  // formdata.append('ubicacion', motions.ubicacionGolpe)
+  // formdata.append('punto', motions.punto)
 }
 
 // 👇 fetch para hacer la peticion de boton Finalizar Combate

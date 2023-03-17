@@ -9,6 +9,7 @@ require_once __DIR__ . "./../../vendor/autoload.php";
 use App\combate\RegistroAtaquesCombate;
 use App\combate\RegistroFaltasCombate;
 use App\combate\CargarDatosCombate;
+use App\combate\UpdateUltimoAtaque;
 
 class AccionControl{
 
@@ -59,6 +60,9 @@ class AccionControl{
 
             $registro->obtenerSegundos();
             $registro->registrarFalta();
+
+        }
+        elseif( $_POST && !empty($_POST) && isset($_POST['update']) ){
 
         }
         else{
