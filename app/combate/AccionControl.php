@@ -27,7 +27,7 @@ class AccionControl{
             // $datosCombate->obtenerIdDeportista();
 
         }
-        elseif( $_POST && !empty($_POST) && isset($_POST['golpe']) ){
+        elseif( $_POST && !empty($_POST) && isset($_POST['golpe']) && !isset($_POST['update']) ){
 
             $registro = new RegistroAtaquesCombate(
                 $_POST['golpe'],
@@ -62,7 +62,19 @@ class AccionControl{
             $registro->registrarFalta();
 
         }
-        elseif( $_POST && !empty($_POST) && isset($_POST['update']) ){
+        elseif( $_POST && !empty($_POST) && isset($_POST['update'])){
+
+            $datos = new UpdateUltimoAtaque(
+                $_POST['golpe'],
+                $_POST['posicion'],
+                $_POST['golpeo'],
+                $_POST['punto'],
+                $_SESSION['ultimoAtaque'],
+                $_POST['update'],
+                $_POST['ubicacion']
+            );
+            
+            $datos->actualizarAtaque();
 
         }
         else{

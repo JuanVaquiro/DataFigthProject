@@ -38,6 +38,8 @@ function catchRegisterUpdate() {
   const locationHitSelect = document.querySelector('input[name="registro-ubicacion"]:checked')
   const pointSelect = document.querySelector('input[name="registrar-punto"]:checked')
 
+  // registro.golpeo = 0
+
   // store the selected values in the object  
   if (hitSelect) {
     registro.golpe = parseInt(hitSelect.value)
@@ -47,6 +49,7 @@ function catchRegisterUpdate() {
   }
   if (locationHitSelect) {
     registro.ubicacion = parseInt(locationHitSelect.value)
+    registro.golpeo = 1
   }
   if (pointSelect) {
     registro.punto = parseInt(pointSelect.value)

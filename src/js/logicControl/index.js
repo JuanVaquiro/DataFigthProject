@@ -97,8 +97,8 @@ function setRoundCount() {
     roundCount++
     DISPLAY_ROUND.textContent = roundCount
   } else {
-    alert('el combate finalizdo')
-    window.location.href = 'http://localhost/DataFigthProject/public/combate-finalizado/'
+    alert('el combate finalizado')
+    window.location.href = './../combate-finalizado'
   }
 }
 
