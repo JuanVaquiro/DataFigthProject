@@ -1,3 +1,41 @@
+<section class="main-container-video">
+  <div class="fila1">
+    <video src=""></video>
+  </div>
+  <div class="fila2">
+    <div class="barra1">
+      <div class="barra2"></div>
+    </div>
+  </div>
+  <div class="fila3">
+    <div class="izquierda">
+      <button>
+        <img id="images" class="play" src="./../../dist/img/iconsVideo/play.svg" alt="play-video">
+      </button>
+      <button>
+        <img id="images" class="siguiente" src="./../../dist/img/iconsVideo/siguiente.svg" alt="siguiente-video">
+      </button>
+      <button>
+        <img id="images" class="reiniciar" src="./../../dist/img/iconsVideo/reinicar.svg" alt="reiniciar-video">
+      </button>
+      <button>
+        <img id="images" class="volumen" src="./../../dist/img/iconsVideo/volumen1.svg" alt="volumen-video">
+      </button>
+      <button class="velocidad font-bold magra-bold text-2xl">
+        x1
+      </button>
+      <div class="estado text-xl px-4"></div>
+    </div>
+    <div class="derecha">
+      <button>
+        <img id="images" class="reducir" src="./../../dist/img/iconsVideo/ampliar.svg" alt="reducir-video">
+      </button>
+    </div>
+  </div>
+</section>
+<script type="module" src="./../../src/js/videoPlayer/player.js"></script>
+
+
 <section class="bg-slate-900 source-sans-pro">
   <div class="flex justify-around items-center h-80 sm:h-[21rem] md:h-[342px]">
     <!-- acierto del golpe -->
