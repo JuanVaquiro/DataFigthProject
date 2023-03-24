@@ -54,7 +54,8 @@ class CrearEvento{
 
     public function validarPost(){
 
-        if(isset($_POST) && !empty($_POST)){
+        if(isset($_POST) && !empty($_POST) && isset($_POST['floating_evento']) 
+        && !empty($_POST['floating_evento'])){
 
             $evento = new CrearEvento(
                 $_POST['floating_evento'],

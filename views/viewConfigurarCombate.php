@@ -21,8 +21,8 @@
                             <select name="deportista_1" id="deportista_1" required
                                 class="cursor-pointer border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
                                 <option value="" id="default-option">Seleccione un Deportista</option>
-                                <option value="1">Juan Rodriguez</option>
-                                <option value="2">Carlos Casanres Riano Poas</option>
+                                <!-- <option value="1">Juan Rodriguez</option>
+                                <option value="2">Carlos Casanres Riano Poas</option> -->
                             </select>
                         </div>
                         <div class="relative z-0 w-full mb-6 group">
@@ -45,8 +45,8 @@
                             <select name="deportista_2" id="deportista_2" required
                                 class="cursor-pointer border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
                                 <option value="" id="default-option">Seleccione un Deportista 2</option>
-                                <option value="1">Juan Rodriguez</option>
-                                <option value="2">Carlos Casanres Riano Poas</option>
+                                <!-- <option value="1">Juan Rodriguez</option>
+                                <option value="2">Carlos Casanres Riano Poas</option> -->
                             </select>
                         </div>
                         <div class="relative z-0 w-full mb-6 group">
@@ -198,3 +198,4 @@
         </div>
     </div>
 </section>
+<script src="./../../src/js/userLogin/datosFormCombate.js"></script>
