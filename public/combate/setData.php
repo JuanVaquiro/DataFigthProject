@@ -6,6 +6,8 @@ require_once __DIR__ . "./../../vendor/autoload.php";
 
 use App\usuario\CargarDatosForm;
 
-$evento = new CargarDatosForm(1, $_SESSION['idUser']);
+$estado = 1;
 
-$evento->getDeportistasActivos();
+$evento = new CargarDatosForm($estado, $_SESSION['idUser']);
+
+$evento->getData();
