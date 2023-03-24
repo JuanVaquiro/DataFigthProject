@@ -1,13 +1,14 @@
-const formulario = document.getElementById("form-delegacion")
+const formulario = document.getElementById("form-evento")
 
 const datos = []
 
 formulario.addEventListener('submit', function(e){
 
     e.preventDefault()
+    // alert('Hola')
     const dataForm = new FormData(formulario)
 
-    fetch("./registrarDelegacion.php",{
+    fetch("./registrarEvento.php",{
 
         method: "POST", 
         body: dataForm
@@ -16,13 +17,13 @@ formulario.addEventListener('submit', function(e){
     .then( respuesta => respuesta.json())
     .then( data => {
 
-        // console.log(data);
+        console.log(data);
 
         if(data == "Registro Exitoso"){
 
             Swal.fire({
                 icon: 'success',
-                title: "Evento registrado"
+                title: "Evento Creado"
               })
 
             //   limpiar();
@@ -41,4 +42,5 @@ formulario.addEventListener('submit', function(e){
         }
 
     })
+
 })

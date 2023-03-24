@@ -60,7 +60,7 @@ class CrearDelegacion{
     public function validarPost(){
 
         if( isset($_POST) && !empty($_POST) && isset($_POST['floating_delegacion']) 
-        && isset($_POST['ciudad']) ){
+        && isset($_POST['ciudad']) && !empty($_POST['floating_delegacion']) && !empty($_POST['ciudad'])){
 
             $delegacion = new CrearDelegacion(
                 $_POST['floating_delegacion'],
@@ -71,10 +71,14 @@ class CrearDelegacion{
                 $_POST['floating_siglas'],
             );
 
+            $delegacion->validarDatos();
+
             $delegacion->registrarDelegacion();
 
             // echo json_encode($_POST);
 
+        }else{
+            echo json_encode("hola");
         }
 
     }
