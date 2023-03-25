@@ -1,10 +1,10 @@
 window.onload = inicio
 
-let videos = ['video2.mp4', 'video1.mp4']
+let videos = ['video2.mp4']
+let velocidades = [ 1.25, 1.5, 2, 1, 0.25, 0.5, 0.75,]
 let vid
 let orden = []
 let videoActual = 0
-let velocidades = [ 1.25, 1.5, 2, 1, 0.25, 0.5, 0.75,]
 let velocidadActual = 1
 
 function inicio() {
@@ -56,7 +56,7 @@ function reordenar() {
 function reproducir() {
   let videoToca = orden[videoActual]
   vid.src = `./../../dist/videos/${videos[videoToca]}`
-  // vid.play()
+  // vid.play() Juancho12
 }
 
 function siguiente() {
