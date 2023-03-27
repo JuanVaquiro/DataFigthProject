@@ -1,6 +1,6 @@
 <?php
 
-namespace App\usuario;
+namespace app\usuario;
 
 require_once __DIR__ . "/../../vendor/autoload.php";
 
@@ -23,8 +23,8 @@ class CrearCombate{
     private $tipoRonda;
     private $usuario;
 
-    public function __construct($deporte, $deportista1, $delegacion1, $deportista2, $delegacion2, $evento, 
-    $arbitro, $horaFechaInicio, $segundosRound, $nRounds, $tipoRonda, $usuario){
+    public function __construct($deporte = 0, $deportista1 = 0, $delegacion1 = 0, $deportista2 = 0, $delegacion2 = 0, $evento = 0, 
+    $arbitro = 0, $horaFechaInicio = 0, $segundosRound = 0, $nRounds = 0, $tipoRonda = 0, $usuario = 0){
 
         $this->deporte = $deporte;
         $this->deportista1 = $deportista1;
@@ -79,7 +79,7 @@ class CrearCombate{
         $pdo = new Conexion();
         $con = $pdo->conexion();
 
-        $registrar = $con->prepare("CALL insertUsuario(?,?,?,?,?,?,?,?,?,?,?,?)");
+        $registrar = $con->prepare("CALL crearCombate(?,?,?,?,?,?,?,?,?,?,?,?)");
         $registrar->bindParam(1, $this->deporte, PDO::PARAM_INT);
         $registrar->bindParam(2, $this->deportista1, PDO::PARAM_INT);
         $registrar->bindParam(3, $this->delegacion1, PDO::PARAM_INT);
@@ -96,14 +96,61 @@ class CrearCombate{
 
         if ($registrar) {
 
-            echo json_encode("Combate Creado");
+            echo json_encode("Registro Exitoso");
     
         }
     
         else {
     
-            echo json_encode("Error Al Crear Combate");
+            echo json_encode("Error");
     
+        }
+
+    }
+
+    public function obtenerSegundos(){
+
+        if(strlen($this->segundosRound) != 1){
+            
+            $tiempo = explode('.',$this->segundosRound);
+
+            $segundos = $tiempo[1];
+
+            $minutos = $tiempo[0];
+
+            $this->segundosRound = ($segundos + ($minutos*60));
+
+        }else{
+            $this->segundosRound = ($this->segundosRound*60);
+        }
+
+    }
+
+    public function validarPost(){
+
+        if(isset($_POST) && isset($_POST['deportista_1']) && !empty($_POST['deportista_1'])){
+            // echo json_encode("Hello");
+            // $deporte=1;
+            $combate = new CrearCombate(
+                $_POST['deporte-radio'],
+                $_POST['deportista_1'],
+                $_POST['delegacion_1'],
+                $_POST['deportista_2'],
+                $_POST['delegacion_2'],
+                $_POST['evento'],
+                $_POST['arbitro'],
+                $_POST['datetime_local'],
+                $_POST['duracion-round-radio'],
+                $_POST['numero-round-radio'],
+                $_POST['fase-ronda'],
+                $_SESSION['idUser']
+            );
+
+            $combate->obtenerSegundos();
+            $combate->registrarCombate();
+
+        }else{
+            echo json_encode("Adios");
         }
 
     }

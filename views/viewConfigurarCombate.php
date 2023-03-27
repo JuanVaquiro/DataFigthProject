@@ -199,3 +199,4 @@
     </div>
 </section>
 <script src="./../../src/js/userLogin/datosFormCombate.js"></script>
+<script src="./../../src/js/userLogin/crearCombate.js"></script>
