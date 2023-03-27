@@ -1,11 +1,10 @@
 window.addEventListener('DOMContentLoaded', () => {
     
-    // let formData = new FormData()
-    // formData.append('combate', combate)
-    // formData.append('deportista', deportista)
-    fetch("./setData.php", {
-        // method: "POST",
-        // body: formData
+    let formData = new FormData()
+    formData.append('config-combate', true)
+    fetch("./../setData.php", {
+        method: "POST",
+        body: formData
     })
     .then(respuesta => respuesta.json())
     .then(data => {

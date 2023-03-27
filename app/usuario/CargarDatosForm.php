@@ -128,7 +128,71 @@ class CargarDatosForm{
 
     }
 
-    public function getData(){
+    public function getSex(){
+
+        $pdo = new Conexion();
+        $con = $pdo->conexion();
+        $paramt = 1;
+
+        $select = $con->prepare("CALL getSex(?)");
+        $select->bindParam(1, $paramt, PDO::PARAM_INT);
+        $select->execute();
+        $row = $select->fetchAll(PDO::FETCH_ASSOC);
+        $select->closeCursor();
+
+        return $row;
+
+    }
+
+    public function getTipoDoc(){
+
+        $pdo = new Conexion();
+        $con = $pdo->conexion();
+        $paramt = 1;
+
+        $select = $con->prepare("CALL getTipoDocumento(?)");
+        $select->bindParam(1, $paramt, PDO::PARAM_INT);
+        $select->execute();
+        $row = $select->fetchAll(PDO::FETCH_ASSOC);
+        $select->closeCursor();
+
+        return $row;
+
+    }
+
+    public function getEstados(){
+
+        $pdo = new Conexion();
+        $con = $pdo->conexion();
+        $paramt = 1;
+
+        $select = $con->prepare("CALL getDepartamentos(?)");
+        $select->bindParam(1, $paramt, PDO::PARAM_INT);
+        $select->execute();
+        $row = $select->fetchAll(PDO::FETCH_ASSOC);
+        $select->closeCursor();
+
+        return $row;
+
+    }
+
+    public function getCiudades(){
+
+        $pdo = new Conexion();
+        $con = $pdo->conexion();
+        $paramt = 1;
+
+        $select = $con->prepare("CALL getCiudades(?)");
+        $select->bindParam(1, $paramt, PDO::PARAM_INT);
+        $select->execute();
+        $row = $select->fetchAll(PDO::FETCH_ASSOC);
+        $select->closeCursor();
+
+        return $row;
+
+    }
+
+    public function getDataFormCombate(){
 
         $array = [
                 'deportistas' => $this->getDeportistasActivos(),
@@ -140,6 +204,34 @@ class CargarDatosForm{
         ];
 
         echo json_encode($array);
+    }
+
+    public function getDataFormDeportista(){
+
+        $array = [
+            'sexo' => $this->getSex(),
+            'tipo_doc' => $this->getTipoDoc(),
+            'deportes' => $this->getDeportes(),
+            'estados' => $this->getEstados(),
+            'ciudades' => $this->getCiudades()
+        ];
+
+        echo json_encode($array);
+
+    }
+
+    public function validarPost(){
+
+        if(isset($_POST['config-combate']) && $_POST['config-combate'] == true){
+            $this->getDataFormCombate();
+            die;
+        }
+
+        if(isset($_POST['deportistas']) && $_POST['deportistas'] == true){
+            $this->getDataFormDeportista();
+            die;
+        }
+
     }
 
 }

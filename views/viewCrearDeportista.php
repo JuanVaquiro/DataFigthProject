@@ -42,11 +42,11 @@
                                 <select id="sexo" name="sexo"
                                     class="cursor-pointer border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
                                     <option value="" id="default-option">Seleccione una opcion</option>
-                                    <option value="1">Masculino</option>
-                                    <option value="2">Femenino</option>
+                                    <!-- <option value="1">Masculino</option>
+                                    <option value="2">Femenino</option> -->
                                 </select>
                         </div>
-                        <div class="relative z-0 w-full mb-6 group">
+                        <!-- <div class="relative z-0 w-full mb-6 group">
                                 <label for="ciudad" class="block mb-2 text-sm font-medium text-gray-400">
                                     Ciudad:
                                 </label>
@@ -56,7 +56,7 @@
                                     <option value="1">Espinal</option>
                                     <option value="2">Girardot</option>
                                 </select>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="grid md:grid-cols-2 md:gap-6">
                         <div class="relative z-0 w-full mb-6 group">
@@ -66,8 +66,8 @@
                                 <select id="tipo-documento" name="tipo-documento"
                                     class="cursor-pointer border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
                                     <option value="" id="default-option">Seleccione una opcion</option>
-                                    <option value="1">Tarjeta de identidad</option>
-                                    <option value="2">Cedula de ciudadania</option>
+                                    <!-- <option value="1">Tarjeta de identidad</option>
+                                    <option value="2">Cedula de ciudadania</option> -->
                                 </select>
                         </div>
                         <div class="relative z-0 w-full mb-6 group">
@@ -110,8 +110,32 @@
                                 <select id="deporte" name="deporte"
                                     class="cursor-pointer border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
                                     <option value="" id="default-option">Seleccione una opcion</option>
-                                    <option value="1">Taekwondo</option>
+                                    <!-- <option value="1">Taekwondo</option> -->
                                     <!-- <option value="2">Femenino</option> -->
+                                </select>
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-2 md:gap-6">
+                        <div class="relative z-0 w-full mb-6 group">
+                                <label for="departamento" class="block mb-2 text-sm font-medium text-gray-400">
+                                    Departamento/estado
+                                </label>
+                                <select id="departamento" name="departamento"
+                                    class="cursor-pointer border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
+                                    <option value="" id="default-option">Seleccione una opcion</option>
+                                    <!-- <option value="1">Tolima</option>
+                                    <option value="2">Cundinamarca</option> -->
+                                </select>
+                        </div>
+                        <div class="relative z-0 w-full mb-6 group">
+                                <label for="ciudad" class="block mb-2 text-sm font-medium text-gray-400">
+                                    Ciudad:
+                                </label>
+                                <select id="ciudad" name="ciudad"
+                                    class="cursor-pointer border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
+                                    <option value="" id="default-option">Seleccione una opcion</option>
+                                    <!-- <option value="1">Espinal</option>
+                                    <option value="2">Girardot</option> -->
                                 </select>
                         </div>
                     </div>
@@ -124,4 +148,5 @@
         </div>
     </div>
 </section>
+<script src="./../../src/js/userLogin/datosFormDeportista.js"></script>
 <script src="./../../src/js/userLogin/registroDeportista.js"></script>
