@@ -25,5 +25,6 @@ $obj->setTitulo();
 
     <link rel="stylesheet" href="<?= $obj->obtenerUrl($obj->getTitulo()) ?>src/css/sweetAlert/sweetAlert2.css">
     <script src="<?= $obj->obtenerUrl($obj->getTitulo()) ?>src/js/sweetAlert/sweerAlert2.js"></script>
+    <script src="./../../src/js/darkMode/index.js"></script>
 </body>
 </html>
