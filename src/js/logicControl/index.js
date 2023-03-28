@@ -13,6 +13,7 @@ import { startTimer, pauseTimer, windowModalChangesTimer } from './timer.js'
 import { windowModalGoToBack } from './goToBack.js'
 import { saveFault, windosModalFault } from './fault.js'
 import { infoFight } from './fetchSet.js'
+import { play } from '../videoPlayer/player.js'
 
 const VALUE_FOOT_LEFT = 1
 const VALUE_FOOT_RIGHT = 2
@@ -24,7 +25,7 @@ const VALUE_BACK = 2
 const VALUE_HELMET = 1
 const VALUE_PECHERA = 2
 
-let numberRound = 4
+let numberRound = 1
 let assingTimer = 30
 let isOnRound = false
 export let timerSelect
@@ -49,15 +50,17 @@ BTN_FAULT.disabled = true
 // CLICK INIT FIGHT
 BTN_START_ROUND.addEventListener('click', finishOrStartRound)
 BTN_START_ROUND.addEventListener('click', executeFnt())
+// 👇 pause VideoPlayer and Control
+BTN_START_ROUND.addEventListener('click', play)
 // GET infoFight
 window.addEventListener('DOMContentLoaded', () => {
   infoFight(deportista, combate)
 })
 
-// export function capturarInfo(data) {
-//   // numberRound = data[0].rounds //👈 assign number to the round 
-//   // assingTimer = data[0].tiempo_round_seg //👈 assign duration to the round time
-// }
+export function capturarInfo(data) {
+  numberRound = data[0].rounds //👈 assign number to the round 
+  assingTimer = data[0].tiempo_round_seg //👈 assign duration to the round time
+}
 
 function finishOrStartRound() {
   isOnRound = !isOnRound

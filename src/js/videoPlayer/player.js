@@ -27,7 +27,7 @@ function inicio() {
   document.querySelector('.velocidad').textContent = `x${velocidadActual}`;
 }
 
-function play() {
+export function play() {
   if (vid.paused) {
     vid.play()
     document.querySelector('.play').src = './../../dist/img/iconsVideo/pausa.svg'

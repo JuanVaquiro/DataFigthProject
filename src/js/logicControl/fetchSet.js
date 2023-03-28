@@ -1,4 +1,4 @@
-// import { capturarInfo } from './index.js'
+import { capturarInfo } from './index.js'
 
 export function infoFight(deportista, combate) {
     let formData = new FormData()
@@ -11,7 +11,7 @@ export function infoFight(deportista, combate) {
     .then(respuesta => respuesta.json())
     .then(data => {
         if (data != "./../home") {
-            // capturarInfo(data)
+            capturarInfo(data)
             document.getElementById('deportista').innerText = (deportista == 1) ? data[0].deportista1 : data[0].deportista2
             document.getElementById('delegacion').innerText = (deportista == 1) ? data[0].delegacion1 : data[0].delegacion2
             document.getElementById('fase').innerText = data[0].ronda
