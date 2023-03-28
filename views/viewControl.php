@@ -1,3 +1,4 @@
+<div class="flex">
 <section class="main-container-video">
   <div class="fila1">
     <video src=""></video>
@@ -140,6 +141,8 @@
       </dl>
   </article>
 </section>
+</div>
+
 <!-- modal tiempo terminado -->
 <div id="modal" class="modal">
   <div class="modal-content-tiempo-terminado lg:w-2/4">

@@ -1711,6 +1711,12 @@ button:disabled {
   }
 }
 
+@media (min-height: 840px) {
+  .setctionConfigCombat {
+    height: 100vh
+  }
+}
+
 /* dropdown home-menu */
 
 .menu {
@@ -2127,14 +2133,14 @@ video{
   background-color: rgb(17 24 39 / var(--tw-bg-opacity));
 }
 
-.dark .dark\:text-white {
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
 .dark .dark\:text-gray-300 {
   --tw-text-opacity: 1;
   color: rgb(209 213 219 / var(--tw-text-opacity));
+}
+
+.dark .dark\:text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 @media not all and (min-width: 640px) {
@@ -2334,6 +2340,10 @@ video{
     margin-left: 20rem;
   }
 
+  .lg\:h-screen {
+    height: 100vh;
+  }
+
   .lg\:w-2\/4 {
     width: 50%;
   }
@@ -2390,6 +2400,10 @@ video{
 @media (min-width: 1280px) {
   .xl\:ml-20 {
     margin-left: 5rem;
+  }
+
+  .xl\:h-screen {
+    height: 100vh;
   }
 
   .xl\:w-2\/5 {

@@ -105,6 +105,12 @@ button:disabled {
   }
 }
 
+@media (min-height: 840px) {
+  .setctionConfigCombat {
+    height: 100vh
+  }
+}
+
 /* dropdown home-menu */
 .menu {
   display: none;
