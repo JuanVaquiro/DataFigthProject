@@ -1,4 +1,4 @@
-<section class="bg-gray-900 2xl:h-screen setctionConfigCombat">
+<section class="bg-gray-900 2xl:h-screen">
     <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto  md:h-full md:p-10">
         <div class="my-5 w-full rounded-lg shadow border md:mt-0 sm:max-w-2xl xl:p-0 bg-gray-800 border-gray-700">
             <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
