@@ -36,50 +36,6 @@
                     </div>
                     <div class="grid md:grid-cols-2 md:gap-6">
                         <div class="relative z-0 w-full mb-6 group">
-                                <label for="sexo" class="block mb-2 text-sm font-medium text-gray-400">
-                                    Sexo:
-                                </label>
-                                <select id="sexo" name="sexo"
-                                    class="cursor-pointer border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
-                                    <option value="" id="default-option">Seleccione una opcion</option>
-                                    <!-- <option value="1">Masculino</option>
-                                    <option value="2">Femenino</option> -->
-                                </select>
-                        </div>
-                        <!-- <div class="relative z-0 w-full mb-6 group">
-                                <label for="ciudad" class="block mb-2 text-sm font-medium text-gray-400">
-                                    Ciudad:
-                                </label>
-                                <select id="ciudad" name="ciudad"
-                                    class="cursor-pointer border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
-                                    <option value="" id="default-option">Seleccione una opcion</option>
-                                    <option value="1">Espinal</option>
-                                    <option value="2">Girardot</option>
-                                </select>
-                        </div> -->
-                    </div>
-                    <div class="grid md:grid-cols-2 md:gap-6">
-                        <div class="relative z-0 w-full mb-6 group">
-                                <label for="tipo-documento" class="block mb-2 text-sm font-medium text-gray-400">
-                                    Tipo de documento:
-                                </label>
-                                <select id="tipo-documento" name="tipo-documento"
-                                    class="cursor-pointer border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
-                                    <option value="" id="default-option">Seleccione una opcion</option>
-                                    <!-- <option value="1">Tarjeta de identidad</option>
-                                    <option value="2">Cedula de ciudadania</option> -->
-                                </select>
-                        </div>
-                        <div class="relative z-0 w-full mb-6 group">
-                                <input type="text" name="floating_doc" id="floating_doc"
-                                    class="block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 appearance-none text-white border-gray-600 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                                    placeholder=" " />
-                                <label for="floating_doc"
-                                    class="peer-focus:font-medium absolute text-sm text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Documento</label>
-                        </div>
-                    </div>
-                    <div class="grid md:grid-cols-2 md:gap-6">
-                        <div class="relative z-0 w-full mb-6 group">
                             <input type="text" name="floating_phone"
                                 id="floating_phone"
                                 class="block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 appearance-none text-white border-gray-600 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
@@ -97,11 +53,38 @@
                     </div>
                     <div class="grid md:grid-cols-2 md:gap-6">
                         <div class="relative z-0 w-full mb-6 group">
-                                <input type="date" name="floating_fecha_Nacimiento" id="floating_fecha_Nacimiento"
-                                    class="block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 appearance-none text-white border-gray-600 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                                    placeholder=" " />
-                                <label for="floating_fecha_Nacimiento"
-                                    class="peer-focus:font-medium absolute text-sm text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Fecha De Nacimiento</label>
+                                <label for="tipo-documento" class="block mb-2 text-sm font-medium text-gray-400">
+                                    Tipo de documento:
+                                </label>
+                                <select id="tipo-documento" name="tipo-documento"
+                                    class="cursor-pointer border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
+                                    <option value="" id="default-option">Seleccione una opcion</option>
+                                    <!-- <option value="1">Tarjeta de identidad</option>
+                                    <option value="2">Cedula de ciudadania</option> -->
+                                </select>
+                        </div>
+                        <div class="relative z-0 w-full mb-6 group">
+                            <label 
+                                for="floating_doc"
+                                class="block mb-2 text-sm font-medium text-white">
+                                Documento
+                            </label>
+                            <input type="text" name="floating_doc" id="floating_doc"
+                            class="border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full 
+                            p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
+                            />
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-2 md:gap-6">
+                        <div class="relative z-0 w-full mb-6 group">
+                            <label 
+                                for="floating_fecha_Nacimiento"
+                                class="block mb-2 text-sm font-medium text-gray-400">
+                                Fecha De Nacimiento
+                            </label>
+                            <input type="date" name="floating_fecha_Nacimiento" id="floating_fecha_Nacimiento"
+                                class="border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
+                            />
                         </div>
                         <div class="relative z-0 w-full mb-6 group">
                                 <label for="deporte" class="block mb-2 text-sm font-medium text-gray-400">
@@ -138,6 +121,30 @@
                                     <option value="2">Girardot</option> -->
                                 </select>
                         </div>
+                    </div>
+                    <div class="grid md:grid-cols-2 md:gap-6">
+                        <div class="relative z-0 w-full mb-6 group">
+                                <label for="sexo" class="block mb-2 text-sm font-medium text-gray-400">
+                                    Sexo:
+                                </label>
+                                <select id="sexo" name="sexo"
+                                    class="cursor-pointer border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
+                                    <option value="" id="default-option">Seleccione una opcion</option>
+                                    <!-- <option value="1">Masculino</option>
+                                    <option value="2">Femenino</option> -->
+                                </select>
+                        </div>
+                        <!-- <div class="relative z-0 w-full mb-6 group">
+                                <label for="ciudad" class="block mb-2 text-sm font-medium text-gray-400">
+                                    Ciudad:
+                                </label>
+                                <select id="ciudad" name="ciudad"
+                                    class="cursor-pointer border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
+                                    <option value="" id="default-option">Seleccione una opcion</option>
+                                    <option value="1">Espinal</option>
+                                    <option value="2">Girardot</option>
+                                </select>
+                        </div> -->
                     </div>
                     <button type="submit"
                         class="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center focus:ring-blue-800">
