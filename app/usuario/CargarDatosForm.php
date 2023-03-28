@@ -196,10 +196,10 @@ class CargarDatosForm{
 
         $pdo = new Conexion();
         $con = $pdo->conexion();
-        $paramt = 1;
+        $estado_departamento = $_POST['estado'];
 
         $select = $con->prepare("CALL getCiudades(?)");
-        $select->bindParam(1, $paramt, PDO::PARAM_INT);
+        $select->bindParam(1, $estado_departamento, PDO::PARAM_INT);
         $select->execute();
         $row = $select->fetchAll(PDO::FETCH_ASSOC);
         $select->closeCursor();
@@ -228,7 +228,7 @@ class CargarDatosForm{
             'sexo' => $this->getSex(),
             'tipo_doc' => $this->getTipoDoc(),
             'deportes' => $this->getDeportes(),
-            'estados' => $this->getEstados(),
+            // 'estados' => $this->getEstados(),
             // 'ciudades' => $this->getCiudades()
         ];
 
@@ -268,6 +268,15 @@ class CargarDatosForm{
                 'estados' => $this->getEstados()
             ];
             echo json_encode($array);
+            die;
+        }
+
+        if(isset($_POST['estado']) && is_numeric($_POST['estado'])){
+            $array = [
+                'ciudades' => $this->getCiudades()
+            ];
+            echo json_encode($array);
+            die;
         }
 
     }

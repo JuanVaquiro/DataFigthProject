@@ -60,7 +60,7 @@
                                 </label>
                                 <select id="departamento" name="departamento"
                                     class="cursor-pointer border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" disabled>
-                                    <option value="" id="default-option-departamento">Seleccione un departamento o estado</option>
+                                    <option value=" " id="default-option-departamento">Seleccione un departamento o estado</option>
                                     <!-- <option value="1">Masculino</option>
                                     <option value="2">Femenino</option> -->
                                 </select>

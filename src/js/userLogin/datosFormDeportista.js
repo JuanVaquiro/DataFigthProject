@@ -31,12 +31,12 @@ document.addEventListener('DOMContentLoaded', () => {
                                                                 `
         }
 
-        for(let estado of data.estados){
+        // for(let estado of data.estados){
 
-            document.getElementById('departamento').innerHTML += `
-                                                            <option value="${estado.id}">${estado.estado}</option>
-                                                                `
-        }
+        //     document.getElementById('departamento').innerHTML += `
+        //                                                     <option value="${estado.id}">${estado.estado}</option>
+        //                                                         `
+        // }
 
         // for(let ciudad of data.ciudades){
 
