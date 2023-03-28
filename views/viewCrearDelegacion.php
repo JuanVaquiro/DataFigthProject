@@ -43,26 +43,39 @@
                             class="peer-focus:font-medium absolute text-sm text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Iniciales</label>
                     </div>
                     <div class="grid md:grid-cols-2 md:gap-6">
-                        <div class="relative z-0 w-full mb-6 group">
-                                <label for="departamento" class="block mb-2 text-sm font-medium text-gray-400">
-                                    Departamento
+                    <div class="relative z-0 w-full mb-6 group">
+                                <label for="pais" class="block mb-2 text-sm font-medium text-gray-400">
+                                    Pais
                                 </label>
-                                <select id="departamento" name="departamento"
+                                <select id="pais" name="pais"
                                     class="cursor-pointer border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
-                                    <option value="" id="default-option-departamento">Seleccione una opcion</option>
-                                    <option value="1">Masculino</option>
-                                    <option value="2">Femenino</option>
+                                    <option value=" " id="default-option-ciudad">Seleccione un pais</option>
+                                    <!-- <option value="1">Espinal</option>
+                                    <option value="2">Girardot</option> -->
                                 </select>
                         </div>
+                        <div class="relative z-0 w-full mb-6 group">
+                                <label for="departamento" class="block mb-2 text-sm font-medium text-gray-400">
+                                    Departamento/estado
+                                </label>
+                                <select id="departamento" name="departamento"
+                                    class="cursor-pointer border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" disabled>
+                                    <option value="" id="default-option-departamento">Seleccione un departamento o estado</option>
+                                    <!-- <option value="1">Masculino</option>
+                                    <option value="2">Femenino</option> -->
+                                </select>
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-2 md:gap-6">
                         <div class="relative z-0 w-full mb-6 group">
                                 <label for="ciudad" class="block mb-2 text-sm font-medium text-gray-400">
                                     Ciudad:
                                 </label>
                                 <select id="ciudad" name="ciudad"
-                                    class="cursor-pointer border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
-                                    <option value="" id="default-option-ciudad">Seleccione una opcion</option>
-                                    <option value="1">Espinal</option>
-                                    <option value="2">Girardot</option>
+                                    class="cursor-pointer border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" disabled>
+                                    <option value="" id="default-option-ciudad">Seleccione una ciudad</option>
+                                    <!-- <option value="1">Espinal</option>
+                                    <option value="2">Girardot</option> -->
                                 </select>
                         </div>
                     </div>
@@ -75,4 +88,5 @@
         </div>
     </div>
 </section>
+<script src="./../../src/js/userLogin/datosFormDelegacion.js"></script>
 <script src="./../../src/js/userLogin/crearDelegacion.js"></script>

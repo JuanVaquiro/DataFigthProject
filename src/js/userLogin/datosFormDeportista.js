@@ -38,12 +38,12 @@ document.addEventListener('DOMContentLoaded', () => {
                                                                 `
         }
 
-        for(let ciudad of data.ciudades){
+        // for(let ciudad of data.ciudades){
 
-            document.getElementById('ciudad').innerHTML += `
-                                                            <option value="${ciudad.id}">${ciudad.ciudad}</option>
-                                                                `
-        }
+        //     document.getElementById('ciudad').innerHTML += `
+        //                                                     <option value="${ciudad.id}">${ciudad.ciudad}</option>
+        //                                                         `
+        // }
 
     })
 

@@ -164,9 +164,25 @@ class CargarDatosForm{
 
         $pdo = new Conexion();
         $con = $pdo->conexion();
-        $paramt = 1;
+        $pais = $_POST['pais'];
 
         $select = $con->prepare("CALL getDepartamentos(?)");
+        $select->bindParam(1, $pais, PDO::PARAM_INT);
+        $select->execute();
+        $row = $select->fetchAll(PDO::FETCH_ASSOC);
+        $select->closeCursor();
+
+        return $row;
+
+    }
+
+    public function getPaises(){
+
+        $pdo = new Conexion();
+        $con = $pdo->conexion();
+        $paramt = 1;
+
+        $select = $con->prepare("CALL getPaises(?)");
         $select->bindParam(1, $paramt, PDO::PARAM_INT);
         $select->execute();
         $row = $select->fetchAll(PDO::FETCH_ASSOC);
@@ -213,7 +229,17 @@ class CargarDatosForm{
             'tipo_doc' => $this->getTipoDoc(),
             'deportes' => $this->getDeportes(),
             'estados' => $this->getEstados(),
-            'ciudades' => $this->getCiudades()
+            // 'ciudades' => $this->getCiudades()
+        ];
+
+        echo json_encode($array);
+
+    }
+
+    public function getDataFormDelegacion(){
+
+        $array = [
+            'pais' => $this->getPaises()
         ];
 
         echo json_encode($array);
@@ -230,6 +256,18 @@ class CargarDatosForm{
         if(isset($_POST['deportistas']) && $_POST['deportistas'] == true){
             $this->getDataFormDeportista();
             die;
+        }
+
+        if(isset($_POST['delegacion']) && $_POST['delegacion'] == true){
+            $this->getDataFormDelegacion();
+            die;
+        }
+
+        if(isset($_POST['pais']) && is_numeric($_POST['pais'])){
+            $array = [
+                'estados' => $this->getEstados()
+            ];
+            echo json_encode($array);
         }
 
     }
