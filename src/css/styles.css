@@ -199,3 +199,12 @@ video{
   height: 100%;
   width: 0%;
 }
+
+/* estilos modelo control */
+.back-img-model{
+  background-image: url("img/controlPNG/modelo.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  height: 58%;
+}
