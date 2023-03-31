@@ -89,23 +89,23 @@
     <div class="grid grid-cols-2 gap-14">
       <div></div>
       <button type="button" id="patada_con_giro"
-    class="border focus:outline-none focus:ring-4 font-medium rounded-lg text-sm p-2 bg-sky-500 text-white border-gray-500 hover:bg-sky-300 hover:border-gray-600 focus:ring-gray-700">
+    class="border focus:outline-none focus:ring-4 font-medium rounded-lg text-sm p-2 bg-sky-500 text-white border-gray-500 hover:bg-sky-300 hover:border-gray-600 focus:ring-gray-700 dark:focus:ring-gray-300">
     Patada con giro
   </button>  
   <button type="button" id="puño_izquierdo"
-    class="border focus:outline-none focus:ring-4 font-medium rounded-lg text-sm p-2 bg-red-900 text-white border-gray-500 hover:bg-red-500 hover:border-gray-600 focus:ring-gray-700">
+    class="border focus:outline-none focus:ring-4 font-medium rounded-lg text-sm p-2 bg-red-900 text-white border-gray-500 hover:bg-red-500 hover:border-gray-600 focus:ring-gray-700 dark:focus:ring-gray-300">
     Puño izquierdo
   </button>
   <button type="button" id="puño_derecho"
-    class="border focus:outline-none focus:ring-4 font-medium rounded-lg text-sm p-2 bg-red-900 text-white border-gray-500 hover:bg-red-500 hover:border-gray-600 focus:ring-gray-700">
+    class="border focus:outline-none focus:ring-4 font-medium rounded-lg text-sm p-2 bg-red-900 text-white border-gray-500 hover:bg-red-500 hover:border-gray-600 focus:ring-gray-700 dark:focus:ring-gray-300">
     Puño derecho
   </button>
   <button type="button" id="patada_izquierda"
-    class="border focus:outline-none focus:ring-4 font-medium rounded-lg text-sm p-2 bg-red-700 text-white border-gray-500 hover:bg-red-500 hover:border-gray-600 focus:ring-gray-700">
+    class="border focus:outline-none focus:ring-4 font-medium rounded-lg text-sm p-2 bg-red-700 text-white border-gray-500 hover:bg-red-500 hover:border-gray-600 focus:ring-gray-700 dark:focus:ring-gray-300">
     Patada izquierda
   </button>
   <button type="button" id="patada_derecha"
-    class="border focus:outline-none focus:ring-4 font-medium rounded-lg text-sm p-2 bg-red-700 text-white border-gray-500 hover:bg-red-500 hover:border-gray-600 focus:ring-gray-700">
+    class="border focus:outline-none focus:ring-4 font-medium rounded-lg text-sm p-2 bg-red-700 text-white border-gray-500 hover:bg-red-500 hover:border-gray-600 focus:ring-gray-700 dark:focus:ring-gray-300  dark:border-gray-200 ">
     Patada derecha
   </button>
   </div>
@@ -115,26 +115,26 @@
     <!-- acierto del golpe -->
     <div class="btns-group1 grid grid-cols-2 gap-3">
     <button type="button" id="trasera"
-        class="border focus:outline-none focus:ring-4 font-medium rounded-lg text-sm p-2 bg-yellow-700 text-white border-gray-500 hover:bg-yellow-500 hover:border-gray-600 focus:ring-gray-700">
+        class="border focus:outline-none focus:ring-4 font-medium rounded-lg text-sm p-2 bg-yellow-700 text-white border-gray-500 hover:bg-yellow-500 hover:border-gray-600 focus:ring-gray-700 dark:focus:ring-gray-300">
         Trasera
       </button>
       <button type="button" id="delante"
-        class="border focus:outline-none focus:ring-4 font-medium rounded-lg text-sm p-2 bg-yellow-700 text-white border-gray-500 hover:bg-yellow-500 hover:border-gray-600 focus:ring-gray-700">
+        class="border focus:outline-none focus:ring-4 font-medium rounded-lg text-sm p-2 bg-yellow-700 text-white border-gray-500 hover:bg-yellow-500 hover:border-gray-600 focus:ring-gray-700 dark:focus:ring-gray-300">
         Delantera
       </button>
       <div class="flex items-center justify-center">
         <button id="confirmar_punto"
-          class="h-2/3 border-2 border-green-700 bg-gray-400 font-medium rounded-bl-2xl rounded-b-2xl  text-sm px-1 py-2 text-center text-white hover:bg-green-500">
+          class="h-2/3 border-2 border-green-700 bg-gray-400 font-medium rounded-bl-2xl rounded-b-2xl  text-sm px-1 py-2 text-center dark:text-white hover:bg-green-500">
           +
         </button>
         <button type="button" id="pechera"
-          class="">
+          class="p-1 border rounded-lg hover:bg-sky-600 active:bg-sky-700 focus:outline-none focus:ring focus:ring-sky-300 ">
           <img class="w-16 m-0 p-0" src="./../../dist/img/controlPNG/pechera.png" alt="pechera icon">
         </button>
       </div>
       <div class="flex items-center justify-center">
         <button type="button" id="casco"
-          class="">
+          class="p-1 border rounded-lg hover:bg-sky-600 active:bg-sky-700 focus:outline-none focus:ring focus:ring-sky-300 ">
           <img class="w-16 m-0 p-0" src="./../../dist/img/controlPNG/casco.png" alt="casco icon">
         </button>
         <div></div>
