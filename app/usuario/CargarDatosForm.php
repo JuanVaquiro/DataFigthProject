@@ -208,6 +208,22 @@ class CargarDatosForm{
 
     }
 
+    public function getNivelesEvento(){
+
+        $pdo = new Conexion();
+        $con = $pdo->conexion();
+        $paramt = 1;
+
+        $select = $con->prepare("CALL getNivelesEvento(?)");
+        $select->bindParam(1, $paramt, PDO::PARAM_INT);
+        $select->execute();
+        $row = $select->fetchAll(PDO::FETCH_ASSOC);
+        $select->closeCursor();
+
+        return $row;
+
+    }
+
     public function getDataFormCombate(){
 
         $array = [
@@ -228,8 +244,7 @@ class CargarDatosForm{
             'sexo' => $this->getSex(),
             'tipo_doc' => $this->getTipoDoc(),
             'deportes' => $this->getDeportes(),
-            // 'estados' => $this->getEstados(),
-            // 'ciudades' => $this->getCiudades()
+            'paises' => $this->getPaises()
         ];
 
         echo json_encode($array);
@@ -246,6 +261,15 @@ class CargarDatosForm{
 
     }
 
+    public function getDataFormEvento(){
+        $array = [
+            'pais' => $this->getPaises(),
+            'nivelEventos' => $this->getNivelesEvento()
+        ];
+
+        echo json_encode($array);
+    }
+
     public function validarPost(){
 
         if(isset($_POST['config-combate']) && $_POST['config-combate'] == true){
@@ -260,6 +284,11 @@ class CargarDatosForm{
 
         if(isset($_POST['delegacion']) && $_POST['delegacion'] == true){
             $this->getDataFormDelegacion();
+            die;
+        }
+
+        if(isset($_POST['evento']) && $_POST['evento'] == true){
+            $this->getDataFormEvento();
             die;
         }
 

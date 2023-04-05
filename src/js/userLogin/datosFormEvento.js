@@ -3,7 +3,7 @@ const inputEstado = document.getElementById('departamento')
 const inputCiudad = document.getElementById('ciudad')
 document.addEventListener('DOMContentLoaded', () => {
     let formData = new FormData()
-    formData.append('delegacion', true)
+    formData.append('evento', true)
     fetch("./../setData.php", {
         method: "POST",
         body: formData
@@ -20,7 +20,18 @@ document.addEventListener('DOMContentLoaded', () => {
                                                                 `
         }
 
+        for(let nivel of data.nivelEventos){
+
+            document.getElementById('nivel-evento').innerHTML += `
+                                                                    <option value="${nivel.id}">${nivel.nombre}</option>
+                                                                `
+        }
+
     })
+    // .catch(function(error){
+    //     // alert('Not')
+    //     console.log(error)
+    // })
 
 })
 
