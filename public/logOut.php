@@ -8,4 +8,5 @@ use App\usuario\LoginUsuario;
 
 $login = new LoginUsuario(null, null);
 
-$login->validarpost($login);
+$login->validarPostLogOut();
+$login->logOut();
