@@ -72,7 +72,7 @@
       <button class="velocidad font-bold magra-bold text-2xl text-gray-500">
         x1
       </button>
-      <div class="estado text-xl px-4"></div>
+      <div class="estado text-xl px-4 text-gray-500"></div>
     </div>
     <div class="derecha">
       <button>
