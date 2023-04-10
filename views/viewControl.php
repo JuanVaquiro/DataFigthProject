@@ -69,7 +69,7 @@
       <button>
         <img id="images" class="volumen" src="./../../dist/img/iconsVideo/volumen1.svg" alt="volumen-video">
       </button>
-      <button class="velocidad font-bold magra-bold text-2xl">
+      <button class="velocidad font-bold magra-bold text-2xl text-gray-500">
         x1
       </button>
       <div class="estado text-xl px-4"></div>
