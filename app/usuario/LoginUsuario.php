@@ -74,19 +74,17 @@ class LoginUsuario{
 
             }
 
-            $pattern = "/^[A-z0-9\\._-]+@[A-z0-9][A-z0-9-]*(\\.[A-z0-9_-]+)*\\.([A-z]{2,6})$/";
+            if( !filter_var($this->email, FILTER_VALIDATE_EMAIL) ){
 
-            if( !preg_match($pattern, trim($this->email)) ){
-
-                throw new Exception("Dato no valido para email");
+                throw new Exception("Porfavor ingrese una direccion de correo valida");
 
             }
 
-            $pattern = "/^[0-9a-zA-ZñÑ\\@.-_*]{10,100}$/";
+            $pattern = "/^[0-9a-zA-ZñÑ\\@.-_*]{1,100}$/";
 
             if(!preg_match($pattern, trim($this->password))){
 
-                throw new Exception("Dato no valido para contraseña");
+                throw new Exception("Porfavor ingrese una contraseña valida");
 
             }
 
@@ -100,32 +98,57 @@ class LoginUsuario{
 
     }
 
-    public function validarpost(LoginUsuario $login){
+    public function validarPostLogin(){
 
-        if($_POST && isset($_POST['confirmacion'])){
+        try {
 
-            // $login = new LoginUsuario(null, null);
-        
-            $login->logOut();
-        
+
+            if( !$_POST ){
+
+                header("Location: ./");
+
+            }
+
+            if( !isset($_POST['email-login']) ){
+
+                throw new Exception("No se ha enviado la direccion de correo");
+
+            }
+
+            if( !isset($_POST['email-login']) ){
+
+                throw new Exception("No se ha enviado la contraseña");
+
+            }
+
+
+        } catch (Exception $e) {
+            echo json_encode($e->getMessage());
+            die;
         }
-        elseif( $_POST && isset($_POST['email-login']) && isset($_POST['pass-login']) ){
 
-            // $response = $_POST['email-login']." ".$_POST['pass-login'];
+    }
 
-            // echo json_encode($response);
+    public function validarPostLogOut(){
 
-            $login->email = $_POST['email-login'];
+        try {
 
-            $login->password = $_POST['pass-login'];
+            if(!$_POST){
 
-            $login->validarDatos();
+                header("Location: ./");
+    
+            }
+    
+            if( !isset($_POST['confirmacion']) ){
+    
+                throw new Exception("windon.location");
+    
+            }
 
-            $login->login();
-            
-        }
-        else{
-            header("Location: ./");
+
+        } catch (Exception $e) {
+            echo json_encode($e->getMessage());
+            die;
         }
 
     }

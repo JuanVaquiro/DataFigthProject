@@ -6,6 +6,8 @@ require_once __DIR__ . "./../vendor/autoload.php";
 
 use App\usuario\LoginUsuario;
 
-$login = new LoginUsuario(null, null);
+$login = new LoginUsuario($_POST['email-login'], $_POST['pass-login']);
 
-$login->validarpost($login);
+$login->validarPostLogin();
+$login->validarDatos();
+$login->login();
