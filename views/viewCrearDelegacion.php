@@ -78,6 +78,17 @@
                                     <option value="2">Girardot</option> -->
                                 </select>
                         </div>
+                        <div class="relative z-0 w-full mb-6 group">
+                                <label for="deporte" class="block mb-2 text-sm font-medium text-gray-400">
+                                    Deporte:
+                                </label>
+                                <select id="deporte" name="deporte"
+                                    class="cursor-pointer border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
+                                    <option value="" id="default-option-ciudad">Seleccione una ciudad</option>
+                                    <!-- <option value="1">Espinal</option>
+                                    <option value="2">Girardot</option> -->
+                                </select>
+                        </div>
                     </div>
                     <button type="submit"
                         class="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center focus:ring-blue-800">

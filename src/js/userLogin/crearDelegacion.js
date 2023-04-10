@@ -16,13 +16,13 @@ formulario.addEventListener('submit', function(e){
     .then( respuesta => respuesta.json())
     .then( data => {
 
-        // console.log(data);
+        console.log(data);
 
         if(data == "Registro Exitoso"){
 
             Swal.fire({
                 icon: 'success',
-                title: "Evento registrado"
+                title: "Delegacion registrado"
               })
 
             //   limpiar();

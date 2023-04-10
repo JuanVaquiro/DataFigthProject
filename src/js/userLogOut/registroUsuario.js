@@ -20,6 +20,8 @@ formularioRegistro.addEventListener("submit", function(e){
     .then( respuesta => respuesta.json())
     .then( data => {
 
+        console.log(data)
+
         if(data == "Registro Exitoso"){
 
             Swal.fire({
@@ -38,7 +40,9 @@ formularioRegistro.addEventListener("submit", function(e){
         }else{
             Swal.fire({
                 icon: 'warning',
-                title: data
+                // title: data
+                // text: data
+                html: data
               })
         }
 

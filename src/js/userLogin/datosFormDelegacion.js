@@ -20,6 +20,13 @@ document.addEventListener('DOMContentLoaded', () => {
                                                                 `
         }
 
+        for(let deporte of data.deportes){
+
+            document.getElementById('deporte').innerHTML += `
+                                                            <option value="${deporte.id}">${deporte.deporte}</option>
+                                                                `
+        }
+
     })
 
 })

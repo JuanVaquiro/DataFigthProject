@@ -116,10 +116,11 @@ class CargarDatosForm{
 
         $pdo = new Conexion();
         $con = $pdo->conexion();
-        $paramt = 1;
+        $idUser = $_SESSION['idUser'];
 
-        $select = $con->prepare("CALL getEventos(?)");
-        $select->bindParam(1, $paramt, PDO::PARAM_INT);
+        $select = $con->prepare("CALL getEventosUsuario(?,?)");
+        $select->bindParam(1, $idUser, PDO::PARAM_INT);
+        $select->bindParam(2, $this->estado, PDO::PARAM_INT);
         $select->execute();
         $row = $select->fetchAll(PDO::FETCH_ASSOC);
         $select->closeCursor();
@@ -254,7 +255,8 @@ class CargarDatosForm{
     public function getDataFormDelegacion(){
 
         $array = [
-            'pais' => $this->getPaises()
+            'pais' => $this->getPaises(),
+            'deportes' => $this->getDeportes()
         ];
 
         echo json_encode($array);
