@@ -58,7 +58,7 @@
   <div class="fila3">
     <div class="izquierda">
       <button>
-        <img id="images" class="play" src="./../../dist/img/iconsVideo/play.svg" alt="play-video">
+        <img id="images" class="play" src="./../../dist/img/iconsVideo/play.svg" alt="play-video"> 
       </button>
       <button>
         <img id="images" class="siguiente" src="./../../dist/img/iconsVideo/siguiente.svg" alt="siguiente-video">
