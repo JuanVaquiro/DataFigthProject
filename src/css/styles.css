@@ -99,18 +99,6 @@ button:disabled {
   }
 }
 
-@media (min-height: 1024px) {
-  .setctionRegistroUsuario {
-    height: 100vh
-  }
-}
-
-@media (min-height: 840px) {
-  .setctionConfigCombat {
-    height: 100vh
-  }
-}
-
 /* dropdown home-menu */
 .menu {
   display: none;

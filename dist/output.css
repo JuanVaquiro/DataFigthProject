@@ -1785,18 +1785,6 @@ button:disabled {
   }
 }
 
-@media (min-height: 1024px) {
-  .setctionRegistroUsuario {
-    height: 100vh
-  }
-}
-
-@media (min-height: 840px) {
-  .setctionConfigCombat {
-    height: 100vh
-  }
-}
-
 /* dropdown home-menu */
 
 .menu {
@@ -2639,10 +2627,6 @@ video{
     margin-left: 20rem;
   }
 
-  .lg\:mt-0 {
-    margin-top: 0px;
-  }
-
   .lg\:h-screen {
     height: 100vh;
   }
@@ -2657,14 +2641,6 @@ video{
 
   .lg\:w-96 {
     width: 24rem;
-  }
-
-  .lg\:w-3\/4 {
-    width: 75%;
-  }
-
-  .lg\:max-w-4xl {
-    max-width: 56rem;
   }
 
   .lg\:max-w-screen-lg {
@@ -2760,9 +2736,5 @@ video{
 
   .\32xl\:max-w-screen-2xl {
     max-width: 1536px;
-  }
-
-  .\32xl\:max-w-screen-xl {
-    max-width: 1280px;
   }
 }
