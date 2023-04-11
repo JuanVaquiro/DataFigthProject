@@ -25,5 +25,3 @@ require_once('./../../views/Components/Sidebar.php');
       </div>
    </div>
 </div>
-<script src="./../../src/js/userLogin/logOut.js"></script>
-<script src="./../../src/js/stylesJs/menu.js"></script>

@@ -21,7 +21,7 @@
          </div>
          <div class="flex items-center">
             <div class="flex items-center ml-3">
-               <span class="m-2 p-2">usercorreo@gmial.com</span>
+               <span class="p-2 text-gray-500 transition duration-75 dark:text-gray-400">usercorreo@gmial.com</span>
                <div class="dropdown relative inline-block">
                   <a id="drop" class="dark:text-gray-300">
                      <svg aria-hidden="true"

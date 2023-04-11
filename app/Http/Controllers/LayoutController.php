@@ -49,6 +49,11 @@ class LayoutController{
             $this->titulo = "Crear Evento";
 
         }
+        elseif($this->segments[$posiciones-2] == "arbitro"){
+
+            $this->titulo = "Crear Arbitro";
+
+        }
         else{
 
             // $t = explode(".", $this->segments[3]);
@@ -79,7 +84,8 @@ class LayoutController{
             "Crear Deportista" => "viewCrearDeportista.php",
             "Crear Delegacion" => "viewCrearDelegacion.php",
             "Combate Finalizado" => "viewFinalizaCombate.php",
-            "Crear Evento" => "viewCrearEvento.php"
+            "Crear Evento" => "viewCrearEvento.php",
+            "Crear Arbitro" => "viewCrearArbitro.php"
         };
 
         return $titulo;
