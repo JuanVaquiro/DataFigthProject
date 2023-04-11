@@ -2007,11 +2007,6 @@ video{
   background-color: rgb(234 179 8 / var(--tw-bg-opacity));
 }
 
-.hover\:text-gray-400:hover {
-  --tw-text-opacity: 1;
-  color: rgb(156 163 175 / var(--tw-text-opacity));
-}
-
 .hover\:text-red-700:hover {
   --tw-text-opacity: 1;
   color: rgb(185 28 28 / var(--tw-text-opacity));
@@ -2625,10 +2620,6 @@ video{
 @media (min-width: 1024px) {
   .lg\:ml-80 {
     margin-left: 20rem;
-  }
-
-  .lg\:h-screen {
-    height: 100vh;
   }
 
   .lg\:w-2\/4 {
