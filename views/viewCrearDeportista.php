@@ -23,7 +23,7 @@ require_once('./../../views/Components/Sidebar.php');
                             placeholder=" " />
                         <label for="floating_name"
                             class="peer-focus:font-medium block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400 absolute duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
-                            Nombre
+                            Nombres
                         </label>
                     </div>
                     <div class="relative z-0 w-full mb-6 group">
@@ -71,7 +71,7 @@ require_once('./../../views/Components/Sidebar.php');
                         <div class="relative z-0 w-full mb-6 group">
                             <label for="floating_doc"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                                Documento
+                                Documento:
                             </label>
                             <input type="text" name="floating_doc" id="floating_doc"
                                 class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" />
@@ -81,7 +81,7 @@ require_once('./../../views/Components/Sidebar.php');
                         <div class="relative z-0 w-full mb-6 group">
                             <label for="floating_fecha_Nacimiento" 
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                                Fecha De Nacimiento
+                                Fecha De Nacimiento:
                             </label>
                             <input type="date" name="floating_fecha_Nacimiento" id="floating_fecha_Nacimiento"
                                 class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
@@ -101,7 +101,7 @@ require_once('./../../views/Components/Sidebar.php');
                     <div class="grid md:grid-cols-2 md:gap-6">
                         <div class="relative z-0 w-full mb-6 group">
                             <label for="pais" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                                Pais
+                                Pais:
                             </label>
                             <select id="pais" name="pais"
                                 class="cursor-pointer bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
@@ -112,7 +112,7 @@ require_once('./../../views/Components/Sidebar.php');
                         </div>
                         <div class="relative z-0 w-full mb-6 group">
                             <label for="departamento" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                                Departamento/estado
+                                Departamento/estado:
                             </label>
                             <select id="departamento" name="departamento" disabled
                                 class="cursor-pointer bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
