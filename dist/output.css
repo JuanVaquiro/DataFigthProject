@@ -2698,6 +2698,10 @@ video{
     margin-left: 5rem;
   }
 
+  .xl\:h-screen {
+    height: 100vh;
+  }
+
   .xl\:w-2\/5 {
     width: 40%;
   }
