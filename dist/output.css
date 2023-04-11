@@ -1306,6 +1306,10 @@ video {
   padding: 1.5rem;
 }
 
+.p-8 {
+  padding: 2rem;
+}
+
 .px-0 {
   padding-left: 0px;
   padding-right: 0px;
@@ -2635,6 +2639,10 @@ video{
     margin-left: 20rem;
   }
 
+  .lg\:mt-0 {
+    margin-top: 0px;
+  }
+
   .lg\:h-screen {
     height: 100vh;
   }
@@ -2649,6 +2657,18 @@ video{
 
   .lg\:w-96 {
     width: 24rem;
+  }
+
+  .lg\:w-3\/4 {
+    width: 75%;
+  }
+
+  .lg\:max-w-4xl {
+    max-width: 56rem;
+  }
+
+  .lg\:max-w-screen-lg {
+    max-width: 1024px;
   }
 
   .lg\:justify-start {
@@ -2736,5 +2756,13 @@ video{
 
   .\32xl\:h-screen {
     height: 100vh;
+  }
+
+  .\32xl\:max-w-screen-2xl {
+    max-width: 1536px;
+  }
+
+  .\32xl\:max-w-screen-xl {
+    max-width: 1280px;
   }
 }

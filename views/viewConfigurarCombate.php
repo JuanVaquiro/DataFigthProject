@@ -1,13 +1,16 @@
-<section class="bg-white dark:bg-gray-900">
+<?php 
+require_once('./../../views/Components/Navbar.php');
+
+require_once('./../../views/Components/Sidebar.php');
+?>
+
+<section class="bg-white p-8 sm:ml-64 dark:bg-gray-900">
     <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto  md:h-full md:p-10">
-        <div class="my-5 w-full rounded-lg shadow border md:mt-0 sm:max-w-2xl xl:p-0 bg-gray-50 dark:bg-gray-800 border-gray-700">
+        <div class="my-5 w-full rounded-lg shadow border 2xl:max-w-screen-2xl lg:max-w-screen-lg md:mt-0 sm:max-w-2xl xl:p-0 bg-gray-50 dark:bg-gray-800 border-gray-700">
             <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
-                <a href="../home" class="magra-bold text-2xl md:text-3xl flex gap-4 items-center mb-6 dark:text-white">
-                    <svg class="hover:text-gray-400" viewBox="0 0 21 21" width="41" height="41" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" transform="translate(3 6)"><path d="m1.378 1.376 4.243.003v4.242"
-                    transform="matrix(-.70710678 .70710678 .70710678 .70710678 3.500179 -1.449821)" /><path d="m5.5 9.49998326h5c2 .00089417 3-.99910025 3-2.99998326s-1-3.00088859-3-3.00001674h-10" /></g>
-                    </svg>
+                <h2 class="magra-bold text-2xl md:text-3xl flex gap-4 items-center mb-6 dark:text-white">
                     Configurar Combate
-                </a>
+                </h2>
                 <p class="kanit-ligth dark:text-slate-200">
                     Rellena el siguiente formulario con sus respectivos campos para iniciar un combate
                 </p>
