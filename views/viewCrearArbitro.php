@@ -4,12 +4,6 @@ require_once('./../../views/Components/Navbar.php');
 require_once('./../../views/Components/Sidebar.php');
 ?>
 
-<?php 
-require_once('./../../views/Components/Navbar.php');
-
-require_once('./../../views/Components/Sidebar.php');
-?>
-
 <section class="bg-white p-8 sm:ml-64 dark:bg-gray-900">
     <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-full md:p-10">
         <div
