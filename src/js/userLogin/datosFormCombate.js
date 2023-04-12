@@ -32,18 +32,18 @@ window.addEventListener('DOMContentLoaded', () => {
                                                                 `
         }
 
-        for(let deportes of data.deportes){
+        // for(let deportes of data.deportes){
 
-            document.getElementById('deportes').innerHTML += `
-                                                                <div class="flex items-center">
-                                                            <input id="deporte-radio-1" type="radio" value="${deportes.id}" name="deporte-radio" class="w-4 h-4 text-blue-600 ring-offset-gray-800 focus:ring-2 bg-gray-700 border-gray-600">
-                                                            <label for="deporte-radio-1" class="ml-2 text-sm font-medium text-gray-300">
-                                                                ${deportes.deporte}
-                                                            </label>
-                                                        </div>
-                                            `
+        //     document.getElementById('deportes').innerHTML += `
+        //                                                         <div class="flex items-center">
+        //                                                     <input id="deporte-radio-1" type="radio" value="${deportes.id}" name="deporte-radio" class="w-4 h-4 text-blue-600 ring-offset-gray-800 focus:ring-2 bg-gray-700 border-gray-600">
+        //                                                     <label for="deporte-radio-1" class="ml-2 text-sm font-medium text-gray-300">
+        //                                                         ${deportes.deporte}
+        //                                                     </label>
+        //                                                 </div>
+        //                                     `
 
-        }
+        // }
 
         for(let fasesCombate of data.fases){
 

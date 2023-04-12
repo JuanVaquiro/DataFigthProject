@@ -7,6 +7,7 @@ require_once __DIR__ . "/../../vendor/autoload.php";
 use Exception;
 use config\Conexion;
 use PDO;
+use DateTime;
 
 class CrearCombate{
 
@@ -23,8 +24,8 @@ class CrearCombate{
     private $tipoRonda;
     private $usuario;
 
-    public function __construct($deporte = 0, $deportista1 = 0, $delegacion1 = 0, $deportista2 = 0, $delegacion2 = 0, $evento = 0, 
-    $arbitro = 0, $horaFechaInicio = 0, $segundosRound = 0, $nRounds = 0, $tipoRonda = 0, $usuario = 0){
+    public function __construct($deportista1 = 0, $delegacion1 = 0, $deportista2 = 0, $delegacion2 = 0, $evento = 0, 
+    $arbitro = 0, $horaFechaInicio = 0, $segundosRound = 0, $nRounds = 0, $tipoRonda = 0, $usuario = 0, $deporte = 1){
 
         $this->deporte = $deporte;
         $this->deportista1 = $deportista1;
@@ -46,26 +47,106 @@ class CrearCombate{
         try {
 
 
-            if(!trim($this->deporte) && !trim($this->deportista1)){
+            if( !trim($this->deportista1) || !trim($this->delegacion1) || !trim($this->deportista2) || !trim($this->delegacion2) 
+                || !trim($this->tipoRonda) || !trim($this->nRounds) || !trim($this->segundosRound) || !trim($this->horaFechaInicio) 
+                || !trim($this->arbitro) || !trim($this->evento) ){
 
-                throw new Exception("Complete los capos");
+                throw new Exception("Complete los campos");
+
+            }
+
+            $pattern = "/^[0-9]+$/";
+
+            if( !preg_match($pattern, trim($this->deportista1)) ){
+
+                throw new Exception("El valor para el deportista1 no es valido");
 
             }
 
-            $pattern = "/^[0-9]{1,3}$/";
+            if( !preg_match($pattern, trim($this->deportista2)) ){
 
-            if(!preg_match($pattern, trim($this->deporte))){
-
-                throw new Exception("Dato no valido para deporte");
+                throw new Exception("El valor para el deportista2 no es valido");
 
             }
+
+            if( !preg_match($pattern, trim($this->delegacion1)) ){
+
+                throw new Exception("El valor para la delegacion1 no es valido");
+
+            }
+
+            if( !preg_match($pattern, trim($this->delegacion2)) ){
+
+                throw new Exception("El valor para la delegacion2 no es valido");
+
+            }
+
+            $pattern = "/^[0-9]{1,1}+$/";
+
+            if( !preg_match($pattern, trim($this->tipoRonda)) ){
+
+                throw new Exception("El valor para la fase o ronda no es valido");
+
+            }
+
+            $pattern = "/^[0-9]{1,3}+$/";
+
+            if( !preg_match($pattern, trim($this->nRounds)) ){
+
+                throw new Exception("El valor para el numero de rounds no es valido");
+
+            }
+
+            $pattern = "/^[0-9]{1,2}+$/";
+
+            if( !preg_match($pattern, trim($this->segundosRound)) ){
+
+                throw new Exception("El valor para el tiempo de los rounds no es valido");
+
+            }
+
+            $fecha_dt = DateTime::createFromFormat('Y-m-d\TH:i', $this->horaFechaInicio);
+
+            // $timestamp = strtotime($this->horaFechaInicio);
+
+
+            if( !$fecha_dt ){
+
+                // echo json_encode($this->horaFechaInicio);
+                throw new Exception("El valor Para la fecha y hora no es valida");
+
+            }
+
+            $pattern = "/^[0-9]+$/";
+
+            if( !preg_match($pattern, trim($this->arbitro)) ){
+
+                throw new Exception("El valor Para Arbitro no es valido");
+
+            }
+
+
+            if( !preg_match($pattern, trim($this->evento)) ){
+
+                throw new Exception("El valor Para Evento no es valido");
+
+            }
+
+
+            // $pattern = "/^[0-9]{1,3}$/";
+
+            // if(!preg_match($pattern, trim($this->deporte))){
+
+            //     throw new Exception("Dato no valido para deporte");
+
+            // }
 
             // echo "hola";
 
 
         } catch (Exception $e) {
             echo json_encode($e->getMessage());
-            // die();
+            die();
         }
 
         // echo "hola";
@@ -88,7 +169,7 @@ class CrearCombate{
         $registrar->bindParam(6, $this->evento, PDO::PARAM_INT);
         $registrar->bindParam(7, $this->arbitro, PDO::PARAM_INT);
         $registrar->bindParam(8, $this->horaFechaInicio, PDO::PARAM_STR);
-        $registrar->bindParam(9, $this->segundosRound, PDO::PARAM_STR);
+        $registrar->bindParam(9, $this->segundosRound, PDO::PARAM_INT);
         $registrar->bindParam(10, $this->nRounds, PDO::PARAM_INT);
         $registrar->bindParam(11, $this->tipoRonda, PDO::PARAM_INT);
         $registrar->bindParam(12, $this->usuario, PDO::PARAM_INT);
@@ -128,30 +209,110 @@ class CrearCombate{
 
     public function validarPost(){
 
-        if(isset($_POST) && isset($_POST['deportista_1']) && !empty($_POST['deportista_1'])){
-            // echo json_encode("Hello");
-            // $deporte=1;
-            $combate = new CrearCombate(
-                $_POST['deporte-radio'],
-                $_POST['deportista_1'],
-                $_POST['delegacion_1'],
-                $_POST['deportista_2'],
-                $_POST['delegacion_2'],
-                $_POST['evento'],
-                $_POST['arbitro'],
-                $_POST['datetime_local'],
-                $_POST['duracion-round-radio'],
-                $_POST['numero-round-radio'],
-                $_POST['fase-ronda'],
-                $_SESSION['idUser']
-            );
+        try {
 
-            $combate->obtenerSegundos();
-            $combate->registrarCombate();
+            if(!$_POST){
 
-        }else{
-            echo json_encode("Adios");
+                header("Location: ./");
+            }
+    
+            if( !isset($_POST['deportista_1']) ){
+
+                throw new Exception("El deportista #1 no se ha enviado");
+    
+            }
+
+            if( !isset($_POST['delegacion_1']) ){
+
+                throw new Exception("La delegacion #1 no se ha enviado");
+    
+            }
+
+            if( !isset($_POST['deportista_2']) ){
+
+                throw new Exception("El deportista #2 no se ha enviado");
+    
+            }
+
+            if( !isset($_POST['delegacion_2']) ){
+
+                throw new Exception("La delegacion #2 no se ha enviado");
+    
+            }
+
+            // if( !isset($_POST['deporte-radio']) ){
+
+            //     throw new Exception("El campo deporte no se ha enviado");
+    
+            // }
+
+            if( !isset($_POST['fase-ronda']) ){
+
+                throw new Exception("El campo Fase/Ronda no se ha enviado");
+    
+            }
+
+            if( !isset($_POST['numero-round-radio']) ){
+
+                throw new Exception("Porfavor seleccione un numero de round");
+    
+            }
+
+            if( !isset($_POST['duracion-round-radio']) ){
+
+                throw new Exception("Porfavor seleccione la duracion del round");
+    
+            }
+
+            if( !isset($_POST['datetime_local']) ){
+
+                throw new Exception("El campo fecha y hora no se ha enviado");
+    
+            }
+
+            if( !isset($_POST['arbitro']) ){
+
+                throw new Exception("El arbitro no se ha enviado");
+    
+            }
+
+            if( !isset($_POST['evento']) ){
+
+                throw new Exception("El evento no se ha enviado");
+    
+            }
+            
+        } catch (Exception $e) {
+
+            echo json_encode($e->getMessage());
+            die;
+
         }
+
+        // if(isset($_POST) && isset($_POST['deportista_1']) && !empty($_POST['deportista_1'])){
+        //     // echo json_encode("Hello");
+        //     // $deporte=1;
+        //     $combate = new CrearCombate(
+        //         $_POST['deporte-radio'],
+        //         $_POST['deportista_1'],
+        //         $_POST['delegacion_1'],
+        //         $_POST['deportista_2'],
+        //         $_POST['delegacion_2'],
+        //         $_POST['evento'],
+        //         $_POST['arbitro'],
+        //         $_POST['datetime_local'],
+        //         $_POST['duracion-round-radio'],
+        //         $_POST['numero-round-radio'],
+        //         $_POST['fase-ronda'],
+        //         $_SESSION['idUser']
+        //     );
+
+        //     $combate->obtenerSegundos();
+        //     $combate->registrarCombate();
+
+        // }else{
+        //     echo json_encode("Adios");
+        // }
 
     }
 

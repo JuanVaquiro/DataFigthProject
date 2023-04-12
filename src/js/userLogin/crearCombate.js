@@ -16,7 +16,7 @@ formulario.addEventListener('submit', function(e){
     .then( respuesta => respuesta.json())
     .then( data => {
 
-        // console.log(data);
+        console.log(data);
 
         if(data == "Registro Exitoso"){
 
@@ -36,7 +36,7 @@ formulario.addEventListener('submit', function(e){
         }else{
             Swal.fire({
                 icon: 'warning',
-                title: "Complete los campos"
+                title: data
               })
         }
 
