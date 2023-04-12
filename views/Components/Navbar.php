@@ -35,7 +35,7 @@
                   <div class="menu bg-slate-200 dark:bg-gray-800">
                      <ul class="space-y-3">
                         <li>
-                           <a class="flex gap-2 m-3 px-2 py-3 dark:text-white hover-custom">
+                           <a href="./../perfil" class="flex gap-2 m-3 px-2 py-3 dark:text-white hover-custom">
                               <svg aria-hidden="true"
                                  class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                                  fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
