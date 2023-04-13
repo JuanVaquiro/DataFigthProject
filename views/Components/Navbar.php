@@ -20,8 +20,8 @@
             </a>
          </div>
          <div class="flex items-center">
-            <div class="flex items-center ml-3">
-               <span class="p-2 text-gray-500 transition duration-75 dark:text-gray-400">usercorreo@gmial.com</span>
+            <div class="flex items-center">
+               <span class="p-2 text-gray-500 transition duration-75 dark:text-gray-400 invisible md:visible">usercorreo@gmial.com</span>
                <div class="dropdown relative inline-block">
                   <a id="drop" class="dark:text-gray-300">
                      <svg aria-hidden="true"
@@ -32,7 +32,7 @@
                         </path>
                      </svg>
                   </a>
-                  <div class="menu bg-slate-200 dark:bg-gray-800">
+                  <div class="menu sm:-right-3 md:-right-2 bg-slate-200 dark:bg-gray-800">
                      <ul class="space-y-3">
                         <li>
                            <a href="./../perfil" class="flex gap-2 m-3 px-2 py-3 dark:text-white hover-custom">
@@ -75,3 +75,4 @@
 </nav>
 <script src="./../../src/js/userLogin/logOut.js"></script>
 <script src="./../../src/js/stylesJs/menu.js"></script>
+<script src="./../../src/js/stylesJs/sidebar.js"></script>
