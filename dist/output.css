@@ -677,6 +677,11 @@ video {
   margin-bottom: 1.25rem;
 }
 
+.my-9 {
+  margin-top: 2.25rem;
+  margin-bottom: 2.25rem;
+}
+
 .-mb-40 {
   margin-bottom: -10rem;
 }
@@ -775,6 +780,14 @@ video {
 
 .mt-8 {
   margin-top: 2rem;
+}
+
+.mt-24 {
+  margin-top: 6rem;
+}
+
+.mt-9 {
+  margin-top: 2.25rem;
 }
 
 .block {
@@ -917,16 +930,24 @@ video {
   width: 2rem;
 }
 
+.w-80 {
+  width: 20rem;
+}
+
 .w-9 {
   width: 2.25rem;
 }
 
-.w-96 {
-  width: 24rem;
-}
-
 .w-full {
   width: 100%;
+}
+
+.w-\[644px\] {
+  width: 644px;
+}
+
+.w-\[645px\] {
+  width: 645px;
 }
 
 .max-w-2xl {
@@ -1504,6 +1525,11 @@ video {
 .py-8 {
   padding-top: 2rem;
   padding-bottom: 2rem;
+}
+
+.py-1\.5 {
+  padding-top: 0.375rem;
+  padding-bottom: 0.375rem;
 }
 
 .pb-4 {
@@ -2556,6 +2582,11 @@ video{
   border-color: rgb(234 179 8 / var(--tw-border-opacity));
 }
 
+.dark .dark\:hover\:border-gray-600:hover {
+  --tw-border-opacity: 1;
+  border-color: rgb(75 85 99 / var(--tw-border-opacity));
+}
+
 .dark .dark\:hover\:bg-blue-700:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(29 78 216 / var(--tw-bg-opacity));
@@ -2606,6 +2637,11 @@ video{
   --tw-ring-color: rgb(75 85 99 / var(--tw-ring-opacity));
 }
 
+.dark .dark\:focus\:ring-gray-700:focus {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(55 65 81 / var(--tw-ring-opacity));
+}
+
 .dark .group:hover .dark\:group-hover\:text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
@@ -2623,10 +2659,6 @@ video{
 }
 
 @media (min-width: 640px) {
-  .sm\:-right-1 {
-    right: -0.25rem;
-  }
-
   .sm\:-right-3 {
     right: -0.75rem;
   }
@@ -2735,10 +2767,6 @@ video{
     left: 0px;
   }
 
-  .md\:-right-3 {
-    right: -0.75rem;
-  }
-
   .md\:-right-2 {
     right: -0.5rem;
   }
@@ -2797,6 +2825,14 @@ video{
 
   .md\:w-auto {
     width: auto;
+  }
+
+  .md\:w-\[644px\;\] {
+    width: 644px;;
+  }
+
+  .md\:w-\[644px\] {
+    width: 644px;
   }
 
   .md\:shrink-0 {
@@ -2906,14 +2942,6 @@ video{
 }
 
 @media (min-width: 1024px) {
-  .lg\:visible {
-    visibility: visible;
-  }
-
-  .lg\:ml-3 {
-    margin-left: 0.75rem;
-  }
-
   .lg\:ml-80 {
     margin-left: 20rem;
   }
@@ -2928,6 +2956,10 @@ video{
 
   .lg\:w-96 {
     width: 24rem;
+  }
+
+  .lg\:w-auto {
+    width: auto;
   }
 
   .lg\:max-w-screen-lg {
