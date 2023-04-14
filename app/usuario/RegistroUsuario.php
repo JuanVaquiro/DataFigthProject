@@ -179,9 +179,10 @@ class RegistroUsuario{
 
             $pattern = "/^[0-9]{1,1}$/";
 
-            if( !preg_match($pattern, trim($this->tipo_documento)) ){
+            if( !preg_match($pattern, trim($this->tipo_documento)) || 
+            (!$this->tipo_documento >= 1 && !$this->tipo_documento <= 9) ){
 
-                throw new Exception("Detectamos cambios en el codigo");
+                throw new Exception("El tipo de documento no es valido");
 
             }
 

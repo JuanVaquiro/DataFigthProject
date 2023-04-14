@@ -20,7 +20,7 @@ formularioRegistro.addEventListener("submit", function(e){
     .then( respuesta => respuesta.json())
     .then( data => {
 
-        console.log(data)
+        // console.log(data)
 
         if(data == "Registro Exitoso"){
 

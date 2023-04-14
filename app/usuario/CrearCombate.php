@@ -175,7 +175,7 @@ class CrearCombate{
         $registrar->bindParam(12, $this->usuario, PDO::PARAM_INT);
         $registrar->execute();
 
-        if ($registrar) {
+        if ($registrar && $registrar->rowCount() > 0) {
 
             echo json_encode("Registro Exitoso");
     

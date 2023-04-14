@@ -41,7 +41,7 @@ formularioRegistro.addEventListener("submit", function(e){
         }else{
             Swal.fire({
                 icon: 'warning',
-                title: "complete los campos"
+                title: data
               })
         }
 

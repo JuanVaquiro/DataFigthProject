@@ -14,7 +14,7 @@ class CargarDatosForm{
     private $estado;
     private $usuario;
 
-    public function __construct($estado, $usuario, $deporte = 1){
+    public function __construct($usuario = 0, $estado = 1, $deporte = 1){
 
         $this->deporte = $deporte;
         $this->estado = $estado;
@@ -22,7 +22,15 @@ class CargarDatosForm{
 
     }
 
-    public function validarDatos(){
+    public function validarSesion(){
+
+        if( isset($_SESSION['idUser']) && !empty($_SESSION['idUser'])){
+
+            return new CargarDatosForm($_SESSION['idUser']);
+
+        }else{
+            return new CargarDatosForm();
+        }
 
     }
 
@@ -274,6 +282,20 @@ class CargarDatosForm{
 
     public function validarPost(){
 
+        if(!$_POST){
+            header("Location: ./");
+        }
+
+        if( isset($_POST['registro']) && $_POST['registro'] == true){
+
+            $array = [
+                'tipoDocumento' => $this->getTipoDoc()
+            ];
+
+            echo json_encode($array);
+            die;
+        }
+
         if(isset($_POST['config-combate']) && $_POST['config-combate'] == true){
             $this->getDataFormCombate();
             die;
@@ -308,6 +330,9 @@ class CargarDatosForm{
             ];
             echo json_encode($array);
             die;
+        }
+        else{
+            echo json_encode("No se encontro el recurso");
         }
 
     }
