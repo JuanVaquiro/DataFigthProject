@@ -10,16 +10,16 @@ require_once('./../../views/Components/Sidebar.php');
          <canvas id="myChart"></canvas>
       </div> -->
       <div class="grid grid-cols-2 gap-4 mb-4">
-         <div class="tremor-Card-root relative w-full text-left ring-1 shadow border-blue-500 ring-gray-200 p-6 rounded-lg max-w-lg dark:bg-gray-800">
+         <div class="tremor-Card-root relative w-full text-left ring-1 shadow border-blue-500 ring-gray-200 p-6 rounded-lg max-w-lg dark:bg-gray-800 dark:ring-gray-700">
             <canvas id="myChart2"></canvas>
          </div>
-         <div  class="tremor-Card-root relative w-full text-left ring-1 shadow border-blue-500 ring-gray-200 p-6 rounded-lg max-w-lg dark:bg-gray-800">
+         <div  class="tremor-Card-root relative w-full text-left ring-1 shadow border-blue-500 ring-gray-200 p-6 rounded-lg max-w-lg dark:bg-gray-800 dark:ring-gray-700">
             <canvas id="myChart3"></canvas>
          </div>
-         <div class="tremor-Card-root relative w-full text-left ring-1 shadow border-blue-500 ring-gray-200 p-6 rounded-lg max-w-lg dark:bg-gray-800">
+         <div class="tremor-Card-root relative w-full text-left ring-1 shadow border-blue-500 ring-gray-200 p-6 rounded-lg max-w-lg dark:bg-gray-800 dark:ring-gray-700">
             <canvas id="myChart4"></canvas>
          </div>
-         <div class="tremor-Card-root relative w-full text-left ring-1 shadow border-blue-500 ring-gray-200 p-6 rounded-lg max-w-lg dark:bg-gray-800">
+         <div class="tremor-Card-root relative w-full text-left ring-1 shadow border-blue-500 ring-gray-200 p-6 rounded-lg max-w-lg dark:bg-gray-800 dark:ring-gray-700">
             <canvas id="myChart5"></canvas>
          </div>
       </div>
