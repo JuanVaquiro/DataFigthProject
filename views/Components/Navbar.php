@@ -28,7 +28,7 @@
          </div>
          <div class="flex items-center">
             <div class="flex items-center">
-               <span class="p-2 text-gray-500 transition duration-75 dark:text-gray-400 invisible md:visible"><?= $datos['email'] ?></span>
+               <span class="p-2 text-gray-500 transition duration-75 dark:text-gray-400 invisible md:visible"> <?= $datos['email'] ?> </span>
                <div class="dropdown relative inline-block">
                   <a id="drop" class="dark:text-gray-300">
                      <svg aria-hidden="true"

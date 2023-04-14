@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 inputPais.addEventListener('input', () => {
     
-    if(inputPais.value != " "){
+    if( inputPais.value != " " && !isNaN(inputPais.value) ){
 
         let formData = new FormData()
         // formData.append('estado', true)
@@ -87,7 +87,7 @@ const SET_DATA_ESTADOS = () => {
 
 inputEstado.addEventListener('input', () => {
 
-    if(inputEstado.value != " " && inputPais.value != " "){
+    if( (inputEstado.value != " " && inputPais.value != " ") && (!isNaN(inputEstado.value) && !isNaN(inputPais.value)) ){
 
         let formData = new FormData()
         // formData.append('estado', true)
