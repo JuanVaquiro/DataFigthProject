@@ -1,23 +1,23 @@
 
-const ctx = document.getElementById('myChart');
-new Chart(ctx, {
-  type: 'bar',
-  data: {
-    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-    datasets: [{
-      label: '# of Votes',
-      data: [12, 19, 3, 5, 2, 3],
-      borderWidth: 1
-    }]
-  },
-  options: {
-    scales: {
-      y: {
-        beginAtZero: true
-      }
-    }
-  }
-});
+// const ctx = document.getElementById('myChart');
+// new Chart(ctx, {
+//   type: 'bar',
+//   data: {
+//     labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+//     datasets: [{
+//       label: '# of Votes',
+//       data: [12, 19, 3, 5, 2, 3],
+//       borderWidth: 1
+//     }]
+//   },
+//   options: {
+//     scales: {
+//       y: {
+//         beginAtZero: true
+//       }
+//     }
+//   }
+// });
 
 
 const ctx2 = document.getElementById('myChart2');
@@ -37,9 +37,22 @@ new Chart(ctx2, {
         'rgb(54, 162, 235)',
         'rgb(255, 205, 86)'
       ],
-      hoverOffset: 3
-    }]
-  }
+      hoverOffset: 3,
+    }],
+  },
+  options: {
+    responsive: true,
+    animation: true,
+    plugins: {
+      legend: {
+        position: 'top',
+      },
+      title: {
+        display: true,
+        text: 'Chart.js Doughnut Chart'
+      }
+    }
+  },
 });
 
 
@@ -83,7 +96,7 @@ new Chart(ctx4, {
       fill: false,
       borderColor: 'rgb(75, 192, 192)',
       backgroundColor: 'rgb(75, 192, 192)',
-      tension: 0.1,
+      tension: 0.4,
       pointStyle: 'circle',
       pointRadius: 10,
       pointHoverRadius: 15
@@ -107,7 +120,19 @@ new Chart(ctx5, {
         'rgb(255, 205, 86)'
       ],
       fill: false,
-      tension: 0.1,
+      tension: 0.4,
     }]
-  }
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'top',
+      },
+      title: {
+        display: true,
+        text: 'Chart.js Doughnut Chart'
+      }
+    }
+  },
 })
