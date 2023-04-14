@@ -233,6 +233,22 @@ class CargarDatosForm{
 
     }
 
+    public function getDatosUser(){
+
+        $pdo = new Conexion();
+        $con = $pdo->conexion();
+        $idUser = $_SESSION['idUser'];
+
+        $select = $con->prepare("CALL selectDatosUsuario(?)");
+        $select->bindParam(1, $idUser, PDO::PARAM_INT);
+        $select->execute();
+        $row = $select->fetchAll(PDO::FETCH_ASSOC);
+        $select->closeCursor();
+
+        return $row[0];
+
+    }
+
     public function getDataFormCombate(){
 
         $array = [
