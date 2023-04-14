@@ -13,7 +13,7 @@ require_once('./../../views/Components/Sidebar.php');
          <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
          <canvas id="myChart2"></canvas>
          </div>
-         <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
+         <div class="flex items-center justify-center rounded bg-gray-50  dark:bg-gray-800">
          <div style="width: 800px;"><canvas id="acquisitions"></canvas></div>
          </div>
          <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
@@ -26,6 +26,6 @@ require_once('./../../views/Components/Sidebar.php');
    </div>
 </div>
 <script src="./../../src/js/chart/chart.umd.js"></script>
-<script type="module" src="./../../src/js/chart/acquisitions.js"></script>
+<script type="module" src="./../../src/js/chart/charting.js"></script>
 
  
