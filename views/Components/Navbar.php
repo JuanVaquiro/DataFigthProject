@@ -22,13 +22,16 @@
             </button>
             <a href="./../home" class="flex ml-2 md:mr-24">
                <img class="h-8 mr-3" src="./../../dist/img/analytics.png" alt="logo-DataFight">
-               <span
-                  class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">DataFight</span>
+               <span class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">
+                  DataFight
+               </span>
             </a>
          </div>
          <div class="flex items-center">
             <div class="flex items-center">
-               <span class="p-2 text-gray-500 transition duration-75 dark:text-gray-400 invisible md:visible"> <?= $datos['email'] ?> </span>
+               <span class="p-2 text-gray-500 transition duration-75 dark:text-gray-400 invisible md:visible">
+                  <?= $datos['email'] ?>
+               </span>
                <div class="dropdown relative inline-block">
                   <a id="drop" class="dark:text-gray-300">
                      <svg aria-hidden="true"

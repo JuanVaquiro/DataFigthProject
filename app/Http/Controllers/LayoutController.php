@@ -59,6 +59,11 @@ class LayoutController{
             $this->titulo = "Lista Combate";
 
         }
+        elseif($this->segments[$posiciones-2] == "estadisticas"){
+
+            $this->titulo = "Estadisticas";
+
+        }
         elseif($this->segments[$posiciones-2] == "perfil"){
 
             $this->titulo = "Perfil";
@@ -97,6 +102,7 @@ class LayoutController{
             "Crear Evento" => "viewCrearEvento.php",
             "Crear Arbitro" => "viewCrearArbitro.php",
             "Lista Combate" => "viewListaCombate.php",
+            "Estadisticas" => "viewEstadisticas.php",
             "Perfil" => "viewPerfil.php"
         };
 

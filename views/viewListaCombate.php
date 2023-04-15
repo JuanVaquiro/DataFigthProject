@@ -7,7 +7,9 @@ require_once('./../../views/Components/Sidebar.php');
 <div class="h-screen overflow-x-auto shadow-md pt-24 px-5 sm:ml-64 dark:bg-gray-900">
     <div class="flex items-center w-[645px] lg:w-auto justify-between p-4 bg-white dark:bg-gray-800">
         <div>
-            <h2 class="text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">Lista de combates</h2>
+            <h2 class="text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">
+                Lista de combates
+            </h2>
         </div>
         <label for="table-search" class="sr-only">Search</label>
         <div class="relative">
@@ -46,7 +48,7 @@ require_once('./../../views/Components/Sidebar.php');
                     </svg>
                     <div class="pl-3 flex items-center gap-2">
                         <div class="text-base font-semibold">Neil Sims</div>
-                        <span>VS</span>
+                            <span>VS</span>
                         <div class="text-base font-semibold">Diego Franco</div>
                     </div>
                 </th>
@@ -55,7 +57,8 @@ require_once('./../../views/Components/Sidebar.php');
                 </td>
                 <td class="px-6 py-4">
                     <div class="flex items-center">
-                        <div class="h-2.5 w-2.5 rounded-full bg-green-500 mr-2"></div> activo
+                        <div class="h-2.5 w-2.5 rounded-full bg-green-500 mr-2"></div>
+                        activo
                     </div>
                 </td>
                 <td class="px-6 py-4">
@@ -98,7 +101,7 @@ require_once('./../../views/Components/Sidebar.php');
                     </svg>
                     <div class="pl-3 flex items-center gap-2">
                         <div class="text-base font-semibold">Neil Sims</div>
-                        <span>VS</span>
+                            <span>VS</span>
                         <div class="text-base font-semibold">Diego Franco</div>
                     </div>
                 </th>
@@ -107,7 +110,8 @@ require_once('./../../views/Components/Sidebar.php');
                 </td>
                 <td class="px-6 py-4">
                     <div class="flex items-center">
-                        <div class="h-2.5 w-2.5 rounded-full bg-green-500 mr-2"></div> activo
+                        <div class="h-2.5 w-2.5 rounded-full bg-green-500 mr-2"></div>
+                        activo
                     </div>
                 </td>
                 <td class="px-6 py-4">
@@ -145,7 +149,7 @@ require_once('./../../views/Components/Sidebar.php');
                     </svg>
                     <div class="pl-3 flex items-center gap-2">
                         <div class="text-base font-semibold">Neil Sims</div>
-                        <span>VS</span>
+                            <span>VS</span>
                         <div class="text-base font-semibold">Diego Franco</div>
                     </div>
                 </th>
@@ -154,7 +158,8 @@ require_once('./../../views/Components/Sidebar.php');
                 </td>
                 <td class="px-6 py-4">
                     <div class="flex items-center">
-                        <div class="h-2.5 w-2.5 rounded-full bg-green-500 mr-2"></div> activo
+                        <div class="h-2.5 w-2.5 rounded-full bg-green-500 mr-2"></div>
+                        activo
                     </div>
                 </td>
                 <td class="px-6 py-4">
@@ -192,7 +197,7 @@ require_once('./../../views/Components/Sidebar.php');
                     </svg>
                     <div class="pl-3 flex items-center gap-2">
                         <div class="text-base font-semibold">Neil Sims</div>
-                        <span>VS</span>
+                            <span>VS</span>
                         <div class="text-base font-semibold">Diego Franco</div>
                     </div>
                 </th>
@@ -201,7 +206,8 @@ require_once('./../../views/Components/Sidebar.php');
                 </td>
                 <td class="px-6 py-4">
                     <div class="flex items-center">
-                        <div class="h-2.5 w-2.5 rounded-full bg-red-500 mr-2"></div> finalizado
+                        <div class="h-2.5 w-2.5 rounded-full bg-red-500 mr-2"></div> 
+                        finalizado
                     </div>
                 </td>
                 <td class="px-6 py-4">
