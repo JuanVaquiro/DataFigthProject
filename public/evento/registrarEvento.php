@@ -9,3 +9,14 @@ use App\usuario\CrearEvento;
 $evento = new CrearEvento();
 
 $evento->validarPost();
+
+$evento = new CrearEvento(
+    $_POST['floating_evento'],
+    $_POST['ciudad'],
+    $_POST['nivel-evento'],
+    $_SESSION['idUser']
+);
+
+$evento->validarDatos();
+
+$evento->registrarEvento();
