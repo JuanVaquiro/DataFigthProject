@@ -138,7 +138,7 @@
         <div></div>
       </div>
       <button type="button" id="guardar_movimiento"
-        class="fixed bottom-52 right-5 p-1 lg:p-3 lg:bottom-40 focus:outline-none border border-gray-500 text-white bg-green-800 hover:bg-green-700 focus:ring-4 focus:ring-green-600 font-medium rounded-lg text-sm">
+        class="fixed bottom-52 right-5 p-2 lg:p-3 lg:bottom-40 focus:outline-none border border-gray-500 text-white bg-green-800 hover:bg-green-700 focus:ring-4 focus:ring-green-600 font-medium rounded-lg text-sm">
         GUARDAR
       </button>
     </div>
