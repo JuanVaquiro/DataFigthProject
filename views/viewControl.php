@@ -1,5 +1,4 @@
 <header>
-  
 <nav class="bg-white px-2 sm:px-4 py-2.5 dark:bg-slate-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
   <div class="container flex flex-wrap items-center justify-between mx-auto">
   <a href="#" class="flex items-center">
@@ -7,8 +6,8 @@
       <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">DataFight</span>
   </a>
   <div class="flex md:order-2">
-      <button type="button" id="finalizar_combate" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-        Finalizar Combate
+      <button type="button" id="iniciar_ronda" id="finalizar_combate" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+        INICIAR
       </button>
       <button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-sticky" aria-expanded="false">
         <span class="sr-only">Open main menu</span>
@@ -18,14 +17,14 @@
   <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
     <ul class="flex flex-col mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
     <li>
+        <button type="button" id="finalizar_combate" class="block text-xl py-1 px-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 dark:text-white">
+        Finalizar Combate
+        </button>
+      </li>
+    <li>
         <button type="button" id="falta" data-modal-target="defaultModal" data-modal-toggle="defaultModal" 
         class="block text-xl py-1 px-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
           Falta
-        </button>
-      </li>
-      <li>
-        <button type="button" id="iniciar_ronda" class="block text-xl py-1 px-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 dark:text-white">
-          INICIAR
         </button>
       </li>
       <li>
@@ -42,10 +41,9 @@
   </div>
   </div>
 </nav>
-
 </header>
 
-<div class="dark:bg-slate-900 flex">
+<div class="flex w-full h-screen lg:w-auto lg:h-auto dark:lg:bg-slate-900">
 <section class="main-container-video">
   <div class="fila1">
     <video src=""></video>
@@ -84,7 +82,7 @@
 <script type="module" src="./../../src/js/videoPlayer/player.js"></script>
 
 
-<section class="source-sans-pro">
+<section class="source-sans-pro w-full lg:w-auto dark:bg-slate-900">
   <div class="back-img-model flex items-center justify-center mt-12">
     <div class="grid grid-cols-2 gap-14">
       <div></div>
@@ -111,7 +109,7 @@
   </div>
   </div>
 
-  <div class="flex justify-center items-center -mt-7">
+  <div class="flex justify-center items-center -mt-7 lg:-mt-7">
     <!-- acierto del golpe -->
     <div class="btns-group1 grid grid-cols-2 gap-3">
     <button type="button" id="trasera"
@@ -139,12 +137,16 @@
         </button>
         <div></div>
       </div>
+      <button type="button" id="guardar_movimiento"
+        class="fixed bottom-52 right-5 p-1 lg:p-3 lg:bottom-40 focus:outline-none border border-gray-500 text-white bg-green-800 hover:bg-green-700 focus:ring-4 focus:ring-green-600 font-medium rounded-lg text-sm">
+        GUARDAR
+      </button>
     </div>
 </div>
    
   <!-- informacion -->
-  <article class="flex justify-between bg-slate-400 sm:p-[11px] md:p-2">
-    <dl class="flex flex-col mx-3 p-2 w-5/12 md:w-1/2 sm:px-2 sm:w-full sm:m-0 sm:p-0">
+  <article class="flex mt-4 justify-between bg-slate-400 sm:p-[11px] md:p-2">
+    <dl class="hidden md:flex flex-col mx-3 p-2 w-5/12 md:w-1/2 sm:px-2 sm:w-full sm:m-0 sm:p-0">
       <dt class="" id="deportista">nombre No econtrado</dt>
       <dd class="" id="delegacion">delegacion No econtrado</dd>
     </dl>
@@ -177,10 +179,6 @@
         <dd id="tiempo" class="py-1 px-4 rounded-lg shadow-md shadow-slate-800  text-white bg-slate-600">00:00</dd>
       </dl>
   </article>
-  <button type="button" id="guardar_movimiento"
-        class="fixed bottom-40 right-7 p-3 focus:outline-none border border-gray-500 text-white bg-green-800 hover:bg-green-700 focus:ring-4 focus:ring-green-600 font-medium rounded-lg text-sm">
-        GUARDAR
-      </button>
 </section>
 </div>
 
@@ -478,8 +476,8 @@
 </div>
 <script>
 
-  const combate = <?= $_GET['combate'] ?>;
-  const deportista = <?= $_GET['deportista'] ?>;
+  // const combate = <?= $_GET['combate'] ?>;
+  // const deportista = <?= $_GET['deportista'] ?>;
 
 </script>
 <script src="./../../src/js/logicControl/index.js" type="module"></script>

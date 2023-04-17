@@ -163,7 +163,11 @@ video{
   padding: 20px;
   box-sizing: border-box;
 }
-
+@media (max-width: 768px) {
+  .main-container-video {
+    display: none;
+  }
+}
 .fila3{
   display: grid;
   grid-template-columns: 1fr 30px;

@@ -42,7 +42,7 @@ new Chart(ctx2, {
   },
   options: {
     responsive: true,
-    animation:{
+    animation: {
       animateRotate: true
     },
     plugins: {
