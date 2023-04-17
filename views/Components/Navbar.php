@@ -59,7 +59,7 @@
                            </button>
                         </li>
                         <li>
-                           <button id="logOut" href="#" class="flex gap-2 m-3 px-2 py-3 dark:text-white hover-custom">
+                           <button id="logOut" class="flex gap-2 m-3 px-2 py-3 dark:text-white hover-custom">
                               <svg aria-hidden="true"
                                  class="flex-shrink-0 w-6 h-6 text-red-600 transition duration-75 dark:text-red-500 group-hover:text-gray-900 dark:group-hover:text-white"
                                  fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -76,6 +76,3 @@
       </div>
    </div>
 </nav>
-<!-- <script src="./../../src/js/userLogin/logOut.js"></script>
-<script src="./../../src/js/stylesJs/sidebar.js"></script>  
-<script src="./../../src/js/stylesJs/menu.js"></script> -->
