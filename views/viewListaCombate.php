@@ -25,7 +25,14 @@ require_once('./../../views/Components/Sidebar.php');
         <thead class="text-xs  rounded-lg  text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">
             <tr>
                 <th scope="col" class="px-6 py-3">
-                    Deportista
+                    <div>
+                        <span>
+                            Deportista1
+                        </span>
+                        <span>
+                            Deportista2
+                        </span>
+                    </div>
                 </th>
                 <th scope="col" class="px-6 py-3">
                     Fase-ronda

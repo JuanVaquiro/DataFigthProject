@@ -3,6 +3,7 @@
 namespace app\usuario;
 
 use config\Conexion;
+use Exception;
 use PDO;
 
 class CrearDelegacion{
@@ -25,10 +26,6 @@ class CrearDelegacion{
         $this->iniciales = $iniciales;
         $this->deporte = $deporte;
         
-    }
-
-    public function validarDatos(){
-
     }
 
     public function registrarDelegacion(){
@@ -59,28 +56,118 @@ class CrearDelegacion{
 
     }
 
+    public function validarDatos(){
+
+        try {
+
+            // if( !trim($this->name) || !trim($this->descripcion) || !trim($this->ciudad) || !trim($this->iniciales) || !trim($this->deporte) ){
+                
+            //     throw new Exception("Complete los campos");
+    
+            // }
+
+            $pattern = "/^[a-zA-Z\sñáéíóúÁÉÍÓÚ0-9]{3,50}$/";
+
+            if( !preg_match($pattern, trim($this->name)) ){
+
+                throw new Exception("Los nombres para delegaciones deben de contener minimo 3 y maximo 50 caracteres, no se permiten numeros o caracteres especiales");
+
+            }
+
+            $pattern = "/^[a-zA-Z\sñáéíóúÁÉÍÓÚ0-9]{0,100}$/";
+
+            if( !preg_match($pattern, trim($this->descripcion)) ){
+
+                throw new Exception("La descripcion debe contener maximo 100 caracteres, no se permiten caracteres especiales");
+
+            }
+
+            $pattern = "/^[a-zA-Z]+$/";
+
+            if( !preg_match($pattern, trim($this->iniciales)) ){
+
+                throw new Exception("Las inciales deben de contener minimo 1 caracter y maximo 15. No se permiten caracteres especiales");
+
+            }
+
+            $pattern = "/^[0-9]$/";
+
+            if( !preg_match($pattern, trim($this->ciudad)) ){
+
+                throw new Exception("La ciudad no es valida");
+
+            }
+
+            if( !preg_match($pattern, trim($this->deporte)) ){
+
+                throw new Exception("El deporte no es valido");
+
+            }
+
+        } catch (Exception $e) {
+
+            echo json_encode($e->getMessage());
+            die;
+
+        }
+
+    }
+
     public function validarPost(){
 
-        if( isset($_POST) && !empty($_POST) && isset($_POST['floating_delegacion']) 
-        && isset($_POST['ciudad']) && !empty($_POST['floating_delegacion']) && !empty($_POST['ciudad'])){
+        try {
+            
+            if( !$_POST ){
 
-            $delegacion = new CrearDelegacion(
-                $_POST['floating_delegacion'],
-                $_POST['floating_description'],
-                $_POST['ciudad'],
-                $_SESSION['idUser'],
-                $_POST['floating_siglas'],
-                $_POST['deporte']
-            );
+                header("Location: ./../");
 
-            // $delegacion->validarDatos();
+            }
 
-            $delegacion->registrarDelegacion();
+            if( !isset($_POST['floating_delegacion']) ){
 
-            // echo json_encode($_POST);
+                throw new Exception("El campo delegacion no se ha enviado");
 
-        }else{
-            echo json_encode("hola");
+            }
+
+            if( !isset($_POST['floating_description']) ){
+
+                throw new Exception("El campo descripcion no se ha enviado");
+
+            }
+
+            if( !isset($_POST['floating_siglas']) ){
+
+                throw new Exception("El campo siglas no se ha enviado");
+
+            }
+
+            if( !isset($_POST['pais']) ){
+
+                throw new Exception("El campo pais no se ha enviado");
+
+            }
+
+            if( !isset($_POST['departamento']) ){
+
+                throw new Exception("El campo departamento no se ha enviado");
+
+            }
+
+            if( !isset($_POST['ciudad']) ){
+
+                throw new Exception("El campo ciudad no se ha enviado");
+
+            }
+
+            if( !isset($_POST['deporte']) ){
+
+                throw new Exception("El campo deporte no se ha enviado");
+
+            }
+
+        } catch (Exception $e) {
+            echo json_encode($e->getMessage());
+            die;
         }
 
     }
