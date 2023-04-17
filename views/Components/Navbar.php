@@ -1,10 +1,3 @@
-<?php
-
-   use App\usuario\CargarDatosForm;
-   $user = new CargarDatosForm();
-   $datos = $user->getDatosUser();
-   // print_r($datos);
-?>
 <nav class="fixed top-0 z-50 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
    <div class="px-3 py-3 lg:px-5 lg:pl-3">
       <div class="flex items-center justify-between">
@@ -30,7 +23,7 @@
          <div class="flex items-center">
             <div class="flex items-center">
                <span class="p-2 text-gray-500 transition duration-75 dark:text-gray-400 invisible md:visible">
-                  <?= $datos['email'] ?>
+                  <?= $_SESSION['email'] ?>
                </span>
                <div class="dropdown relative inline-block">
                   <a id="drop" class="dark:text-gray-300">
@@ -83,6 +76,6 @@
       </div>
    </div>
 </nav>
-<script src="./../../src/js/userLogin/logOut.js"></script>
+<!-- <script src="./../../src/js/userLogin/logOut.js"></script>
 <script src="./../../src/js/stylesJs/sidebar.js"></script>  
-<script src="./../../src/js/stylesJs/menu.js"></script>
+<script src="./../../src/js/stylesJs/menu.js"></script> -->

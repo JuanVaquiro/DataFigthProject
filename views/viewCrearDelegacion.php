@@ -86,7 +86,7 @@ require_once('./../../views/Components/Sidebar.php');
                                 </label>
                                 <select id="deporte" name="deporte"
                                     class="cursor-pointer bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light">
-                                    <option value="" id="default-option-ciudad">Seleccione una ciudad</option>
+                                    <option value="" id="default-option-ciudad">Seleccione el deporte al que pertenece su delegacion</option>
                                     <!-- <option value="1">Espinal</option>
                                     <option value="2">Girardot</option> -->
                                 </select>
