@@ -89,11 +89,11 @@ require_once('./../../views/Components/Sidebar.php');
                                 </path>
                             </svg>
                         </a>
-                        <a href="#" type="button" data-modal-show="editUserModal"
+                        <button id="iniciar_combate_select" type="button" data-modal-show="editUserModal"
                             class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
                             <svg class="text-green-500 transition duration-75 hover:text-green-600 hover:border-green-600 hover:border-b-2 dark:text-green-400 dark:hover:border-green-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M234.49,111.07,90.41,22.94A20,20,0,0,0,60,39.87V216.13a20,20,0,0,0,30.41,16.93l144.08-88.13a19.82,19.82,0,0,0,0-33.86ZM84,208.85V47.15L216.16,128Z"></path>
                             </svg>    
-                        </a>
+                        </button>
                     </div>
                 </td>
             </tr>
@@ -245,3 +245,46 @@ require_once('./../../views/Components/Sidebar.php');
         </tbody>
     </table>
 </div>
+
+  <!-- Modal seleccionar deporstista -->
+<div id="modal_seleccionar_deportista" class="modal">
+  <!-- Modal content select -->
+  <div class="modal-content">
+    <div class="flex items-start justify-between w-full p-4 border-b rounded-t border-gray-600">
+      <!-- Modal header tiempo -->
+      <h3 class="text-xl text-center font-semibold text-white">
+        Por favor seleccione el deportista
+      </h3>
+      <button id="cerrar_modal_seleccionar" type="button"
+        class="text-gray-400 bg-transparent rounded-lg text-sm p-1.5 ml-auto inline-flex items-center hover:bg-gray-600 hover:text-white">
+        <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd"
+            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+            clip-rule="evenodd"></path>
+        </svg>
+      </button>
+    </div>
+    <div class="flex gap-4 w-full">
+        <div class="flex w-full items-center p-4 border rounded border-gray-700">
+            <input id="deportista_1" type="radio" value="" name="bordered-radio-deportista" class="w-4 h-4 text-blue-600 focus:ring-blue-600 ring-offset-gray-800 focus:ring-2 bg-gray-700 border-gray-600">
+            <label for="deportista_1" class="flex flex-col w-full py-4 ml-2 text-sm font-medium text-gray-300">
+                Deportista #1
+                <span>NAMI RAMIREZ RODRIGUEZ SANCHEZ</span>
+            </label>
+        </div>
+        <div class="flex w-full items-center p-4 border rounded border-gray-700">
+            <input checked id="deportista_2" type="radio" value="" name="bordered-radio-deportista" class="w-4 h-4 text-blue-600 focus:ring-blue-600 ring-offset-gray-800 focus:ring-2 bg-gray-700 border-gray-600">
+            <label for="deportista_2" class="flex flex-col w-full py-4 ml-2 text-sm font-medium text-gray-300">
+                Deportista #2
+                <span>JUAN PABLO DIAZ CORTEZ</span>
+            </label>
+        </div>
+    </div>
+    <button id="guardar_tiempo"
+        class="text-white focus:ring-4 focus:outline-none  font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-blue-600 hover:bg-blue-700 focus:ring-blue-800">
+        Iniciar
+      </button>
+  </div>
+</div>
+<script src="./../../src/js/FightList/index.js"></script>
