@@ -130,17 +130,18 @@
           <img class="w-16 m-0 p-0" src="./../../dist/img/controlPNG/pechera.png" alt="pechera icon">
         </button>
       </div>
-      <div class="flex items-center justify-center">
+      <div class="flex gap-3 items-center justify-center">
         <button type="button" id="casco"
           class="p-1 border rounded-lg hover:bg-sky-600 active:bg-sky-700 focus:outline-none focus:ring focus:ring-sky-300 ">
           <img class="w-16 m-0 p-0" src="./../../dist/img/controlPNG/casco.png" alt="casco icon">
         </button>
-        <div></div>
+        <div>
+          <button type="button" id="guardar_movimiento"
+          class="p-3 focus:outline-none border border-gray-500 text-white bg-green-800 hover:bg-green-700 focus:ring-4 focus:ring-green-600 font-medium rounded-lg text-sm">
+          GUARDAR
+          </button>
+        </div>
       </div>
-      <button type="button" id="guardar_movimiento"
-        class="fixed bottom-52 right-5 p-2 lg:p-3 lg:bottom-40 focus:outline-none border border-gray-500 text-white bg-green-800 hover:bg-green-700 focus:ring-4 focus:ring-green-600 font-medium rounded-lg text-sm">
-        GUARDAR
-      </button>
     </div>
 </div>
    
