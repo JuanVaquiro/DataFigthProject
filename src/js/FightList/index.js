@@ -1,6 +1,6 @@
 
 /* Modal INIT register table */
-const BTN_INIT_SELECT = document.getElementById('iniciar_combate_select')
+const BTN_INIT_SELECT = document.querySelector('.iniciar_combate_select')
 BTN_INIT_SELECT.addEventListener('click', iniciarCombateSelect)
 async function iniciarCombateSelect() {
   const { value: Deportista } = await Swal.fire({
@@ -26,7 +26,7 @@ async function iniciarCombateSelect() {
 
 
 /* Modal DELET register table */
-const BTN_DELET_SELECT = document.getElementById('eliminar-registro-tabla')
+const BTN_DELET_SELECT = document.querySelector('.eliminar-registro-tabla')
 BTN_DELET_SELECT.addEventListener('click', confirmaEliminarRegistro)
 function confirmaEliminarRegistro() {
   const swalButtons = Swal.mixin({
