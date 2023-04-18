@@ -249,6 +249,22 @@ class CargarDatosForm{
 
     }
 
+    public function getCategoriasArbitro(){
+
+        $pdo = new Conexion();
+        $con = $pdo->conexion();
+        $paramt = 1;
+
+        $select = $con->prepare("CALL getCategoriasArbitro(?)");
+        $select->bindParam(1, $paramt, PDO::PARAM_INT);
+        $select->execute();
+        $row = $select->fetchAll(PDO::FETCH_ASSOC);
+        $select->closeCursor();
+
+        return $row;
+
+    }
+
     public function getDataFormCombate(){
 
         $array = [
@@ -296,6 +312,18 @@ class CargarDatosForm{
         echo json_encode($array);
     }
 
+    public function getDataFormArbitro(){
+
+        $array = [
+            'tipoDocumento' => $this->getTipoDoc(),
+            'deportes' => $this->getDeportes(),
+            'sexo' => $this->getSex(),
+            'categoriasArbitro' => $this->getCategoriasArbitro()
+        ];
+
+        echo json_encode($array);
+    }
+
     public function validarPost(){
 
         if(!$_POST){
@@ -329,6 +357,11 @@ class CargarDatosForm{
 
         if(isset($_POST['evento']) && $_POST['evento'] == true){
             $this->getDataFormEvento();
+            die;
+        }
+
+        if(isset($_POST['arbitro']) && $_POST['arbitro'] == true){
+            $this->getDataFormArbitro();
             die;
         }
 
