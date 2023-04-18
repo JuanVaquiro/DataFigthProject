@@ -16,10 +16,9 @@ async function iniciarCombateSelect() {
       }
     }
   })
-
   if (Deportista) {
     Swal.fire({
-      html: `Haz seleccionado : ${Deportista}`,
+      html: `Haz seleccionado: ${Deportista}`,
       confirmButtonText: 'Iniciar Combate',
     })
   }
@@ -36,7 +35,6 @@ function confirmaEliminarRegistro() {
       cancelButtonColor: '#d33',
     }
   })
-
   swalButtons.fire({
     title: 'Estas seguro de Eliminar este registro?',
     text: "!No podrás revertirlo!",
@@ -58,7 +56,5 @@ function confirmaEliminarRegistro() {
       })
     }
   })
-
   return swalButtons
-
 }
