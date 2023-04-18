@@ -1,11 +1,19 @@
-const URL = "https://pokeapi.co/api/v2/pokemon/?limit=4";
+// const URL = "https://pokeapi.co/api/v2/pokemon/?limit=4";
+const URL = "./../setData.php";
 
 const table = document.getElementById("tabla-combates");
 
-fetch(URL)
+const formData = new FormData();
+formData.append('list-combat', true);
+
+fetch(URL,{
+  method: "POST",
+  body: formData
+})
   .then(response => response.json())
   .then(data => {
-    data.results.forEach(item => {
+    console.log(data)
+    data.combate.forEach(item => {
 
       const newRow = table.insertRow();
       newRow.classList.add("bg-white", "border-b", "dark:bg-gray-800", "dark:border-gray-700", "hover:bg-gray-50", "dark:hover:bg-gray-600");
@@ -16,9 +24,9 @@ fetch(URL)
       deportistas.innerHTML = `
       <th scope="row" class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
       <div class="pl-3 flex items-center gap-2">
-        <div id="deportista-1" class="text-base font-semibold">${item.name}</div>
+        <div id="deportista-1" class="text-base font-semibold">${item.deportista1}</div>
         <span>VS</span>
-        <div id="deportista-2" class="text-base font-semibold">${item.name}</div>
+        <div id="deportista-2" class="text-base font-semibold">${item.deportista2}</div>
       </div>
       </th>
     `;
@@ -26,15 +34,15 @@ fetch(URL)
       // Fase
       const faseRondaCelda = newRow.insertCell();
       faseRondaCelda.classList.add("px-6", "py-4")
-      faseRondaCelda.textContent = item.url;
+      faseRondaCelda.textContent = item.ronda;
 
       // Estado
       const estadoCelda = newRow.insertCell();
       estadoCelda.classList.add("px-6", "py-4")
       estadoCelda.innerHTML = `
       <div class="flex items-center">
-        <div class="h-2.5 w-2.5 rounded-full ${item.name !== 'activo' ? 'bg-green-500' : 'bg-red-500'} mr-2"></div>
-        ${item.name}
+        <div class="h-2.5 w-2.5 rounded-full ${item.estado !== 0 ? 'bg-green-500' : 'bg-red-500'} mr-2"></div>
+        ${item.estado !== 0 ? 'Activo' : 'Finalizado'}
       </div>
     `
 

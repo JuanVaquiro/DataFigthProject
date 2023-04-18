@@ -265,6 +265,22 @@ class CargarDatosForm{
 
     }
 
+    public function getCombatesUser(){
+
+        $pdo = new Conexion();
+        $con = $pdo->conexion();
+        // $paramt = 1;
+
+        $select = $con->prepare("CALL selectCombatesUsuario(?)");
+        $select->bindParam(1, $_SESSION['idUser'], PDO::PARAM_INT);
+        $select->execute();
+        $row = $select->fetchAll(PDO::FETCH_ASSOC);
+        $select->closeCursor();
+
+        return $row;
+
+    }
+
     public function getDataFormCombate(){
 
         $array = [
@@ -362,6 +378,14 @@ class CargarDatosForm{
 
         if(isset($_POST['arbitro']) && $_POST['arbitro'] == true){
             $this->getDataFormArbitro();
+            die;
+        }
+
+        if(isset($_POST['list-combat']) && $_POST['list-combat'] == true){
+            $array = [
+                'combate' => $this->getCombatesUser()
+            ];
+            echo json_encode($array);
             die;
         }
 
