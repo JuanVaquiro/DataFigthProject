@@ -1,7 +1,9 @@
 
 /* Modal INIT register table */
-const BTN_INIT_SELECT = document.querySelector('.iniciar_combate_select')
-BTN_INIT_SELECT.addEventListener('click', iniciarCombateSelect)
+const BTN_INIT_SELECT = document.querySelectorAll('.iniciar_combate_select')
+BTN_INIT_SELECT.forEach((button) => {
+  button.addEventListener('click', iniciarCombateSelect);
+})
 async function iniciarCombateSelect() {
   const { value: Deportista } = await Swal.fire({
     title: 'Selecciona un deportista para iniciar el registro de datos',
@@ -26,8 +28,10 @@ async function iniciarCombateSelect() {
 
 
 /* Modal DELET register table */
-const BTN_DELET_SELECT = document.querySelector('.eliminar-registro-tabla')
-BTN_DELET_SELECT.addEventListener('click', confirmaEliminarRegistro)
+const BTN_DELET_SELECT = document.querySelectorAll('.eliminar-registro-tabla')
+BTN_DELET_SELECT.forEach((button) => {
+  button.addEventListener('click', confirmaEliminarRegistro);
+})
 function confirmaEliminarRegistro() {
   const swalButtons = Swal.mixin({
     customClass: {
