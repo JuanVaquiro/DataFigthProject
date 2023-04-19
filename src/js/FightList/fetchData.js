@@ -50,7 +50,7 @@ fetch(URL, {
       acccionCelda.classList.add("px-6", "py-4")
       acccionCelda.innerHTML = ` 
       <div class="flex items-center gap-1">
-        <button class="eliminar-registro-tabla" data-tooltip-target="tooltip-animation" type="button">
+      <button class="eliminar-registro-tabla" data-tooltip-target="tooltip-animation" type="button">
             <svg class="text-red-500 transition duration-75 hover:text-red-600 hover:border-red-600 hover:border-b-2 dark:text-red-400 dark:hover:border-red-500" fill="currentColor"
             xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 256 256">
                 <path
@@ -85,6 +85,43 @@ fetch(URL, {
           </button>
       </div>
       `
+
+      const BTN_INIT_SELECT = document.querySelectorAll('.iniciar_combate_select');
+      for (let i = 0; i < BTN_INIT_SELECT.length; i++) {
+        const item = data.combate[i];
+        BTN_INIT_SELECT[i].addEventListener('click', iniciarCombateSelectClosure(item));
+      }
+
+      function iniciarCombateSelectClosure(item) {
+        return async function () {
+          const { value: Deportista } = await Swal.fire({
+            title: 'Selecciona un deportista para iniciar el registro de datos',
+            input: 'radio',
+            inputOptions: {
+              1: `${item.deportista1}`,
+              2: `${item.deportista2}`
+            },
+            inputValidator: (value) => {
+              if (!value) {
+                return 'Por favor selecciona un deportista'
+              }
+            }
+          });
+          if (Deportista) {
+            Swal.fire({
+              html: `Haz seleccionado al deporsista #${Deportista}`,
+              confirmButtonText: 'Iniciar Combate',
+              showCancelButton: true,
+              cancelButtonText: 'Cancelar',
+            }).then((result) => {
+              if (result.isConfirmed) {
+                window.location = `./../control/?combate=${item.id}&deportista=${Deportista}`
+              }
+            })
+          }
+        }
+      }
+
     })
   })
   .catch(error => console.error(error))

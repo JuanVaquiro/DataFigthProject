@@ -476,9 +476,7 @@
   </div>
 </div>
 <script>
-
-  // const combate = <?= $_GET['combate'] ?>;
-  // const deportista = <?= $_GET['deportista'] ?>;
-
+  const combate = <?= $_GET['combate'] ?>;
+  const deportista = <?= $_GET['deportista'] ?>;
 </script>
 <script src="./../../src/js/logicControl/index.js" type="module"></script>
