@@ -1,12 +1,11 @@
-// const URL = "https://pokeapi.co/api/v2/pokemon/?limit=4";
-const URL = "./../setData.php";
+const URL = "./../setData.php"
 
-const table = document.getElementById("tabla-combates");
+const table = document.getElementById("tabla-combates")
 
-const formData = new FormData();
-formData.append('list-combat', true);
+const formData = new FormData()
+formData.append('list-combat', true)
 
-fetch(URL,{
+fetch(URL, {
   method: "POST",
   body: formData
 })
@@ -15,11 +14,11 @@ fetch(URL,{
     console.log(data)
     data.combate.forEach(item => {
 
-      const newRow = table.insertRow();
-      newRow.classList.add("bg-white", "border-b", "dark:bg-gray-800", "dark:border-gray-700", "hover:bg-gray-50", "dark:hover:bg-gray-600");
+      const newRow = table.insertRow()
+      newRow.classList.add("bg-white", "border-b", "dark:bg-gray-800", "dark:border-gray-700", "hover:bg-gray-50", "dark:hover:bg-gray-600")
 
       // Desporstias
-      const deportistas = newRow.insertCell();
+      const deportistas = newRow.insertCell()
       deportistas.classList.add("flex", "items-center", "text-gray-900", "whitespace-nowrap", "dark:text-white", "px-6", "py-4")
       deportistas.innerHTML = `
       <th scope="row" class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
@@ -29,15 +28,15 @@ fetch(URL,{
         <div id="deportista-2" class="text-base font-semibold">${item.deportista2}</div>
       </div>
       </th>
-    `;
+    `
 
       // Fase
-      const faseRondaCelda = newRow.insertCell();
+      const faseRondaCelda = newRow.insertCell()
       faseRondaCelda.classList.add("px-6", "py-4")
-      faseRondaCelda.textContent = item.ronda;
+      faseRondaCelda.textContent = item.ronda
 
       // Estado
-      const estadoCelda = newRow.insertCell();
+      const estadoCelda = newRow.insertCell()
       estadoCelda.classList.add("px-6", "py-4")
       estadoCelda.innerHTML = `
       <div class="flex items-center">
@@ -47,7 +46,7 @@ fetch(URL,{
     `
 
       // Accion
-      const acccionCelda = newRow.insertCell();
+      const acccionCelda = newRow.insertCell()
       acccionCelda.classList.add("px-6", "py-4")
       acccionCelda.innerHTML = ` 
       <div class="flex items-center gap-1">
@@ -84,8 +83,9 @@ fetch(URL,{
                 Iniciar
             </div> 
           </button>
-      </div>`
-    });
+      </div>
+      `
+    })
   })
-  .catch(error => console.error(error));
+  .catch(error => console.error(error))
 
