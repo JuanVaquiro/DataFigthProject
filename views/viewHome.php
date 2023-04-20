@@ -12,11 +12,14 @@ require_once('./../../views/Components/Sidebar.php');
                 Tutorial
             </a>
             <h1 class="magra-bold text-gray-900 dark:text-white text-3xl md:text-5xl font-extrabold mb-2">
-                ¡Bienvenido DataFight recolección de datos de rendimiento!
+                ¡Bienvenido DataFight!
             </h1>
+            <h2 class="source-sans-pro text-gray-900 dark:text-white text-xl md:text-2xl font-extrabold mb-2">
+                Plataforma para la recolección de datos de rendimiento en taekwondo
+            </h2>
             <p class="kanit-ligth text-lg font-normal text-gray-500 dark:text-gray-400 mb-6">
-                Nuestra plataforma te permite registrar y analizar el rendimiento de los deportistas 
-                de taekwondo,<br/>
+                Te permite registrar y analizar el rendimiento de los deportistas 
+                de taekwondo,
                 lo que te permitirá tomar decisiones informadas para mejorar su desempeño.
             </p>
             <a href="#" class="source-sans-pro inline-flex justify-center items-center py-2.5 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">

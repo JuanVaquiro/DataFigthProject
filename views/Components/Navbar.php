@@ -15,7 +15,7 @@
             </button>
             <a href="./../home" class="flex ml-2 md:mr-24">
                <img class="h-8 mr-3" src="./../../dist/img/analytics.png" alt="logo-DataFight">
-               <span class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">
+               <span class="source-sans-pro self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">
                   DataFight
                </span>
             </a>
