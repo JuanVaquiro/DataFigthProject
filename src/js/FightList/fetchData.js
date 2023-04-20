@@ -1,12 +1,13 @@
-const URL = "./../setData.php"
+import { iniciarCombateSelect } from './accionTable.js'
 
-const table = document.getElementById("tabla-combates")
+const URL = './../setData.php'
+const TABLE_BODY = document.getElementById('cuerto-tabla')
 
 const formData = new FormData()
 formData.append('list-combat', true)
 
 fetch(URL, {
-  method: "POST",
+  method: 'POST',
   body: formData
 })
   .then(response => response.json())
@@ -14,20 +15,18 @@ fetch(URL, {
     console.log(data)
     data.combate.forEach(item => {
 
-      const newRow = table.insertRow()
+      const newRow = TABLE_BODY.insertRow()
       newRow.classList.add("bg-white", "border-b", "dark:bg-gray-800", "dark:border-gray-700", "hover:bg-gray-50", "dark:hover:bg-gray-600")
 
       // Desporstias
       const deportistas = newRow.insertCell()
       deportistas.classList.add("flex", "items-center", "text-gray-900", "whitespace-nowrap", "dark:text-white", "px-6", "py-4")
       deportistas.innerHTML = `
-      <th scope="row" class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
       <div class="pl-3 flex items-center gap-2">
         <div id="deportista-1" class="text-base font-semibold">${item.deportista1}</div>
         <span>VS</span>
         <div id="deportista-2" class="text-base font-semibold">${item.deportista2}</div>
       </div>
-      </th>
     `
 
       // Fase
@@ -86,40 +85,11 @@ fetch(URL, {
       </div>
       `
 
-      const BTN_INIT_SELECT = document.querySelectorAll('.iniciar_combate_select');
+      // btn iniciar combate
+      const BTN_INIT_SELECT = document.querySelectorAll('.iniciar_combate_select')
       for (let i = 0; i < BTN_INIT_SELECT.length; i++) {
-        const item = data.combate[i];
-        BTN_INIT_SELECT[i].addEventListener('click', iniciarCombateSelectClosure(item));
-      }
-
-      function iniciarCombateSelectClosure(item) {
-        return async function () {
-          const { value: Deportista } = await Swal.fire({
-            title: 'Selecciona un deportista para iniciar el registro de datos',
-            input: 'radio',
-            inputOptions: {
-              1: `${item.deportista1}`,
-              2: `${item.deportista2}`
-            },
-            inputValidator: (value) => {
-              if (!value) {
-                return 'Por favor selecciona un deportista'
-              }
-            }
-          });
-          if (Deportista) {
-            Swal.fire({
-              html: `Haz seleccionado al deporsista #${Deportista}`,
-              confirmButtonText: 'Iniciar Combate',
-              showCancelButton: true,
-              cancelButtonText: 'Cancelar',
-            }).then((result) => {
-              if (result.isConfirmed) {
-                window.location = `./../control/?combate=${item.id}&deportista=${Deportista}`
-              }
-            })
-          }
-        }
+        const item = data.combate[i]
+        BTN_INIT_SELECT[i].addEventListener('click', iniciarCombateSelect(item))
       }
 
     })

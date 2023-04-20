@@ -29,7 +29,7 @@ require_once('./../../views/Components/Sidebar.php');
         <thead class="text-xs  rounded-lg  text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">
             <tr>
                 <th scope="col" class="px-6 py-3">
-                    <div class="flex gap-4 ml-2">
+                    <div class="flex gap-6 ml-4">
                         Deportista #1
                             <span>VS</span>
                         Deportista #2
@@ -46,12 +46,10 @@ require_once('./../../views/Components/Sidebar.php');
                 </th>
             </tr>
         </thead>
-        <tbody>
-           
+        <tbody id="cuerto-tabla">
+           <!-- Iterar datos -->
         </tbody>
     </table>
-</div>
-
-  
-<script src="./../../src/js/FightList/fetchData.js"></script>
-<script src="./../../src/js/FightList/accionTable.js"></script>
+</div>  
+<script type="module" src="./../../src/js/FightList/fetchData.js"></script>
+<script type="module" src="./../../src/js/FightList/accionTable.js"></script>

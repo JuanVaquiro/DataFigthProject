@@ -1,34 +1,37 @@
-// const BTN_INIT_SELECT = document.querySelectorAll('.iniciar_combate_select');
-// for (let button of BTN_INIT_SELECT) {
-//   button.addEventListener('click', iniciarCombateSelect);
-//   console.log(BTN_INIT_SELECT)
-// }
+export function iniciarCombateSelect(item) {
+  return async function () {
+    const { value: Deportista } = await Swal.fire({
+      title: 'Selecciona un deportista para iniciar el registro de datos',
+      input: 'radio',
+      inputOptions: {
+        1: `${item.deportista1}`,
+        2: `${item.deportista2}`
+      },
+      inputValidator: (value) => {
+        if (!value) {
+          return 'Por favor selecciona un deportista'
+        }
+      }
+    });
+    if (Deportista) {
+      Swal.fire({
+        html: `Haz seleccionado al deporsista #${Deportista}`,
+        confirmButtonText: 'Iniciar Combate',
+        showCancelButton: true,
+        cancelButtonText: 'Cancelar',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          window.location = `./../control/?combate=${item.id}&deportista=${Deportista}`
+        }
+      })
+    }
+  }
+}
+
 
 // const BTN_DELET_SELECT = document.querySelectorAll('.eliminar-registro-tabla');
 // for (let button of BTN_DELET_SELECT) {
 //   button.addEventListener('click', confirmaEliminarRegistro);
-// }
-
-// async function iniciarCombateSelect() {
-//   const { value: Deportista } = await Swal.fire({
-//     title: 'Selecciona un deportista para iniciar el registro de datos',
-//     input: 'radio',
-//     inputOptions: {
-//       'Neil Sims': 'Deportista #1',
-//       'Diego Franco': 'Deportista #2'
-//     },
-//     inputValidator: (value) => {
-//       if (!value) {
-//         return 'Por favor selecciona un deportista'
-//       }
-//     }
-//   });
-//   if (Deportista) {
-//     Swal.fire({
-//       html: `Haz seleccionado: ${Deportista}`,
-//       confirmButtonText: 'Iniciar Combate',
-//     });
-//   }
 // }
 
 // function confirmaEliminarRegistro() {
