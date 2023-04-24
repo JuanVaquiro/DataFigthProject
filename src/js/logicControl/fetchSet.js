@@ -11,7 +11,6 @@ export function infoFight(deportista, combate) {
         .then(respuesta => respuesta.json())
         .then(data => {
             if (data != "./../home") {
-                console.log(data)
                 let deporstista = (deportista == 1) ? data[0].deportista1 : data[0].deportista2
                 let delegacion = (deportista == 1) ? data[0].delegacion1 : data[0].delegacion2
                 document.getElementById('deportista').innerText = deporstista

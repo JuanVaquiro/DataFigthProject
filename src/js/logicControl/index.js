@@ -8,7 +8,7 @@ import {
   BTN_CHANGE_TIMER,
 } from './constDOM.js'
 import { MODAL_TIMER_FINISH, MODAL_CLOSE_FINISH } from './constDOM.js'
-import { INFO_DEPORTISTA, INF0_DELEGACION, INFO_FASE, NUM_ROUND, NUM_FAULT } from './constDOM.js'
+import { INFO_DEPORTISTA, INF0_DELEGACION, INFO_FASE, NUM_ROUND, NUM_FAULT, BTN_SAVE_ROUND } from './constDOM.js'
 import { saveMotion, setHitValue, setLocationHitValue, setPositionValue, confirmPointPechera } from './Motion.js'
 import { pauseTimer } from './pausar.js'
 import { windowModalGoToBack } from './goToBack.js'
@@ -76,7 +76,7 @@ function finishOrStartRound() {
   } else {
     vid.pause()
     BTN_START_ROUND.textContent = '→ Iniciar Round ←'
-    windowModalFinishTimer()
+    windowModalFinishRound()
   }
   btnDisabled()
 }
@@ -105,7 +105,6 @@ function setRoundCount() {
     roundCount++
     DISPLAY_ROUND.textContent = roundCount
   } else {
-    alert('el combate finalizado')
     window.location.href = './../combate-finalizado'
   }
 }
@@ -146,10 +145,10 @@ function btnDisabled() {
   }
 }
 
-export function windowModalFinishTimer() {
+export function windowModalFinishRound() {
   INFO_DEPORTISTA.innerText = getDeportista
   INF0_DELEGACION.innerText = getDelegacion
-  INFO_FASE. innerText = fase
+  INFO_FASE.innerText = fase
   NUM_ROUND.innerText = roundCount
   NUM_FAULT.innerText = faultCount
   MODAL_TIMER_FINISH.style.display = 'block'
@@ -158,6 +157,7 @@ export function windowModalFinishTimer() {
     finishOrStartRound()
     MODAL_TIMER_FINISH.style.display = 'none'
   })
+  BTN_SAVE_ROUND.addEventListener('click', saveDateRound)
   window.addEventListener('click', function (event) {
     if (event.target === MODAL_TIMER_FINISH) {
       isOnRound = true
@@ -167,6 +167,10 @@ export function windowModalFinishTimer() {
   })
 }
 
+// BTN SAVE ROUND CONTEN MODAL Finish ROUND
+function saveDateRound() {
+  MODAL_TIMER_FINISH.style.display = 'none'
+}
 
 function confirmFinishFight() {
   vid.pause()

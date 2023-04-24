@@ -185,7 +185,7 @@
 
 <!-- modal tiempo terminado -->
 <div id="modal" class="modal">
-  <div class="modal-content-tiempo-terminado lg:w-2/4">
+  <div class="modal-content-tiempo-terminado lg:w-2/3">
     <div class="flex items-start justify-between w-full p-4 border-b rounded-t border-gray-600">
       <h3 class="text-xl font-semibold text-white">
         Round Terminado
@@ -207,38 +207,46 @@
         <span id="info-fase">fase:</span>
       </div>
       <div>
-        <div class="flex justify-end mx-3 px-3">
-          <ul class="p-0 m-0">
+        <div class="flex justify-end mr-4 pr-3">
+          <ul class="py-3 mb-3">
             <li class="mx-1">Round</li>
             <li id="numero-round" class="mx-1 py-1 px-4 rounded-lg shadow-md shadow-slate-800 text-white bg-slate-600">
-              
+              0
             </li>
           </ul>
         </div>
         <div class="flex">
-          <div class="flex-1 m-3 p-3">
+          <div class="flex-1">
             <ul class="p-0 m-0">
               <li class="mx-1">Faltas</li>
-              <li id="contador-faltas" class="mx-1 py-1 px-4 rounded-lg shadow-md shadow-slate-800 text-white bg-slate-600">
+              <li id="contador-faltas" class="w-12 mx-1 py-1 px-4 rounded-lg shadow-md shadow-slate-800 text-white bg-slate-600">
                 0
               </li>
             </ul>
           </div>
-          <div class="flex-1 m-3 p-3">
+          <div class="flex-1">
             <ul class="p-0 m-0">
-              <li class="mx-1">Puntos</li>
-              <li class="mx-1 py-1 px-4 rounded-lg shadow-md shadow-green-800 text-white bg-green-600">
-                23
-              </li>
+              <li class="">
+                <label for="ingresar-puntos">Ingresar los puntos:</label>
+                <input 
+                  id="puntos"
+                  name="ingresar-puntos"
+                  type="number"
+                  min="10" max="100"
+                  class=" mx-1 py-1 px-4 rounded-lg shadow-md shadow-slate-800 text-black border-slate-600"
+                  />
+                </li>
             </ul>
           </div>
         </div>
       </div>
     </div>
-      <a href="#"
-        class="text-white focus:ring-4 focus:outline-none  font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-blue-600 hover:bg-blue-700 focus:ring-blue-800">
+      <button 
+        id="guardar_datos_round"
+        type="button"
+        class="text-white focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-blue-600 hover:bg-blue-700 focus:ring-blue-800">
         Guardar
-      </a>
+      </button>
   </div>
 </div>
 <!-- modal pausar -->

@@ -22,7 +22,14 @@ export function saveMotion() {
     confirmPoint = false
     BTN_CONFIRM_POINT.style.background = 'none'
   } else {
-    alert('Por favor, seleccione un ataque y su posicion')
+    Swal.fire({
+      toast: true,
+      title: 'Por favor, seleccione un golpe y su posicion',
+      icon: 'warning',
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000
+    })
   }
 }
 
@@ -49,7 +56,14 @@ export function setLocationHitValue(value) {
     setPointValue()
     console.log(`valor de golpe en localización: ${locationHitValue}`)
   } else {
-    alert('Movimiento NO valido')
+    Swal.fire({
+      toast: true,
+      title: 'No valido, igresar primero el tipo de golpe',
+      icon: 'error',
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 1500
+    })
   }
 }
 
@@ -58,12 +72,19 @@ export function setPositionValue(value) {
     positionValue = value
     console.log(`valor de posición: ${positionValue}`)
   } else {
-    alert('Movimiento NO valido')
+    Swal.fire({
+      toast: true,
+      title: 'No valido, igresar primero el tipo de golpe',
+      icon: 'error',
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 1500
+    })
   }
 }
 
 export function setHitValue(value) {
-  getTimerHit = timerSelect.getTime()
+  getTimerHit = '300'
   hitValue = value
   console.log(`valor de golpe: ${hitValue} tiempo: ${getTimerHit}`)
 }
