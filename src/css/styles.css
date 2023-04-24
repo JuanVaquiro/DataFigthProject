@@ -198,5 +198,11 @@ video{
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  height: 58%;
+  height: 50%;
+}
+
+@media (min-width: 1536px) {
+  .back-img-model {
+    height: 62%;
+  }
 }

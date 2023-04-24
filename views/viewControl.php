@@ -83,7 +83,13 @@
 
 
 <section class="source-sans-pro w-full lg:w-auto dark:bg-slate-900">
-  <div class="back-img-model flex items-center justify-center mt-12">
+  <div class="mt-16">
+  <dl class="">
+      <dt class="dark:text-gray-500" id="deportista">nombre No econtrado</dt>
+      <dd class="dark:text-gray-500" id="delegacion">delegacion No econtrado</dd>
+    </dl>
+  </div>
+  <div class="back-img-model flex flex-col items-center justify-center">
     <div class="grid grid-cols-2 gap-14">
       <div></div>
       <button type="button" id="patada_con_giro"
@@ -109,7 +115,7 @@
   </div>
   </div>
 
-  <div class="flex justify-center items-center -mt-7 lg:-mt-7">
+  <div class="flex justify-center items-center -mt-4 lg:-mt-4 2xl:-mt-10">
     <!-- acierto del golpe -->
     <div class="btns-group1 grid grid-cols-2 gap-3">
     <button type="button" id="trasera"
@@ -127,30 +133,20 @@
         </button>
         <button type="button" id="pechera"
           class="p-1 border rounded-lg hover:bg-sky-600 active:bg-sky-700 focus:outline-none focus:ring focus:ring-sky-300 ">
-          <img class="w-16 m-0 p-0" src="./../../dist/img/controlPNG/pechera.png" alt="pechera icon">
+          <img class="w-12 m-0 p-0" src="./../../dist/img/controlPNG/pechera.png" alt="pechera icon">
         </button>
       </div>
       <div class="flex gap-3 items-center justify-center">
         <button type="button" id="casco"
           class="p-1 border rounded-lg hover:bg-sky-600 active:bg-sky-700 focus:outline-none focus:ring focus:ring-sky-300 ">
-          <img class="w-16 m-0 p-0" src="./../../dist/img/controlPNG/casco.png" alt="casco icon">
-        </button>
-        <div>
-          <button type="button" id="guardar_movimiento"
-          class="p-3 focus:outline-none border border-gray-500 text-white bg-green-800 hover:bg-green-700 focus:ring-4 focus:ring-green-600 font-medium rounded-lg text-sm">
-          GUARDAR
-          </button>
-        </div>
+          <img class="w-12 m-0 p-0" src="./../../dist/img/controlPNG/casco.png" alt="casco icon">
+        </button>      
       </div>
     </div>
 </div>
    
   <!-- informacion -->
-  <article class="flex mt-4 justify-between bg-slate-400 sm:p-[11px] md:p-2">
-    <dl class="hidden md:flex flex-col mx-3 p-2 w-5/12 md:w-1/2 sm:px-2 sm:w-full sm:m-0 sm:p-0">
-      <dt class="" id="deportista">nombre No econtrado</dt>
-      <dd class="" id="delegacion">delegacion No econtrado</dd>
-    </dl>
+  <article class="flex mt-4 justify-between bg-gray-50 dark:bg-slate-400 sm:p-[11px] md:p-2">
     <div class="flex">
       <dl class="flex flex-col items-center mx-3 p-2 sm:p-0">
         <dt class="">Fase</dt>
@@ -164,22 +160,17 @@
         <dt class="">Faltas</dt>
         <dd id="contador_faltas" class="py-1 px-4 rounded-lg shadow-md shadow-slate-800 text-white bg-slate-600">0</dd>
       </dl>
-      <dl class="flex flex-col items-center mx-3 p-2 sm:p-0">
-        <div class="flex gap-1 items-center">
-          <dt>Tiempo</dt>
-          <button id="cambiar_tiempo" type="button">
-            <svg height="21" viewBox="0 0 21 21" width="21" xmlns="http://www.w3.org/2000/svg">
-              <g fill="none" fill-rule="evenodd" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                transform="matrix(-1 0 0 1 19 2)">
-                <circle cx="8.5" cy="8.5" r="8" />
-                <path d="m8.5 5.5v4h-3.5" />
-              </g>
-            </svg>
-          </button>
-        </div>
-        <dd id="tiempo" class="py-1 px-4 rounded-lg shadow-md shadow-slate-800  text-white bg-slate-600">00:00</dd>
-      </dl>
+      <div class="flex items-center justify-center mx-3 p-2 sm:p-0">
+        <button type="button" id="guardar_movimiento"
+          class="p-3 focus:outline-none border border-gray-500 text-white bg-green-800 hover:bg-green-700 focus:ring-4 focus:ring-green-600 font-medium rounded-lg text-sm">
+          GUARDAR
+        </button>
+      </div>
   </article>
+  <button class="fixed bottom-40 right-5 flex flex-col gap-1 p-1  focus:outline-none border border-gray-500 bg-slate-200 hover:bg-slate-300  dark:text-black dark:bg-slate-800 dark:hover:bg-slate-700 focus:ring-4 focus:ring-slate-600 font-medium rounded-lg text-sm" id="cambiar_tiempo" type="button">
+    <label for="">Tiemp:</label>
+    <input class="w-12" type="number" value="">
+  </button>
 </section>
 </div>
 
