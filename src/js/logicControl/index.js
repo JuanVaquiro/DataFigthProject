@@ -7,13 +7,14 @@ import {
   BTN_ACCEPT_FOUL,
   BTN_CHANGE_TIMER,
 } from './constDOM.js'
-import { MODAL_TIMER_FINISH, MODAL_CLOSE_FINISH, MODAL_TEXT_FINISH } from './constDOM.js'
+import { MODAL_TIMER_FINISH, MODAL_CLOSE_FINISH } from './constDOM.js'
+import { INFO_DEPORTISTA, INF0_DELEGACION, INFO_FASE, NUM_ROUND, NUM_FAULT } from './constDOM.js'
 import { saveMotion, setHitValue, setLocationHitValue, setPositionValue, confirmPointPechera } from './Motion.js'
-import { startTimer, pauseTimer, windowModalChangesTimer } from './timer.js'
+import { pauseTimer } from './pausar.js'
 import { windowModalGoToBack } from './goToBack.js'
-import { saveFault, windosModalFault } from './fault.js'
+import { saveFault, windosModalFault, faultCount } from './fault.js'
 import { infoFight } from './fetchSet.js'
-import { play } from '../videoPlayer/player.js'
+import { vid } from '../videoPlayer/player.js'
 
 const VALUE_FOOT_LEFT = 1
 const VALUE_FOOT_RIGHT = 2
@@ -25,10 +26,12 @@ const VALUE_BACK = 2
 const VALUE_HELMET = 1
 const VALUE_PECHERA = 2
 
+let getDeportista
+let getDelegacion
+let fase
 let numberRound = 1
 let assingTimer = 30
 let isOnRound = false
-export let timerSelect
 export let roundCount = 0
 
 BTN_LEFT_HIT.disabled = true
@@ -50,14 +53,15 @@ BTN_FAULT.disabled = true
 // CLICK INIT FIGHT
 BTN_START_ROUND.addEventListener('click', finishOrStartRound)
 BTN_START_ROUND.addEventListener('click', executeFnt())
-// 👇 pause VideoPlayer and Control
-BTN_START_ROUND.addEventListener('click', play)
 // GET infoFight
 window.addEventListener('DOMContentLoaded', () => {
   infoFight(deportista, combate)
 })
 
-export function capturarInfo(data) {
+export function capturarInfo(data, deporstista, delegacion) {
+  getDeportista = deporstista //👈 assign to the deporstista
+  getDelegacion = delegacion //👈 assign to the delegacion
+  fase = data[0].ronda //👈 assign to the ronda
   numberRound = data[0].rounds //👈 assign number to the round 
   assingTimer = data[0].tiempo_round_seg //👈 assign duration to the round time
 }
@@ -65,13 +69,14 @@ export function capturarInfo(data) {
 function finishOrStartRound() {
   isOnRound = !isOnRound
   if (isOnRound) {
+    vid.play()
     BTN_START_ROUND.textContent = 'Terminar Round'
     BTN_PAUSE.textContent = 'Pausar'
-    timerSelect = startTimer(assingTimer, DISPLAY_TIMER)
     setRoundCount()
   } else {
+    vid.pause()
     BTN_START_ROUND.textContent = '→ Iniciar Round ←'
-    clearInterval(timerSelect.clearIntervalID); // Clear the interval using clearIntervalID value
+    windowModalFinishTimer()
   }
   btnDisabled()
 }
@@ -89,10 +94,10 @@ function executeFnt() {
   BTN_CONFIRM_POINT.addEventListener('click', confirmPointPechera)
   BTN_SAVE_MOTION.addEventListener('click', saveMotion)
   BTN_ACCEPT_FOUL.addEventListener('click', saveFault)
-  BTN_PAUSE.addEventListener('click', () => pauseTimer(timerSelect))
-  BTN_CHANGE_TIMER.addEventListener('click', () => windowModalChangesTimer(timerSelect))
+  BTN_PAUSE.addEventListener('click', () => pauseTimer())
   BTN_RETURN.addEventListener('click', () => windowModalGoToBack())
   windosModalFault()
+  BTN_FINAL_FIGHT.addEventListener('click', confirmFinishFight)
 }
 
 function setRoundCount() {
@@ -141,9 +146,13 @@ function btnDisabled() {
   }
 }
 
-export function windowModalFinishTimer(text) {
+export function windowModalFinishTimer() {
+  INFO_DEPORTISTA.innerText = getDeportista
+  INF0_DELEGACION.innerText = getDelegacion
+  INFO_FASE. innerText = fase
+  NUM_ROUND.innerText = roundCount
+  NUM_FAULT.innerText = faultCount
   MODAL_TIMER_FINISH.style.display = 'block'
-  MODAL_TEXT_FINISH.textContent = text
   MODAL_CLOSE_FINISH.addEventListener('click', function () {
     isOnRound = true
     finishOrStartRound()
@@ -157,3 +166,25 @@ export function windowModalFinishTimer(text) {
     }
   })
 }
+
+
+function confirmFinishFight() {
+  vid.pause()
+  Swal.fire({
+    title: 'Estas seguro de finalizar el combate?',
+    text: 'asegurarte de haber registrador todas las rounds, saldras de esta pantalla',
+    icon: 'warning',
+    showCancelButton: true,
+    cancelButtonText: 'Cancelar',
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Si, Terminar!'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      window.location = './../combate-finalizado'
+    } else if (result.isDismissed) {
+      vid.play()
+    }
+  })
+}
+

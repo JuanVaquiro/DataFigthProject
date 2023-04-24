@@ -1,8 +1,8 @@
 window.onload = inicio
 
 let videos = ['video2.mp4']
-let velocidades = [ 1.25, 1.5, 2, 1, 0.25, 0.5, 0.75,]
-let vid
+let velocidades = [1.25, 1.5, 2, 1, 0.25, 0.5, 0.75,]
+export let vid
 let orden = []
 let videoActual = 0
 let velocidadActual = 1
@@ -21,7 +21,7 @@ function inicio() {
   reordenar()
   vid.ontimeupdate = actualizar
   vid.onloadeddata = actualizar
-  vid. onended = siguiente
+  vid.onended = siguiente
   // Establecer la velocidad inicial del video y la etiqueta del botón de velocidad
   vid.playbackRate = velocidadActual;
   document.querySelector('.velocidad').textContent = `x${velocidadActual}`;
@@ -84,8 +84,8 @@ function reducir() {
 }
 
 function actualizar() {
-  document.querySelector('.estado').innerHTML = 
-  `${conversionTiempo(vid.currentTime)} / ${conversionTiempo(vid.duration)}`
+  document.querySelector('.estado').innerHTML =
+    `${conversionTiempo(vid.currentTime)} / ${conversionTiempo(vid.duration)}`
 
   let porcentaje = (100 * vid.currentTime) / vid.duration
   document.querySelector('.barra2').style.width = `${porcentaje}%`
@@ -94,14 +94,14 @@ function actualizar() {
 
 function conversionTiempo(segundos) {
   let fecha = new Date(segundos * 1000)
-  let segundo = 
+  let segundo =
     (fecha.getSeconds() <= 9)
-    ? '0' + fecha.getSeconds()
-    : fecha.getSeconds()
-  let minuto = 
+      ? '0' + fecha.getSeconds()
+      : fecha.getSeconds()
+  let minuto =
     (fecha.getMinutes() <= 9)
-    ? '0' + fecha.getMinutes()
-    : fecha.getMinutes()
+      ? '0' + fecha.getMinutes()
+      : fecha.getMinutes()
   return `${minuto}:${segundo}`
 }
 
@@ -110,7 +110,7 @@ function buscar(evento) {
   let handleClick = evento.offsetX
   let anchoNevegador = document.querySelector('.barra1').offsetWidth
   let porcentaje = (100 * handleClick) / anchoNevegador
-  let posicion = Math.floor(vid.duration * (porcentaje/100))
+  let posicion = Math.floor(vid.duration * (porcentaje / 100))
   vid.currentTime = posicion
 }
 

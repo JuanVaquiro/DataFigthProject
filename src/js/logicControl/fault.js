@@ -1,8 +1,10 @@
-import { MODAL_TOGGLE_FAULT, MODAL_RADIO_FAULT, DISPLAY_FAULT, } from './constDOM.js'
-import { timerSelect, roundCount } from './index.js'
+import { MODAL_TOGGLE_FAULT, MODAL_RADIO_FAULT, DISPLAY_FAULT } from './constDOM.js'
+import { roundCount } from './index.js'
+import { vid } from '../videoPlayer/player.js'
 import { setFaultPost } from './fetchsData.js'
 
-let faultCount = 0
+
+export let faultCount = 0
 
 export function saveFault() {
   console.log('guardado:', catchFault())
@@ -16,13 +18,13 @@ export function saveFault() {
 }
 
 function catchFault() {
-  const timerFault = parseFloat(timerSelect.getTime())
+  // const timerFault = parseFloat(timerSelect.getTime())
   for (const radioButton of MODAL_RADIO_FAULT) {
     if (radioButton.checked) {
       let selectedValue = parseInt(radioButton.value)
       return {
         falta: selectedValue,
-        tiempoFalta: timerFault,
+        tiempoFalta: '3:23',
         round: roundCount,
       }
     }
@@ -38,7 +40,7 @@ export function windosModalFault() {
   // Recorre cada botón de alternar modal y agrega un listener de clic
   MODAL_TOGGLE_FAULT.forEach((toggle) => {
     toggle.addEventListener('click', () => {
-      timerSelect.stop()
+      vid.pause()
       const target = toggle.dataset.modalTarget // Obtiene el ID del modal a mostrar
       const modal = document.getElementById(target) // Obtiene el elemento del modal a mostrar
       modal.classList.toggle('hidden') // Muestra o oculta el modal al alternar la clase 'hidden'
@@ -52,7 +54,7 @@ export function windosModalFault() {
   // Recorre cada botón para ocultar el modal y agrega un listener de clic
   modalHide.forEach((hide) => {
     hide.addEventListener('click', () => {
-      timerSelect.start()
+      vid.play()
       const modal = hide.closest('.h-modal') // Obtiene el elemento del modal más cercano
       modal.classList.add('hidden') // Oculta el modal al agregar la clase 'hidden'
       modal.setAttribute('aria-hidden', 'true') // Establece el atributo 'aria-hidden' en 'true' cuando el modal está oculto

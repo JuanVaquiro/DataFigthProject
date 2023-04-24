@@ -8,15 +8,18 @@ export function infoFight(deportista, combate) {
         method: "POST",
         body: formData
     })
-    .then(respuesta => respuesta.json())
-    .then(data => {
-        if (data != "./../home") {
-            capturarInfo(data)
-            document.getElementById('deportista').innerText = (deportista == 1) ? data[0].deportista1 : data[0].deportista2
-            document.getElementById('delegacion').innerText = (deportista == 1) ? data[0].delegacion1 : data[0].delegacion2
-            document.getElementById('fase').innerText = data[0].ronda
-        } else {
-            window.location = data
-        }
-    })
+        .then(respuesta => respuesta.json())
+        .then(data => {
+            if (data != "./../home") {
+                console.log(data)
+                let deporstista = (deportista == 1) ? data[0].deportista1 : data[0].deportista2
+                let delegacion = (deportista == 1) ? data[0].delegacion1 : data[0].delegacion2
+                document.getElementById('deportista').innerText = deporstista
+                document.getElementById('delegacion').innerText = delegacion
+                document.getElementById('fase').innerText = data[0].ronda
+                capturarInfo(data, deporstista, delegacion)
+            } else {
+                window.location = data
+            }
+        })
 }

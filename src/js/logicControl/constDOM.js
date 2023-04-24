@@ -34,13 +34,6 @@ export const MODAL_MESSAGE = document.getElementById('modal_contiainer')
 export const MODAL_CLOSE_MESSAGE = document.getElementById('modal_close_message')
 export const MODAL_TEXT_MESSAGE = document.getElementById('modal_meesage')
 
-// view modal changes timer
-export const MODAL_TIMER_CHANGE = document.getElementById('modal_cambiar_tiempo')
-export const MODAL_CLOSE_CHANGE = document.getElementById('cerrar_modal')
-export const MODAL_MINUTES_INPUT_CHANGE = document.getElementById('minutes-input')
-export const MODAL_SECONDS_INPUT_CHANGE = document.getElementById('seconds-input')
-export const MODAL_SAVE_TIME_CHANGE = document.getElementById('guardar_tiempo')
-
 // view modal go to back register
 export const MODAL_GO_TO_BACK = document.getElementById('modal_actualizar_resgistro')
 export const MODAL_CLOSE_GO_TO_BACK = document.getElementById('cerrar_modal_regresar')
@@ -54,4 +47,8 @@ export const BTN_ACCEPT_FOUL = document.getElementById('boton_aceptar_falta')
 // view modal timer finish
 export const MODAL_TIMER_FINISH = document.getElementById('modal')
 export const MODAL_CLOSE_FINISH = document.getElementById('close_button_modal')
-export const MODAL_TEXT_FINISH = document.getElementById('text_modal')	
+export const INFO_DEPORTISTA = document.getElementById('info-deporstista')
+export const INF0_DELEGACION = document.getElementById('info-delegacion')
+export const INFO_FASE = document.getElementById('info-fase')
+export const NUM_ROUND = document.getElementById('numero-round')
+export const NUM_FAULT = document.getElementById('contador-faltas')

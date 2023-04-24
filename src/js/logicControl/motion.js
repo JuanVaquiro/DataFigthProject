@@ -1,6 +1,6 @@
 import { BTN_CONFIRM_POINT } from './constDOM.js'
 import { setMotionPost } from './fetchsData.js'
-import { timerSelect, roundCount } from "./index.js"
+import { roundCount } from "./index.js"
 
 let getTimerHit = 0
 let hitValue = 0

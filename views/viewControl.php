@@ -1,7 +1,7 @@
 <header>
 <nav class="bg-white px-2 sm:px-4 py-2.5 dark:bg-slate-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
   <div class="container flex flex-wrap items-center justify-between mx-auto">
-  <a href="#" class="flex items-center">
+  <a href="./../home" class="flex items-center">
       <img src="./../../dist/img/analytics.png" class="h-6 mr-3 sm:h-9" alt="DataFight Logo">
       <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">DataFight</span>
   </a>
@@ -188,7 +188,7 @@
   <div class="modal-content-tiempo-terminado lg:w-2/4">
     <div class="flex items-start justify-between w-full p-4 border-b rounded-t border-gray-600">
       <h3 class="text-xl font-semibold text-white">
-        Final Round
+        Round Terminado
       </h3>
       <button id="close_button_modal" type="button"
         class="text-gray-400 bg-red-600 bg-transparent rounded-lg text-sm p-1.5 ml-auto inline-flex items-center hover:bg-gray-600 hover:text-white">
@@ -200,19 +200,18 @@
         </svg>
       </button>
     </div>
-    <p id="text_modal"></p>
     <div class="flex flex-col justify-around items-center gap-4 w-full p-2 m-auto  md:flex-row">
       <div class="flex flex-col gap-2">
-        <span>Andrea Camila Ramirez</span>
-        <span>Selecion Tolima</span>
-        <span>rond semi final</span>
+        <span id="info-deporstista">none:</span>
+        <span id="info-delegacion">delegacion:</span>
+        <span id="info-fase">fase:</span>
       </div>
       <div>
         <div class="flex justify-end mx-3 px-3">
           <ul class="p-0 m-0">
             <li class="mx-1">Round</li>
-            <li class="mx-1 py-1 px-4 rounded-lg shadow-md shadow-slate-800 text-white bg-slate-600">
-              1
+            <li id="numero-round" class="mx-1 py-1 px-4 rounded-lg shadow-md shadow-slate-800 text-white bg-slate-600">
+              
             </li>
           </ul>
         </div>
@@ -220,8 +219,8 @@
           <div class="flex-1 m-3 p-3">
             <ul class="p-0 m-0">
               <li class="mx-1">Faltas</li>
-              <li class="mx-1 py-1 px-4 rounded-lg shadow-md shadow-slate-800 text-white bg-slate-600">
-                4
+              <li id="contador-faltas" class="mx-1 py-1 px-4 rounded-lg shadow-md shadow-slate-800 text-white bg-slate-600">
+                0
               </li>
             </ul>
           </div>
@@ -248,43 +247,6 @@
     <p id="modal_meesage" class="text-xl font-semibold text-white"></p>
     <button id="modal_close_message"
       class="text-white focus:ring-4 focus:outline-none  font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-blue-600 hover:bg-blue-700 focus:ring-blue-800">Reanudar</button>
-  </div>
-</div>
-<!-- modal cambiar tiempo -->
-<div id="modal_cambiar_tiempo" class="modal">
-  <!-- Modal content tiempo -->
-  <div class="modal-content">
-    <div class="flex items-start justify-between w-full p-4 border-b rounded-t border-gray-600">
-      <!-- Modal header tiempo -->
-      <h3 class="text-xl text-center font-semibold text-white">
-        Calibrar tiempo
-      </h3>
-      <button id="cerrar_modal" type="button"
-        class="text-gray-400 bg-red-600 bg-transparent rounded-lg text-sm p-1.5 ml-auto inline-flex items-center hover:bg-gray-600 hover:text-white">
-        <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-          xmlns="http://www.w3.org/2000/svg">
-          <path fill-rule="evenodd"
-            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-            clip-rule="evenodd"></path>
-        </svg>
-      </button>
-    </div>
-    <div class="flex flex-col items-center gap-3 p-2 ">
-      <div class="flex gap-5">
-        <div class="flex flex-col items-center gap-1">
-          <label for="minutes-input">MinutoMax: 5</label>
-          <input type="number" id="minutes-input" class="text-black w-4/12" value="0" min="0" max="5">
-        </div>
-        <div class="flex flex-col items-center gap-1">
-          <label for="seconds-input">SegundoMax: 59</label>
-          <input type="number" id="seconds-input" class="text-black w-4/12" value="0" min="0" max="59">
-        </div>
-      </div>
-      <button id="guardar_tiempo"
-        class="text-white focus:ring-4 focus:outline-none  font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-blue-600 hover:bg-blue-700 focus:ring-blue-800">
-        Guardar
-      </button>
-    </div>
   </div>
 </div>
 <!-- Main modal Faltas -->

@@ -16,7 +16,7 @@ export function setMotionPost(motions) {
       body: formdata
     })
       .then(respuesta => respuesta.json())
-      .then(data => {
+      .then(data => { 
         console.log(data)
         Swal.fire({
           toast: true,
@@ -117,9 +117,13 @@ export function setGoToBackPost(datos) {
       timer: 1000
     })
   }
-  
-
 }
+
+
+// 👇 fetch para hacer la peticion de boton Finalizar Round
+// export function set(params) {
+
+// }
 
 // 👇 fetch para hacer la peticion de boton Finalizar Combate
 // export function set(params) {
