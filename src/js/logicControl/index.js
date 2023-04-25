@@ -2,10 +2,9 @@ import {
   BTN_LEFT_HIT, BTN_RIGHT_HIT, BTN_LEFT_FOOT, BTN_RIGHT_FOOT, BTN_SPIN_KICK, BTN_SAVE_MOTION,
   BTN_FOWARD, BTN_BACK,
   BTN_HELMET, BTN_PECHERA,
-  DISPLAY_TIMER, DISPLAY_ROUND, BTN_CONFIRM_POINT,
+  DISPLAY_ROUND, BTN_CONFIRM_POINT,
   BTN_FINAL_FIGHT, BTN_START_ROUND, BTN_PAUSE, BTN_RETURN, BTN_FAULT,
   BTN_ACCEPT_FOUL,
-  BTN_CHANGE_TIMER,
 } from './constDOM.js'
 import { MODAL_TIMER_FINISH, MODAL_CLOSE_FINISH } from './constDOM.js'
 import { INFO_DEPORTISTA, INF0_DELEGACION, INFO_FASE, NUM_ROUND, NUM_FAULT, BTN_SAVE_ROUND } from './constDOM.js'
@@ -109,42 +108,6 @@ function setRoundCount() {
   }
 }
 
-function btnDisabled() {
-  if (!isOnRound) {
-    BTN_LEFT_HIT.disabled = true
-    BTN_RIGHT_HIT.disabled = true
-    BTN_LEFT_FOOT.disabled = true
-    BTN_RIGHT_FOOT.disabled = true
-    BTN_SPIN_KICK.disabled = true
-    BTN_FOWARD.disabled = true
-    BTN_BACK.disabled = true
-    BTN_HELMET.disabled = true
-    BTN_PECHERA.disabled = true
-    BTN_SAVE_MOTION.disabled = true
-    BTN_CONFIRM_POINT.disabled = true
-    BTN_FINAL_FIGHT.disabled = true
-    BTN_PAUSE.disabled = true
-    BTN_RETURN.disabled = true
-    BTN_FAULT.disabled = true
-  } else {
-    BTN_LEFT_HIT.disabled = false
-    BTN_RIGHT_HIT.disabled = false
-    BTN_LEFT_FOOT.disabled = false
-    BTN_RIGHT_FOOT.disabled = false
-    BTN_SPIN_KICK.disabled = false
-    BTN_FOWARD.disabled = false
-    BTN_BACK.disabled = false
-    BTN_HELMET.disabled = false
-    BTN_PECHERA.disabled = false
-    BTN_SAVE_MOTION.disabled = false
-    BTN_CONFIRM_POINT.disabled = false
-    BTN_FINAL_FIGHT.disabled = false
-    BTN_PAUSE.disabled = false
-    BTN_RETURN.disabled = false
-    BTN_FAULT.disabled = false
-  }
-}
-
 export function windowModalFinishRound() {
   INFO_DEPORTISTA.innerText = getDeportista
   INF0_DELEGACION.innerText = getDelegacion
@@ -192,3 +155,38 @@ function confirmFinishFight() {
   })
 }
 
+function btnDisabled() {
+  if (!isOnRound) {
+    BTN_LEFT_HIT.disabled = true
+    BTN_RIGHT_HIT.disabled = true
+    BTN_LEFT_FOOT.disabled = true
+    BTN_RIGHT_FOOT.disabled = true
+    BTN_SPIN_KICK.disabled = true
+    BTN_FOWARD.disabled = true
+    BTN_BACK.disabled = true
+    BTN_HELMET.disabled = true
+    BTN_PECHERA.disabled = true
+    BTN_SAVE_MOTION.disabled = true
+    BTN_CONFIRM_POINT.disabled = true
+    BTN_FINAL_FIGHT.disabled = true
+    BTN_PAUSE.disabled = true
+    BTN_RETURN.disabled = true
+    BTN_FAULT.disabled = true
+  } else {
+    BTN_LEFT_HIT.disabled = false
+    BTN_RIGHT_HIT.disabled = false
+    BTN_LEFT_FOOT.disabled = false
+    BTN_RIGHT_FOOT.disabled = false
+    BTN_SPIN_KICK.disabled = false
+    BTN_FOWARD.disabled = false
+    BTN_BACK.disabled = false
+    BTN_HELMET.disabled = false
+    BTN_PECHERA.disabled = false
+    BTN_SAVE_MOTION.disabled = false
+    BTN_CONFIRM_POINT.disabled = false
+    BTN_FINAL_FIGHT.disabled = false
+    BTN_PAUSE.disabled = false
+    BTN_RETURN.disabled = false
+    BTN_FAULT.disabled = false
+  }
+}

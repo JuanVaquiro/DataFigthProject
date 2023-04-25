@@ -24,7 +24,7 @@ export const BTN_PECHERA = document.getElementById('pechera')
 export const BTN_CONFIRM_POINT = document.getElementById('confirmar_punto')
 
 // info figtht
-export const BTN_CHANGE_TIMER = document.getElementById('cambiar_tiempo')
+export const INPUT_TIMER = document.getElementById('tiempo-input')
 export const DISPLAY_TIMER = document.getElementById('tiempo')
 export const DISPLAY_FAULT = document.getElementById('contador_faltas')
 export const DISPLAY_ROUND = document.getElementById('round')

@@ -167,12 +167,17 @@
         </button>
       </div>
   </article>
-  <div class="fixed bottom-40 right-5 flex flex-col gap-1 p-1  focus:outline-none border border-gray-500 bg-slate-200 hover:bg-slate-300  dark:text-black dark:bg-slate-800 dark:hover:bg-slate-700 focus:ring-4 focus:ring-slate-600 font-medium rounded-lg text-sm" id="cambiar_tiempo" type="button">
-  <label for="small-input" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">
-    Tiempo:
-  </label>
-    <input type="text" id="small-input" class="w-12 blockp-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-</div>
+  <div class="fixed bottom-40 right-5 flex flex-col gap-1 p-1  focus:outline-none border border-gray-500 bg-slate-200 hover:bg-slate-300  dark:text-black dark:bg-slate-800 dark:hover:bg-slate-700 focus:ring-4 focus:ring-slate-600 font-medium rounded-lg text-sm">
+    <label for="tiempo-input" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">
+      Tiempo
+    </label>
+    <input
+      value="0.00"
+      type="number" 
+      id="tiempo-input" 
+      class="w-12 blockp-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+      >
+  </div>
 </section>
 </div>
 

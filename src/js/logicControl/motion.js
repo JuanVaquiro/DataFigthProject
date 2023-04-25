@@ -1,4 +1,4 @@
-import { BTN_CONFIRM_POINT } from './constDOM.js'
+import { BTN_CONFIRM_POINT, INPUT_TIMER } from './constDOM.js'
 import { setMotionPost } from './fetchsData.js'
 import { roundCount } from "./index.js"
 
@@ -11,7 +11,11 @@ let confirmPoint = false
 let kickedValue = 0
 
 export function saveMotion() {
-  if (locationHitValue !== 0  || (hitValue !== 0  && positionValue !== 0)) {
+  if (
+    locationHitValue !== 0 ||
+    (hitValue !== 0 && positionValue !== 0) 
+  ) {
+    console.log(getTimerHit)
     console.log('guardado', realiseMotion())
     setMotionPost(realiseMotion())
     locationHitValue = 0
@@ -20,6 +24,8 @@ export function saveMotion() {
     kickedValue = 0
     pointValue = 0
     confirmPoint = false
+    getTimerHit = 0
+    INPUT_TIMER.value = "0.00"
     BTN_CONFIRM_POINT.style.background = 'none'
   } else {
     Swal.fire({
@@ -37,10 +43,11 @@ function realiseMotion() {
   const hit = parseInt(hitValue) || 0
   const position = parseInt(positionValue) || 0
   const locationHit = parseInt(locationHitValue) || 0
-  const timerHit = parseFloat(getTimerHit)
+  getTimerHit = parseFloat(INPUT_TIMER.value)//👈 captur value input timer
+  console.log(getTimerHit)
   return ({
     golpe: hit,
-    timepoGolpe: timerHit,
+    timepoGolpe: getTimerHit,
     posicion: position,
     ubicacionGolpe: locationHit,
     golpeoAcertado: kickedValue,
@@ -84,9 +91,8 @@ export function setPositionValue(value) {
 }
 
 export function setHitValue(value) {
-  getTimerHit = '300'
   hitValue = value
-  console.log(`valor de golpe: ${hitValue} tiempo: ${getTimerHit}`)
+  console.log(`valor de golpe: ${hitValue}`)
 }
 
 // evaluates if the blow was to the helmet to score a point
