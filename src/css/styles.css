@@ -149,7 +149,7 @@ button:disabled {
 }
 
 video{
-  width: 100%;
+  width: 92%;
   height: 100%;
   max-height: calc(100vh - 102px);
 }
