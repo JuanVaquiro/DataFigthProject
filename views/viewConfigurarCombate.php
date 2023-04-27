@@ -87,6 +87,7 @@ require_once('./../../views/Components/Sidebar.php');
                             </label>
                         </div>
                     </div>  -->
+                    <div class="grid md:grid-cols-2 md:gap-6">
                     <div class="relative z-0 w-full mb-6 group">
                     <label for="fase-ronda" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                                 Fase Ronda:
@@ -103,6 +104,14 @@ require_once('./../../views/Components/Sidebar.php');
                                 <option value="7">Semifinales</option>
                                 <option value="8">Final</option> -->
                             </select>
+                    </div>
+                    <div class="relative z-0 w-full mb-6 group">
+                        <label for="datetime_local" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                            Fecha y Hora:
+                        </label>
+                        <input type="datetime-local" id="datetime_local" name="datetime_local"
+                            class="bg-gray-100 border border-gray-300 text-gray-900 text-sm w-full rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    </div>
                     </div>
                     <div class="relative z-0 w-full mb-6 group flex flex-col gap-2">
                         <span class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
@@ -163,13 +172,7 @@ require_once('./../../views/Components/Sidebar.php');
                             </label>
                         </div>
                     </div>
-                    <div class="relative z-0 w-full mb-6 group">
-                        <label for="datetime_local" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                            Fecha y Hora:
-                        </label>
-                        <input type="datetime-local" id="datetime_local" name="datetime_local"
-                            class="bg-gray-100 border border-gray-300 text-gray-900 text-sm w-full xl:w-2/5 rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                    </div>
+                  
                     <div class="relative z-0 w-full mb-6 group">
                         <label for="arbitro" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                             Arbitro:
