@@ -3,10 +3,10 @@ import {
   BTN_FOWARD, BTN_BACK,
   BTN_HELMET, BTN_PECHERA,
   DISPLAY_ROUND, BTN_CONFIRM_POINT,
-  BTN_FINAL_FIGHT, BTN_START_ROUND, BTN_PAUSE, BTN_RETURN, BTN_FAULT,
-  BTN_ACCEPT_FOUL,
+  BTN_FINAL_FIGHT, BTN_START_ROUND, BTN_PAUSE, BTN_RETURN,
+  BTN_FAULT, BTN_ACCEPT_FOUL,
 } from './constDOM.js'
-import { MODAL_TIMER_FINISH, MODAL_CLOSE_FINISH } from './constDOM.js'
+import { MODAL_TIMER_FINISH, MODAL_CLOSE_FINISH, INPUT_POINT_ROUND, RADIO_WIN_ROUND } from './constDOM.js'
 import { INFO_DEPORTISTA, INF0_DELEGACION, INFO_FASE, NUM_ROUND, NUM_FAULT, BTN_SAVE_ROUND } from './constDOM.js'
 import { saveMotion, setHitValue, setLocationHitValue, setPositionValue, confirmPointPechera } from './Motion.js'
 import { pauseTimer } from './pausar.js'
@@ -120,7 +120,7 @@ export function windowModalFinishRound() {
     finishOrStartRound()
     MODAL_TIMER_FINISH.style.display = 'none'
   })
-  BTN_SAVE_ROUND.addEventListener('click', saveDateRound)
+  BTN_SAVE_ROUND.addEventListener('click', saveDataRound)
   window.addEventListener('click', function (event) {
     if (event.target === MODAL_TIMER_FINISH) {
       isOnRound = true
@@ -129,10 +129,24 @@ export function windowModalFinishRound() {
     }
   })
 }
+// BTN SAVE ROUND - MODAL FINISH ROUND
+function catchDateRound() {
+  const checked_win = RADIO_WIN_ROUND.checked ? parseInt(RADIO_WIN_ROUND.value) : 0
+  const points = parseInt(INPUT_POINT_ROUND.value)
+  return ({
+    mumeroRound: roundCount,
+    puntos: points,
+    faltas: faultCount,
+    gano: checked_win
+  })
+}
 
-// BTN SAVE ROUND CONTEN MODAL Finish ROUND
-function saveDateRound() {
+function saveDataRound() {
+  console.log(catchDateRound())
   MODAL_TIMER_FINISH.style.display = 'none'
+  // clear value
+  INPUT_POINT_ROUND.value = 0
+  RADIO_WIN_ROUND.checked = false
 }
 
 function confirmFinishFight() {
