@@ -204,17 +204,9 @@
         <span id="info-delegacion">delegacion:</span>
         <span id="info-fase">fase:</span>
       </div>
-      <div>
-        <div class="flex justify-end mr-4 pr-3">
-          <ul class="py-3 mb-3">
-            <li class="mx-1">Round</li>
-            <li id="numero-round" class="mx-1 py-1 px-4 rounded-lg shadow-md shadow-slate-800 text-white bg-slate-600">
-              0
-            </li>
-          </ul>
-        </div>
-        <div class="flex">
-          <div class="flex-1">
+      <div class="text-center">
+        <div class="flex items-center justify-around mb-3">
+        <div>
             <ul class="p-0 m-0">
               <li class="mx-1">Faltas</li>
               <li id="contador-faltas" class="w-12 mx-1 py-1 px-4 rounded-lg shadow-md shadow-slate-800 text-white bg-slate-600">
@@ -222,7 +214,26 @@
               </li>
             </ul>
           </div>
-          <div class="flex-1">
+          <div>
+            <ul class="p-0 m-0">
+              <li class="mx-1">Round</li>
+              <li id="numero-round" class="mx-1 py-1 px-4 rounded-lg shadow-md shadow-slate-800 text-white bg-slate-600">
+                0
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="flex items-center justify-around">
+          <div>
+            <input 
+              id="radio-ronda-ganada" 
+              type="radio" 
+              value="1" 
+              name="ronda-ganada-radio"
+              class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+            <label for="radio-ronda-ganada" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Ronda ganada</label>
+        </div>
+          <div class="basis-3/12">
             <ul class="p-0 m-0">
               <li class="">
                 <label for="ingresar-puntos">Ingresar los puntos:</label>
@@ -230,8 +241,9 @@
                   id="puntos"
                   name="ingresar-puntos"
                   type="number"
-                  min="10" max="100"
-                  class=" mx-1 py-1 px-4 rounded-lg shadow-md shadow-slate-800 text-black border-slate-600"
+                  min="10" 
+                  max="100"
+                  class="mx-1 py-1 px-4 rounded-lg shadow-md shadow-slate-800 text-black border-slate-600"
                   />
                 </li>
             </ul>
