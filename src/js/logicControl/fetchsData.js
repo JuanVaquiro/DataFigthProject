@@ -121,9 +121,47 @@ export function setGoToBackPost(datos) {
 
 
 // 👇 fetch para hacer la peticion de boton Finalizar Round
-// export function set(params) {
+export function setDataRound(dataRound) {
 
-// }
+  console.log(dataRound.faltas)
+  try {
+
+    let formdata = new FormData()
+    formdata.append('faltas', dataRound.faltas)
+    formdata.append('round', dataRound.mumeroRound)
+    formdata.append('gano', dataRound.gano)
+    formdata.append('puntos', dataRound.puntos)
+
+    fetch('./logicControl.php', {
+      method: 'POST',
+      body: formdata
+    })
+      .then(respuesta => respuesta.json())
+      .then(data => {
+        // console.log(data)
+        Swal.fire({
+          toast: true,
+          title: data,
+          icon: 'success',
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 1000
+        })
+      })
+
+  } catch (error) {
+    console.error(error)
+    Swal.fire({
+      toast: true,
+      title: 'Oups! ha ocurrido un error',
+      icon: 'error',
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 1000
+    })
+  }
+
+}
 
 // 👇 fetch para hacer la peticion de boton Finalizar Combate
 // export function set(params) {

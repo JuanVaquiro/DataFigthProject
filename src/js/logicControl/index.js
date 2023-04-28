@@ -13,6 +13,7 @@ import { pauseTimer } from './pausar.js'
 import { windowModalGoToBack } from './goToBack.js'
 import { saveFault, windosModalFault, faultCount } from './fault.js'
 import { infoFight } from './fetchSet.js'
+import {setDataRound} from './fetchsData.js'
 import { vid } from '../videoPlayer/player.js'
 
 const VALUE_FOOT_LEFT = 1
@@ -143,6 +144,7 @@ function catchDateRound() {
 
 function saveDataRound() {
   console.log(catchDateRound())
+  setDataRound(catchDateRound())
   MODAL_TIMER_FINISH.style.display = 'none'
   // clear value
   INPUT_POINT_ROUND.value = 0

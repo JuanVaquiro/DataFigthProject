@@ -10,6 +10,7 @@ use App\combate\RegistroAtaquesCombate;
 use App\combate\RegistroFaltasCombate;
 use App\combate\CargarDatosCombate;
 use App\combate\UpdateUltimoAtaque;
+use App\combate\RegistroDatosRound;
 
 class AccionControl{
 
@@ -75,6 +76,21 @@ class AccionControl{
             );
             
             $datos->actualizarAtaque();
+
+        }
+        elseif( $_POST && isset($_POST['puntos']) ){
+
+            $datosRound = new RegistroDatosRound(
+                $_SESSION['idDeportista'],
+                $_SESSION['idUser'],
+                $_SESSION['combate'],
+                $_POST['round'],
+                $_POST['puntos'],
+                $_POST['faltas'],
+                $_POST['gano']
+            );
+
+            $datosRound->registrarDatosRound();
 
         }
         else{
