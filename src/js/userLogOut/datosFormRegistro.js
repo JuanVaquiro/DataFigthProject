@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     .then(respuesta => respuesta.json())
     .then(data => {
         // console.log(data.deportistas[0].nombre)
-        // console.log(data)
+        console.log(data)
 
         for(let doc of data.tipoDocumento){
 

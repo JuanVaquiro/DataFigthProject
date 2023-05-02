@@ -33,15 +33,15 @@
         <h3 class="source-sans-pro mt-8 text-lg font-semibold text-white">Deportista #1</h3>
         <dl class="mt-4 flex gap-2 items-center justify-center">
           <dt class="kanit-ligth text-base text-gray-300">Deportista:</dt>
-          <dd class="kanit-ligth text-base font-medium text-white">Andres Guzman</dd>
+          <dd class="kanit-ligth text-base font-medium text-white" id="nombre-deportista">Andres Guzman</dd>
         </dl>
         <dl class="flex gap-2 items-center justify-center">
           <dt class="kanit-ligth text-base text-gray-300">Delegacion:</dt>
-          <dd class="kanit-ligth text-base font-medium text-white">Seleccion Tolima</dd>
+          <dd class="kanit-ligth text-base font-medium text-white" id="delegacion-deportista">Seleccion Tolima</dd>
         </dl>
         <dl class="flex gap-2 items-center justify-center">
           <dt class="kanit-ligth text-base text-gray-300">Ronda:</dt>
-          <dd class="kanit-ligth text-base font-medium text-white">Semifinales</dd>
+          <dd class="kanit-ligth text-base font-medium text-white" id="fase-ronda">Semifinales</dd>
         </dl>
       </div>
 
@@ -67,25 +67,25 @@
           <dl class="mt-4 m-1 flex gap-2 items-center justify-center">
             <dt class="kanit-ligth text-base text-gray-300">Round Totalales:</dt>
             <dd
-              class="kanit-ligth text-base font-medium text-white py-1 px-4 rounded-lg shadow-md shadow-slate-800 bg-slate-600">
+              id="total-rounds" class="kanit-ligth text-base font-medium text-white py-1 px-4 rounded-lg shadow-md shadow-slate-800 bg-slate-600">
               3</dd>
           </dl>
           <dl class="flex m-1 gap-2 items-center justify-center">
             <dt class="kanit-ligth text-base text-gray-300">Duracion del Round:</dt>
             <dd
-              class="kanit-ligth text-base font-medium text-white py-1 px-4 rounded-lg shadow-md shadow-slate-800 bg-slate-600">
+              id="tiempo-round" class="kanit-ligth text-base font-medium text-white py-1 px-4 rounded-lg shadow-md shadow-slate-800 bg-slate-600">
               3 min</dd>
           </dl>
           <dl class="flex m-1 gap-2 items-center justify-center">
             <dt class="kanit-ligth text-base text-gray-300">Round Ganados:</dt>
             <dd
-              class="kanit-ligth text-base font-medium text-white py-1 px-4 rounded-lg shadow-md shadow-slate-800 bg-slate-600">
+              id="rounds-ganados" class="kanit-ligth text-base font-medium text-white py-1 px-4 rounded-lg shadow-md shadow-slate-800 bg-slate-600">
               2</dd>
           </dl>
           <dl class="flex m-1 gap-2 items-center justify-center">
             <dt class="kanit-ligth text-base text-gray-300">Faltas Totales:</dt>
             <dd
-              class="kanit-ligth text-base font-medium text-white py-1 px-4 rounded-lg shadow-md shadow-slate-800 bg-slate-600">
+              id="total-faltas" class="kanit-ligth text-base font-medium text-white py-1 px-4 rounded-lg shadow-md shadow-slate-800 bg-slate-600">
               12</dd>
           </dl>
         </div> 
@@ -117,7 +117,7 @@
       </div>
 
       <div class="flex items-center justify-center">
-        <a href="#"
+        <a id="btn-save"
           class="w-2/4 cursor-pointer source-sans-pro border focus:ring-4 focus:outline-none bg-sky-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 border-sky-500 text-sky-100 hover:text-white hover:bg-transparent focus:ring-sky-800">
             GUARDAR 
         </a>
@@ -125,3 +125,4 @@
 
     </div>
 </section>
+<script src="./../../src/js/userLogin/datosFinalizaCombate.js"></script>

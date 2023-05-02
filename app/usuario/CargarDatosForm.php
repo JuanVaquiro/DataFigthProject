@@ -24,7 +24,7 @@ class CargarDatosForm{
 
     public function validarSesion(){
 
-        if( isset($_SESSION['idUser']) && !empty($_SESSION['idUser'])){
+        if( isset($_SESSION['idUser']) && !empty($_SESSION['idUser']) ){
 
             return new CargarDatosForm($_SESSION['idUser']);
 
@@ -120,14 +120,15 @@ class CargarDatosForm{
 
     }
 
-    public function getEventos(){
+    public function getEventosUsuario(){
 
         $pdo = new Conexion();
         $con = $pdo->conexion();
-        $idUser = $_SESSION['idUser'];
+        // $idUser = $_SESSION['idUser'];
+        // $idUser = 1;
 
         $select = $con->prepare("CALL getEventosUsuario(?,?)");
-        $select->bindParam(1, $idUser, PDO::PARAM_INT);
+        $select->bindParam(1, $this->usuario, PDO::PARAM_INT);
         $select->bindParam(2, $this->estado, PDO::PARAM_INT);
         $select->execute();
         $row = $select->fetchAll(PDO::FETCH_ASSOC);
@@ -281,6 +282,24 @@ class CargarDatosForm{
 
     }
 
+    public function getDataFinCombate(){
+
+        $pdo = new Conexion();
+        $con = $pdo->conexion();
+        // $paramt = 1;
+
+        $select = $con->prepare("CALL getDataFinCombate(?,?,?)");
+        $select->bindParam(1, $_SESSION['combate'], PDO::PARAM_INT);
+        $select->bindParam(2, $_SESSION['deportista'], PDO::PARAM_INT);
+        $select->bindParam(3, $this->usuario, PDO::PARAM_INT);
+        $select->execute();
+        $row = $select->fetchAll(PDO::FETCH_ASSOC);
+        $select->closeCursor();
+
+        return $row;
+
+    }
+
     public function getDataFormCombate(){
 
         $array = [
@@ -289,7 +308,7 @@ class CargarDatosForm{
                 'deportes' => $this->getDeportes(),
                 'fases' => $this->getFasesCombate(),
                 'arbitros' => $this->getArbitros(),
-                'eventos' => $this->getEventos()
+                'eventos' => $this->getEventosUsuario(),
         ];
 
         echo json_encode($array);
@@ -301,7 +320,7 @@ class CargarDatosForm{
             'sexo' => $this->getSex(),
             'tipo_doc' => $this->getTipoDoc(),
             'deportes' => $this->getDeportes(),
-            'paises' => $this->getPaises()
+            'paises' => $this->getPaises(),
         ];
 
         echo json_encode($array);
@@ -312,7 +331,7 @@ class CargarDatosForm{
 
         $array = [
             'pais' => $this->getPaises(),
-            'deportes' => $this->getDeportes()
+            'deportes' => $this->getDeportes(),
         ];
 
         echo json_encode($array);
@@ -322,7 +341,7 @@ class CargarDatosForm{
     public function getDataFormEvento(){
         $array = [
             'pais' => $this->getPaises(),
-            'nivelEventos' => $this->getNivelesEvento()
+            'nivelEventos' => $this->getNivelesEvento(),
         ];
 
         echo json_encode($array);
@@ -334,7 +353,7 @@ class CargarDatosForm{
             'tipoDocumento' => $this->getTipoDoc(),
             'deportes' => $this->getDeportes(),
             'sexo' => $this->getSex(),
-            'categoriasArbitro' => $this->getCategoriasArbitro()
+            'categoriasArbitro' => $this->getCategoriasArbitro(),
         ];
 
         echo json_encode($array);
@@ -349,7 +368,7 @@ class CargarDatosForm{
         if( isset($_POST['registro']) && $_POST['registro'] == true){
 
             $array = [
-                'tipoDocumento' => $this->getTipoDoc()
+                'tipoDocumento' => $this->getTipoDoc(),
             ];
 
             echo json_encode($array);
@@ -383,7 +402,7 @@ class CargarDatosForm{
 
         if(isset($_POST['list-combat']) && $_POST['list-combat'] == true){
             $array = [
-                'combate' => $this->getCombatesUser()
+                'combate' => $this->getCombatesUser(),
             ];
             echo json_encode($array);
             die;
@@ -391,7 +410,7 @@ class CargarDatosForm{
 
         if(isset($_POST['pais']) && is_numeric($_POST['pais'])){
             $array = [
-                'estados' => $this->getEstados()
+                'estados' => $this->getEstados(),
             ];
             echo json_encode($array);
             die;
@@ -399,7 +418,14 @@ class CargarDatosForm{
 
         if(isset($_POST['estado']) && is_numeric($_POST['estado'])){
             $array = [
-                'ciudades' => $this->getCiudades()
+                'ciudades' => $this->getCiudades(),
+            ];
+            echo json_encode($array);
+            die;
+        }
+        if( isset($_POST['fin-combate']) && !empty($_POST['fin-combate']) ){
+            $array = [
+                'dataCombate' => $this->getDataFinCombate(),
             ];
             echo json_encode($array);
             die;
