@@ -189,6 +189,10 @@ class CrearCombate{
 
     }
 
+    public function actualizarDatosCombate($comentario){
+        
+    }
+
     public function obtenerSegundos(){
 
         if(strlen($this->segundosRound) != 1){

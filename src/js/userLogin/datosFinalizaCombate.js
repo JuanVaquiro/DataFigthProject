@@ -11,9 +11,10 @@ document.addEventListener('DOMContentLoaded', () => {
         // console.log(data.deportistas[0].nombre)
         console.log(data)
 
-        for(let datos of data.dataCombate){
+        for(const datos of data.dataCombate){
 
             document.getElementById('nombre-deportista').innerText = `${datos.nombre_deportista}`
+            document.getElementById('delegacion-deportista').innerText = `${numeroDeportista == 1 ? datos.delegacion_deportista1:datos.delegacion_deportista2}`
             document.getElementById('fase-ronda').innerText = `${datos.ronda_fase}`
             document.getElementById('total-rounds').innerText = `${datos.rounds_totales}`
             document.getElementById('tiempo-round').innerText = `${datos.tiempo_round} min`

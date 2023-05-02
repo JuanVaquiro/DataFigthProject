@@ -111,7 +111,7 @@
           <label class="source-sans-pro text-base font-semibold leading-none text-gray-800 dark:text-white">
             Escribe algun comentario del combate
           </label>
-          <textarea tabindex="0" aria-label="leave a message" role="textbox" type="name"
+          <textarea tabindex="0" aria-label="leave a message" role="textbox" type="name" id="comentario"
             class="h-36 text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-sky-600 mt-4 bg-gray-100 border rounded border-gray-200 placeholder-gray-100 resize-none"></textarea>
         </div>
       </div>
@@ -125,4 +125,8 @@
 
     </div>
 </section>
+<script>
+  let numeroDeportista = <?= $_SESSION['deportista'] ?>;
+</script>
 <script src="./../../src/js/userLogin/datosFinalizaCombate.js"></script>
+<script src="./../../src/js/userLogin/guardarComentarioCombate.js"></script>
