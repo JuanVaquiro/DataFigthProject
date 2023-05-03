@@ -63,16 +63,16 @@ class RegistroFaltasCombate{
 
         if(strlen($this->segundoRound) != 1){
             
-            $tiempo = explode('.',$this->segundoRound);
+            $tiempo = explode(':',$this->segundoRound);
 
             $segundos = $tiempo[1];
 
             $minutos = $tiempo[0];
 
-            $this->segundoRound = ($segundos + ($minutos*60));
+            $this->segundoRound = ((int) $segundos + ( (int) $minutos*60));
 
         }else{
-            $this->segundoRound = ($this->segundoRound*60);
+            $this->segundoRound = ( (int) $this->segundoRound*60);
         }
 
     }

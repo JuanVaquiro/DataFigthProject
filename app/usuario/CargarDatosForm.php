@@ -290,7 +290,7 @@ class CargarDatosForm{
 
         $select = $con->prepare("CALL getDataFinCombate(?,?,?)");
         $select->bindParam(1, $_SESSION['combate'], PDO::PARAM_INT);
-        $select->bindParam(2, $_SESSION['deportista'], PDO::PARAM_INT);
+        $select->bindParam(2, $_SESSION['idDeportista'], PDO::PARAM_INT);
         $select->bindParam(3, $this->usuario, PDO::PARAM_INT);
         $select->execute();
         $row = $select->fetchAll(PDO::FETCH_ASSOC);

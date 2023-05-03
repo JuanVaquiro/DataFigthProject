@@ -189,7 +189,37 @@ class CrearCombate{
 
     }
 
-    public function actualizarDatosCombate($comentario){
+    public function actualizarDatosCombate($comentario = "", $resultado = 10, $pausas = 0){
+
+        $pdo = new Conexion();
+        $con = $pdo->conexion();
+
+        if($_SESSION['deportista'] == 1 && $resultado > 0){
+            $registrar = $con->prepare("CALL updateCombateDeportista1(?,?,?,?)");  
+        }elseif($_SESSION['deportista'] >=2 && $resultado > 0){
+            $registrar = $con->prepare("CALL updateCombateDeportista2(?,?,?,?)");
+        }
+        else{
+            echo json_encode('No se encotro el recurso');
+            die;
+        }
+        $registrar->bindParam(1, $pausas, PDO::PARAM_INT);
+        $registrar->bindParam(2, $comentario, PDO::PARAM_STR);
+        $registrar->bindParam(3, $resultado, PDO::PARAM_INT);
+        $registrar->bindParam(4, $_SESSION['combate'], PDO::PARAM_INT);
+        $registrar->execute();
+
+        if ($registrar && $registrar->rowCount() > 0) {
+
+            echo json_encode("Registro Exitoso");
+    
+        }else{
+    
+            echo json_encode("Error");
+    
+        }
+
+        // echo json_encode($_POST);
         
     }
 

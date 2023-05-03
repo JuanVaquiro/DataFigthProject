@@ -4,7 +4,7 @@ boton.addEventListener('click', () => {
     let formData = new FormData();
     formData.append('comentario', comentario.value)
 
-    fetch("./../setData.php", {
+    fetch("./guardarDatosCombate.php", {
         method: "POST",
         body: formData
     })
